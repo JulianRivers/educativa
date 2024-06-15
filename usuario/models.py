@@ -63,4 +63,14 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         ''' Obtener cadena representativa de nuestro usuario '''
-        return self.email
+        return self.name
+
+class Puntaje(models.Model):
+    usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    actividad = models.CharField('Actividad', max_length=100)
+    resultado = models.DecimalField('Resultado', max_digits=5, decimal_places=2)
+    is_sumativo = models.BooleanField()
+
+    def __str__(self):
+        ''' Obtener cadena representativa de nuestro usuario '''
+        return f"{self.usuario} nota: {self.resultado}"
