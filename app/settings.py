@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     
     #Mis app
     'usuario',
+    'ova.apps.OvaConfig',
 ]
 
 MIDDLEWARE = [

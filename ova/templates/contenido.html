@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %} 
+{% load static %} 
+
+{% block title %}
+Patrones de Diseño 
+{% endblock title %} 
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard/index.css' %}" />
+{% endblock extra_css %} 
+
+
+{% block body %}
+
+<aside class="sidebar">
+
+    <!-- imagen -->
+    <div class="sidebar__hero">
+        <a href="/" class="sidebar__hero-title">Patrones de Diseño más usados</a>
+    </div>
+
+    <!-- video introductorio -->
+    <ul class="list">
+        <li class="list__li">
+            <a href="#" class="list__item">
+                <i class="fa-solid fa-align-left" style="font-size: .85rem;"></i>
+                <span>Video introductorio</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- contenidos por seccion -->
+    <ol class="list">
+        {% for seccion in secciones %}
+            <li class="list__li" style="width: 100%;">
+                <button class="custom-btn">
+                    <span>{{seccion.sectionTitle}}</span>
+                    <i class="fa-solid fa-angle-right icon "></i>
+                </button>
+                <ol class="list__sublist list-collapse">
+                    {% for lesson in seccion.lessons %}
+                        <li class="list__li">
+                            <a href="{% url 'lecciones' %}?view={{ lesson.url }}" class="list__item">
+                                <i class="fa-solid fa-align-left " style="font-size: .85rem;"></i>
+                                <span>{{ lesson.label }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </li>
+        {% endfor%}
+        
+    </ol>
+
+</aside>
+
+<section class="contenido">
+    <!-- bloque para cargar los contenidos de cada leccion -->
+    {% block contenido %}{% endblock contenido %}
+</section>
+
+
+<script>
+    const btns = document.querySelectorAll('.custom-btn');
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const ol = btn.nextElementSibling;
+            const icon = btn.querySelector('i')
+
+            icon.classList.toggle('open');
+
+            if (ol && ol.tagName.toLowerCase() === 'ol') {
+                // Alterna la clase 'list-collapse' en el ol
+                ol.classList.toggle('list-collapse');
+            }
+
+        });
+    });
+</script>
+
+{% endblock body %}

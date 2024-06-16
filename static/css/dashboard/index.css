@@ -1,0 +1,117 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    width: 250px;
+    background-color: #f5f5f5;
+}
+
+.sidebar__hero{
+    background-image: url('../../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__hero-title{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0 .6em;
+    text-decoration: none;
+}
+
+.sidebar__hero-title:hover{
+    text-decoration: none;
+    color: #fff;
+    
+}
+
+.contenido{
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #cecece;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list__sublist{
+    transition: max-height .5s, opacity .3s;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.list__li{
+    border-bottom: 2px solid #dcdcdc;
+}
+
+.list__item{
+    display: flex;
+    flex-direction: column;
+    padding: 18px 18px 36px;
+    cursor: pointer;
+    transition: background-color .3s;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.list__item i{
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.list__item:hover{
+    background-color: #dcdcdc;
+    text-decoration: none;
+}
+
+.custom-btn:focus{
+    outline: none;
+}
+
+.custom-btn {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    font-size: .7rem;
+    justify-content: space-between;
+    padding: .4rem 15px .4rem 1rem;
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.custom-btn:hover{
+    background-color: #f3f2f2;
+}
+
+.list__sublist.list-collapse {
+    max-height: 0 !important;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.icon{
+    transition: transform .3s;
+}
+ .custom-btn .open {
+    transform: rotate(90deg);
+    transition: transform .3s;
+}
