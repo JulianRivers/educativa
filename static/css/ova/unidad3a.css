@@ -1,0 +1,158 @@
+/* Botones */
+.und3-a-button-cnt {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.und3-a-next-lession-btn {
+    background-color: #a779e4; 
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+.und3-a-prev-lession-btn {
+    background-color: #5c7be4; 
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-right: 50px;
+}
+
+.und-3a-next-lession-btn:hover {
+    background-color: #c39dc3; /* Violeta más oscuro */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.und3-a-next-lession-btn:active {
+    background-color: #ad7bad; /* Violeta aún más oscuro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+.und-3a-prev-lession-btn:hover {
+    background-color: #9fb6cd; /* Azul rey más oscuro */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.und3-a-prev-lession-btn:active {
+    background-color: #8da6bd; /* Azul rey aún más oscuro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+/*Seccion Texto*/
+.und3a-title{
+    text-align: center;
+}
+.und3a-text-justify {
+    text-align: justify;
+    margin-top: 25px;
+    font-size: 1em;
+}
+
+.und3a-mt-2 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+/*Estilos de las Cards*/
+
+/* Estilos de las Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cards .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+    flex: 1 1 calc(50% - 30px);
+    max-width: calc(50% - 30px);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: transform 400ms;
+    box-sizing: border-box;
+}
+
+.cards .card.purple {
+    background-color: #774af3;
+}
+
+.cards .card.blue {
+    background-color: #3b82f6;
+}
+
+.cards .card p.tip {
+    font-size: 1.3em; /* Aumentado el tamaño de la fuente */
+    font-weight: 700;
+    margin: 0;
+}
+
+.cards .card p.second-text {
+    font-size: 1.1em; /* Aumentado el tamaño de la fuente */
+    margin-top: 10px;
+}
+
+.cards .card:hover {
+    transform: scale(1.05);
+}
+
+.cards:hover > .card:not(:hover) {
+    filter: blur(5px);
+    transform: scale(0.95);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .cards .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 20px; /* Asegurar suficiente espacio para el contenido */
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards .card p.tip {
+        font-size: 1.5em; /* Aumentar el tamaño de la fuente en pantallas pequeñas */
+    }
+
+    .cards .card p.second-text {
+        font-size: 1.2em; /* Aumentar el tamaño de la fuente en pantallas pequeñas */
+    }
+}
+
+/* Botones de navegación */
+.und3-a-button-cnt {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

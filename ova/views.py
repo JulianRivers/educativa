@@ -18,6 +18,11 @@ contents = [
                     "label": 'Componentes esenciales de un patrón de diseño',
                     "url": 'componentes-esenciales-de-un-patron-de-diseno',
                 },
+                {
+                    "label": 'Examen de Conceptos Fundamentales',
+                    "url": 'examen-de-conceptos-fundamentales',
+                }
+                
             ],
             "ariaLabel": 'index-fundamentals'
         },
@@ -44,6 +49,10 @@ contents = [
                     "label": 'Singleton',
                     "url": 'singleton',
                 },
+                {
+                    "label": 'Examen de Patrones Creacionales',
+                    "url": 'examen-de-patrones-creacionales',
+                }
             ],
             "ariaLabel": 'index-creational-patters'
         },
@@ -66,6 +75,10 @@ contents = [
                 {
                     "label": 'Facade',
                     "url": 'facade',
+                },
+                {
+                    "label": 'Examen de Patrones Estructurales',
+                    "url": 'examen-de-patrones-estructurales',
                 }
             ]
         },
@@ -84,6 +97,10 @@ contents = [
                 {
                     "label": 'Strategy',
                     "url": 'strategy',
+                },
+                {
+                    "label": 'Examen de Patrones de Comportamiento',
+                    "url": 'examen-de-patrones-de-comportamiento',
                 }
             ]
         },
@@ -91,6 +108,10 @@ contents = [
             "title": 'Aplicación Práctica de Patrones de Diseño',
             "ariaLabel": 'index-practical-application',
             "items": [
+                {
+                    "label": 'Análisis de la necesidad y beneficios de su uso',
+                    "url": 'analisis-de-la-necesidad-y-beneficios-de-su-uso',
+                },
                 {
                     "label": 'Casos de estudio y ejemplos de aplicación',
                     "url": 'casos-de-estudio-y-ejemplos-de-aplicacion',
@@ -100,8 +121,8 @@ contents = [
                     "url": 'aspectos-concretos-del-uso-de-patrones-en-poo',
                 },
                 {
-                    "label": 'Análisis de la necesidad y beneficios de su uso',
-                    "url": 'analisis-de-la-necesidad-y-beneficios-de-su-uso',
+                    "label": 'Examen de Aplicaciones Prácticas de Patrones de Diseño',
+                    "url": 'examen-de-aplicaciones-practicas-de-patrones',
                 }
             ]
         }
