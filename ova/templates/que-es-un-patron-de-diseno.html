@@ -1,6 +1,146 @@
-
 {% extends 'contenido.html' %}
+
+{% comment %} {% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/ova/unidad1a.css' %}" />
+{% endblock extra_css %}  {% endcomment %}
+
 {% block contenido %}
-<h1>que-es-un-patron-de-diseno</h1>
+
+
+<div class="und1a-container">
+
+    <h1 class="und1a-title">¿Qué son los patrones de diseño?</h1>
+
+    <div class="und1a-button-cnt">
+        <div class="und1a-def-card">
+            <div class="und1a-def-content">
+                Los patrones de diseño son soluciones generales, reutilizables y aplicables a problemas comunes en el desarrollo de software, basadas en la experiencia acumulada de los desarrolladores. 
+            </div>
+            <div class="und1a-def-bar">
+            <div class="und1a-def-emptybar"></div>
+            <div class="und1a-def-filledbar"></div>
+            </div>
+        </div>
+
+        <div class="und1a-def-card">
+            <div class="und1a-def-content">
+                Estos patrones proporcionan enfoques estructurados y eficientes para situaciones recurrentes, facilitando la comunicación y el intercambio de soluciones exitosas.
+            </div>
+            <div class="und1a-def-bar">
+            <div class="und1a-def-emptybar"></div>
+            <div class="und1a-def-filledbar"></div>
+            </div>
+        </div>
+        
+        <div class="und1a-def-card">
+            <div class="und1a-def-content">
+                Cada patrón aborda un problema de diseño específico, permitiendo a los desarrolladores crear software más eficiente, mantenible y escalable sin reinventar la rueda. 
+            </div>
+            <div class="und1a-def-bar">
+            <div class="und1a-def-emptybar"></div>
+            <div class="und1a-def-filledbar"></div>
+            </div>
+        </div>
+        <div class="und1a-def-card">
+            <div class="und1a-def-content">
+                Es importante recordar que los patrones no son códigos listos para usar, sino guías que deben adaptarse a los requisitos particulares de cada proyecto. Utilizan terminología y notación específicas para mejorar su comprensión y aplicación.
+            </div>
+            <div class="und1a-def-bar">
+            <div class="und1a-def-emptybar"></div>
+            <div class="und1a-def-filledbar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="und1a-button-cnt">
+        <article class="und1-history-card">
+            <div class="und1-history-card-img">
+              <img src="https://m.media-amazon.com/images/I/81gtKoapHFL._AC_UF1000,1000_QL80_.jpg" alt="project" />
+            </div>
+          
+            <div class="und1-history-project-info">
+              <div class="und1-history-flex">
+                <div class="und1-history-project-title">Un poco de historia</div>
+              </div>
+              <span class="und1-history-lighter"
+                >En 1994, cuatro autores Erich Gamma, Richard Helm, Ralph Johnson y John Vlissides, a los que llamaron Gang of Four (GoF), publicaron un libro titulado Design Patterns, elementos de software orientado a objetos reutilizables. Con este trabajo se inició el concepto de patrón de diseño en el desarrollo de software y recoge 23 patrones de diseño comunes. Cada uno de ellos define la solución para resolver un determinado problema, facilitando además la reutilización del código fuente.</span
+              >
+            </div>
+          </article>
+    </div>
+
+    </p>
+
+    <h2 class="und1a-title">Ventajas de utilizar patrones de diseño</h2>
+
+    <div class="und1a-cards-container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="card-title">Resolución de Problemas Recurrentes</p>
+                    <p>Pon el cursor aqui</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Los patrones de diseño proporcionan soluciones probadas y documentadas para problemas comunes que se presentan repetidamente en el desarrollo de software. Esto ayuda a los desarrolladores a no tener que reinventar la rueda cada vez que enfrentan un problema conocido.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="card-title">Mejora de la Comunicación y el Entendimiento</p>
+                    <p>Pon el cursor aqui</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Los patrones de diseño actúan como un lenguaje común entre los desarrolladores. Al referirse a un patrón de diseño específico, todos los miembros del equipo comprenden de inmediato la estructura y el propósito del código, lo que mejora la colaboración y la comunicación.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="card-title">Facilitación del Mantenimiento y la Extensibilidad</p>
+                    <p>Pon el cursor aqui</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Al aplicar patrones de diseño, el código tiende a ser más modular, coherente y fácil de entender. Esto no solo facilita el mantenimiento del software, sino que también hace más sencilla la incorporación de nuevas funcionalidades o la modificación de las existentes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="card-title">Fomento de Buenas Prácticas de Programación</p>
+                    <p>Pon el cursor aqui</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Los patrones de diseño promueven la utilización de principios sólidos de ingeniería de software, como la separación de preocupaciones, la reducción del acoplamiento y la promoción de la reutilización del código. Esto conduce a la creación de sistemas más robustos y sostenibles a largo plazo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="und1a-title">Video explicativo del tema</h2>
+     <div class="und1a-video-container">
+        <iframe class="und1a-video" width="560" height="315" src="https://www.youtube.com/embed/xHhalCokHmA?si=x-LWbSTSAibSFT19" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="und1a-source">
+        Fuentes: <a href="https://www.youtube.com/c/SoyDalto" target="_blank">Soy Dalto</a>
+    </div>
+
+    <div>
+        <h2 class="und1a-title">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad1.htm' %}"></iframe>
+    </div>
+
+    <div class="und1a-button-cnt">
+        <a class="next-lession-btn" href="/lecciones?view=importancia-y-aplicacion">Siguiente sección</a>
+    </div>
+
+</div>
 {% endblock contenido %}
 

@@ -1,0 +1,293 @@
+.und1a-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    /* border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+}
+
+.und1a-title {
+    text-align: center;
+    color: #333;
+}
+
+.und1a-paragraph {
+    text-align: justify;
+    margin-bottom: 1em;
+}
+
+.und1a-video-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.und1a-video {
+    border: none;
+}
+
+.und1a-source {
+    text-align: right;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.und1a-source a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* History card */
+
+.und1-history-project-info {
+    padding: 50px 40px 5px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    top: -50px;
+  }
+  
+  .und1-history-project-title {
+    font-weight: 500;
+    font-size: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: black;
+  }
+  
+  .und1-history-lighter {
+    font-size: 0.9em;
+  }
+  
+  .und1-history-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .und1-history-tag {
+    font-weight: lighter;
+    color: grey;
+  }
+  
+  .und1-history-card {
+    margin: 20px 0;
+    background-color: white;
+    color: black;
+    width: 300px;
+    /* max-height: 330px; */
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+  
+  .und1-history-card-img {
+    position: relative;
+    top: -20px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .und1-history-card-img a,
+  .cund1-history-ard-img img {
+    height: 150px;
+    width: 90%;
+    /* Change this width here to change the width of the color/image */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  
+  .und1-history-card-imgs {
+    transition: all 0.5s;
+  }
+
+
+/* Botón siguiente leccion */
+
+.und1a-button-cnt{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.next-lession-btn{
+    background-color: #3337C3; /* Verde */
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.next-lession-btn:hover {
+    background-color: #0005A7; /* Verde más oscuro */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.next-lession-btn:active {
+    background-color: #000480; /* Verde aún más oscuro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+/* Cards de ventajas */
+
+.und1a-cards-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-bottom: 20px;
+}
+
+
+.flip-card {
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+    perspective: 1000px;
+    font-family: sans-serif;
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid #2e2ec2;
+    border-radius: 1rem;
+  }
+  
+  .flip-card-front {
+    background: linear-gradient(120deg, rgba(2,0,36,1) 4%, rgba(61,44,254,1) 87%, rgba(29, 111, 255, 0.803) );
+    color: white;
+  }
+  
+  .flip-card-back {
+    background: linear-gradient(120deg, rgba(6,0,108,1) 23%, rgba(61,44,254,1) 98%, rgb(255, 185, 160));
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  /* Definition cards */
+
+  .und1a-def-card {
+    display: flex;
+    height: 360px;
+    width: 280px;
+    background-color: #06006c;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #00000044;
+    margin-left: -80px;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+  }
+  
+  .und1a-def-card:not(:first-child) {
+    margin-left: -50px;
+  }
+  
+  .und1a-def-card:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+    text-shadow: 2px 2px 8px #6e5b94;
+  }
+  
+  .und1a-def-card:hover ~ .und1a-def-card {
+    position: relative;
+    left: 50px;
+    transform: rotateX(-15deg) rotateY(10deg);
+    transition: 0.4s ease-out;
+  }
+  
+  .und1a-def-bar {
+    position: relative;
+    top: 325px;
+    height: 5px;
+    width: 100%;
+  }
+  
+  .und1a-def-emptybar {
+    background-color: #201c29;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .und1a-def-filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: #d059ff;
+    background: linear-gradient(90deg, #6831cfab, #a777ff 100%);
+    transition: 0.6s ease-out;
+  }
+  
+  .und1a-def-card:hover .und1a-def-filledbar {
+    width: 100%;
+    transition: 0.4s ease-out;
+  }
+  
+  .und1a-def-content {
+    position: absolute;
+    padding: 20px;
+    top: 10px;
+    color: #eae0fd;
+    font-size: 1rem;
+  }
+  
+  .und1a-def-stroke {
+    stroke: white;
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+    transition: 0.6s ease-out;
+  }
+  
+  .und1a-def-card:hover .und1a-def-stroke {
+    stroke-dashoffset: 100;
+    transition: 0.6s ease-out;
+  }
+
+  /* actividad */
+
+  .und1a-activity{
+    border: none;
+    width: 100%;
+    min-height: 500px;
+  }

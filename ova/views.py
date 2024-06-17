@@ -48,7 +48,7 @@ contents = [
             "ariaLabel": 'index-creational-patters'
         },
         {
-            "title": 'Patrones Estrucutrales',
+            "title": 'Patrones Estructurales',
             "ariaLabel": 'index-structural-patters',
             "items": [
                 {
