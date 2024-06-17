@@ -7,6 +7,13 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1); */
 }
 
+.und1a-div-cnt{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
 .und1a-title {
     text-align: center;
     color: #333;
@@ -40,7 +47,7 @@
 /* History card */
 
 .und1-history-project-info {
-    padding: 50px 40px 5px 40px;
+    padding: 30px 40px 5px 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -51,9 +58,9 @@
   .und1-history-project-title {
     font-weight: 500;
     font-size: 1.5em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis;
+    white-space: nowrap; */
     color: black;
   }
   
@@ -73,7 +80,7 @@
   }
   
   .und1-history-card {
-    margin: 20px 0;
+    margin: 20px;
     background-color: white;
     color: black;
     width: 300px;
@@ -83,22 +90,25 @@
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
   
-  .und1-history-card-img {
+  .und1-history-card-icon {
+    font-size: 150px;
+    margin-bottom: 10px;
     position: relative;
     top: -20px;
-    height: 300px;
     display: flex;
     justify-content: center;
   }
-  
-  .und1-history-card-img a,
-  .cund1-history-ard-img img {
-    height: 150px;
-    width: 90%;
-    /* Change this width here to change the width of the color/image */
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  .book1{
+    color: #0FA200;
+  }
+
+  .book2{
+    color: #042AFF;
+  }
+
+  .book3{
+    color: #FF0404;
   }
   
   .und1-history-card-imgs {
@@ -108,10 +118,9 @@
 
 /* Botón siguiente leccion */
 
-.und1a-button-cnt{
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+.extra-def-cnt{
+  margin-left: 3rem;
+  margin-bottom: 2rem;
 }
 
 .next-lession-btn{
@@ -150,7 +159,7 @@
 }
 
 
-.flip-card {
+  .flip-card {
     background-color: transparent;
     width: 250px;
     height: 300px;
@@ -198,6 +207,8 @@
   }
   
   .flip-card-back {
+    padding-left: 20px;
+    padding-right: 20px;
     background: linear-gradient(120deg, rgba(6,0,108,1) 23%, rgba(61,44,254,1) 98%, rgb(255, 185, 160));
     color: white;
     transform: rotateY(180deg);

@@ -9,10 +9,10 @@
 
 
 <div class="und1a-container">
-
+{% comment %} Sección de cards definicion {% endcomment %}
     <h1 class="und1a-title">¿Qué son los patrones de diseño?</h1>
 
-    <div class="und1a-button-cnt">
+    <div class="und1a-div-cnt extra-def-cnt">
         <div class="und1a-def-card">
             <div class="und1a-def-content">
                 Los patrones de diseño son soluciones generales, reutilizables y aplicables a problemas comunes en el desarrollo de software, basadas en la experiencia acumulada de los desarrolladores. 
@@ -52,26 +52,66 @@
             </div>
         </div>
     </div>
-
-    <div class="und1a-button-cnt">
+{% comment %} Sección de cards libros {% endcomment %}
+<h2 class="und1a-title">Libros importantes de patrones de diseño</h2>
+    <div class="und1a-div-cnt">
         <article class="und1-history-card">
-            <div class="und1-history-card-img">
-              <img src="https://m.media-amazon.com/images/I/81gtKoapHFL._AC_UF1000,1000_QL80_.jpg" alt="project" />
+            <div class="und1-history-card-icon book1">
+              <i class="fa fa-book" aria-hidden="true"></i>
             </div>
           
             <div class="und1-history-project-info">
               <div class="und1-history-flex">
-                <div class="und1-history-project-title">Un poco de historia</div>
+                <div class="und1-history-project-title">Design Patterns: Elements of Reusable Object-Oriented Software</div>
               </div>
               <span class="und1-history-lighter"
-                >En 1994, cuatro autores Erich Gamma, Richard Helm, Ralph Johnson y John Vlissides, a los que llamaron Gang of Four (GoF), publicaron un libro titulado Design Patterns, elementos de software orientado a objetos reutilizables. Con este trabajo se inició el concepto de patrón de diseño en el desarrollo de software y recoge 23 patrones de diseño comunes. Cada uno de ellos define la solución para resolver un determinado problema, facilitando además la reutilización del código fuente.</span
+              >Autores: Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.</span
+                >
+              <span class="und1-history-lighter"
+                >Introduce 23 patrones de diseño fundamentales organizados en creacionales, estructurales y de comportamiento. Es el libro que sentó las bases del uso de patrones en el desarrollo de software orientado a objetos.</span
               >
             </div>
           </article>
+
+          <article class="und1-history-card">
+            <div class="und1-history-card-icon book2">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+          
+            <div class="und1-history-project-info">
+              <div class="und1-history-flex">
+                <div class="und1-history-project-title">Head First Design Patterns</div>
+              </div>
+              <span class="und1-history-lighter"
+              >Autores: Eric Freeman y Elisabeth Robson.</span
+                >
+              <span class="und1-history-lighter"
+                >Presenta patrones de diseño de manera accesible y visual, con ejemplos prácticos y ejercicios. Es ideal para quienes prefieren un enfoque interactivo y menos formal.</span
+              >
+            </div>
+          </article>
+
+          <article class="und1-history-card">
+            <div class="und1-history-card-icon book3">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </div>
+          
+            <div class="und1-history-project-info">
+              <div class="und1-history-flex">
+                <div class="und1-history-project-title">Patterns of Enterprise Application Architecture</div>
+              </div>
+              <span class="und1-history-lighter"
+              >Autor: Martin Fowler.</span
+                >
+              <span class="und1-history-lighter"
+                >Se centra en patrones para la arquitectura de aplicaciones empresariales, abordando problemas como la lógica de negocio y el acceso a datos. Es crucial para desarrolladores de aplicaciones empresariales complejas.</span
+              >
+            </div>
+          </article>
+
     </div>
 
-    </p>
-
+{% comment %} Sección de cards ventajas {% endcomment %}
     <h2 class="und1a-title">Ventajas de utilizar patrones de diseño</h2>
 
     <div class="und1a-cards-container">
@@ -82,7 +122,7 @@
                     <p>Pon el cursor aqui</p>
                 </div>
                 <div class="flip-card-back">
-                    <p>Los patrones de diseño proporcionan soluciones probadas y documentadas para problemas comunes que se presentan repetidamente en el desarrollo de software. Esto ayuda a los desarrolladores a no tener que reinventar la rueda cada vez que enfrentan un problema conocido.</p>
+                    <p>Proporcionan soluciones probadas y documentadas para problemas comunes, evitando reinventar la rueda.</p>
                 </div>
             </div>
         </div>
@@ -93,7 +133,7 @@
                     <p>Pon el cursor aqui</p>
                 </div>
                 <div class="flip-card-back">
-                    <p>Los patrones de diseño actúan como un lenguaje común entre los desarrolladores. Al referirse a un patrón de diseño específico, todos los miembros del equipo comprenden de inmediato la estructura y el propósito del código, lo que mejora la colaboración y la comunicación.</p>
+                    <p>Actúan como un lenguaje común entre desarrolladores, mejorando la colaboración y comprensión del código.</p>
                 </div>
             </div>
         </div>
@@ -104,7 +144,7 @@
                     <p>Pon el cursor aqui</p>
                 </div>
                 <div class="flip-card-back">
-                    <p>Al aplicar patrones de diseño, el código tiende a ser más modular, coherente y fácil de entender. Esto no solo facilita el mantenimiento del software, sino que también hace más sencilla la incorporación de nuevas funcionalidades o la modificación de las existentes.
+                    <p>Hacen el código más modular y coherente, facilitando el mantenimiento y la incorporación de nuevas funcionalidades.
                     </p>
                 </div>
             </div>
@@ -116,20 +156,21 @@
                     <p>Pon el cursor aqui</p>
                 </div>
                 <div class="flip-card-back">
-                    <p>Los patrones de diseño promueven la utilización de principios sólidos de ingeniería de software, como la separación de preocupaciones, la reducción del acoplamiento y la promoción de la reutilización del código. Esto conduce a la creación de sistemas más robustos y sostenibles a largo plazo.</p>
+                    <p>Promueven principios sólidos de ingeniería de software, como la separación de preocupaciones y la reutilización del código, creando sistemas más robustos.</p>
                 </div>
             </div>
         </div>
     </div>
 
-
+{% comment %} Sección de video {% endcomment %}
     <h2 class="und1a-title">Video explicativo del tema</h2>
      <div class="und1a-video-container">
-        <iframe class="und1a-video" width="560" height="315" src="https://www.youtube.com/embed/xHhalCokHmA?si=x-LWbSTSAibSFT19" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <span>aqui va un video pero sin copyright</span>
+        {% comment %} <iframe class="und1a-video" width="560" height="315" src="https://www.youtube.com/embed/xHhalCokHmA?si=x-LWbSTSAibSFT19" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> {% endcomment %}
     </div>
-    <div class="und1a-source">
+    {% comment %} <div class="und1a-source">
         Fuentes: <a href="https://www.youtube.com/c/SoyDalto" target="_blank">Soy Dalto</a>
-    </div>
+    </div> {% endcomment %}
 
     <div>
         <h2 class="und1a-title">Actividad interactiva</h2>
@@ -137,7 +178,7 @@
         <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad1.htm' %}"></iframe>
     </div>
 
-    <div class="und1a-button-cnt">
+    <div class="und1a-div-cnt">
         <a class="next-lession-btn" href="/lecciones?view=importancia-y-aplicacion">Siguiente sección</a>
     </div>
 
