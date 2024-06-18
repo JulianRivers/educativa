@@ -1,0 +1,147 @@
+.und1c-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+}
+
+.und1c-div-cnt{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+.und1c-title {
+    text-align: center;
+    color: #333;
+}
+
+.und1a-paragraph {
+    text-align: justify;
+    margin-bottom: 1em;
+}
+
+.und1c-img{
+    width: 140px;
+    top: 8px;
+    position: relative;
+}
+
+/* Card para el texto introductorio */
+.und1c-def-unique-card {
+    position: relative;
+    width: 1000px;
+    height: 170px;
+    overflow: hidden;
+    background: #212121;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+  }
+  
+  .und1c-def-unique-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .und1c-def-card-content {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #888;
+    z-index: 2;
+    transition: color 0.3s;
+  }
+  
+  .und1c-def-unique-card:hover .und1c-def-card-content {
+    color: #ffffff;
+  }
+  
+  .und1c-def-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(112,180,251,1) 15%, rgba(0,47,250,1) 83%);
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .und1c-def-unique-card:hover .und1c-def-background-overlay {
+    opacity: 1;
+  }
+  
+  .und1c-def-card-description {
+    width: 100%;
+    height: 100%;
+    text-align: center; /* Centrar el texto horizontalmente */
+    word-wrap: break-word; /* Ajustar las palabras al ancho del contenedor */
+    overflow: hidden; /* Ocultar cualquier desbordamiento de texto */
+    font-size: 16px;
+  }
+  
+/* Componentes cards */
+.title{
+    color: #ffffff;
+    font-size: 1.5em;
+}
+
+
+.card {
+    margin: 10px 10px;
+    position: relative;
+    width: 350px;
+    aspect-ratio: 16/9;
+    background: linear-gradient(120deg, rgba(112,180,251,1) 20%, rgba(109,0,250,1) 86%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+  
+  .card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(120deg, rgba(112,180,251,1) 20%, rgba(109,0,250,1) 86%);
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .card:hover .card__content {
+    transform: rotateX(0deg);
+  }
+  
+  .card__description {
+    margin: 10px 0 10px;
+    font-size: 15px;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  /* Actividad final */
+
+
+  
