@@ -99,7 +99,12 @@
 
     </div>
     
-    <h2 class="und3a-actividad unit-section">Actividad Interactiva</h2>
+    <div class="unit-section">
+        <h2 class="und3a-actividad">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/Quiz-Unidad-3A.htm' %}"></iframe>
+    </div>
+
     
     <div class="und3-a-button-cnt">
         <a class="und3-a-prev-lession-btn" href="/lecciones?view=strategy">Sección anterior</a>
