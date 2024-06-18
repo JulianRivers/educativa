@@ -95,7 +95,7 @@
 }
 
 
-.card {
+.und1c-def-card {
     margin: 10px 10px;
     position: relative;
     width: 350px;
@@ -111,12 +111,12 @@
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
-  .card:hover {
+  .und1c-def-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
   }
   
-  .card__content {
+  .und1c-def-card__content {
     position: absolute;
     top: 0;
     left: 0;
@@ -130,11 +130,11 @@
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
-  .card:hover .card__content {
+  .und1c-def-card:hover .und1c-def-card__content {
     transform: rotateX(0deg);
   }
   
-  .card__description {
+  .und1c-def-card__description {
     margin: 10px 0 10px;
     font-size: 15px;
     color: #ffffff;
