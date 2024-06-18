@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
 
 # Create your views here.
 # manejamos esto como una Base de Datos de contenidos
@@ -140,7 +143,7 @@ def lecciones(request):
     
     htmlTemplatesNames = {}
     data = []
-
+    i = 0
     for content in contents:
         data.append({
             'sectionTitle': content['title'],
@@ -150,9 +153,18 @@ def lecciones(request):
             htmlTemplatesNames[item['url']] = item['url'] + '.html'
             data[-1]['lessons'].append({
                 'label': item['label'],
-                'url': item['url']
+                'url': item['url'],
+                'index': i
             })
+            i += 1
     
-   
-
     return render(request, htmlTemplatesNames[view], {'secciones': data})
+
+@csrf_exempt
+def update_progress(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        progress = data.get('progress')
+        # Aquí puedes guardar el progreso en la base de datos, por ejemplo, usando request.user para obtener el usuario actual
+        return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'failed'}, status=400)
