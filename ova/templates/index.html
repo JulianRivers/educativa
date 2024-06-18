@@ -1,34 +1,39 @@
 {% extends 'layouts/base.html' %} {% load static %} {% block title %} Patrones
-de Diseño 
-{% endblock title %} 
+de Diseño
+{% endblock title %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/ova/index.css' %}" />
-{% endblock extra_css %} 
+<link rel="stylesheet" href="{% static 'css/ova/index.css' %}" />
+{% endblock extra_css %}
 {% block body %}
 
 <header class="hero">
-  <div class="container hero-container">
-    <!-- equipo -->
-    <section class="d-flex align-items-center mb-4">
-      <!-- icono del equipo -->
-      <div class="team-icon mr-2 bg-success p-2 d-flex justify-content-center align-items-center">
-        E2
-      </div>
-      <!-- nombre del equipo -->
-      <p class="m-0 text-light">Equipo 2</p>
-    </section>
-    <!-- titulo  y button de inicio del curso-->
-    <section>
-      <h1 class="text-center mb-5 text-light title">Patrones de Diseño más usados</h1>
-      <!-- button -->
-      <div class="d-flex justify-content-center">
-        <button  class="boton">
-            <a href="/lecciones?view=que-es-un-patron-de-diseno" role="button">Empezar curso</a> 
-        </button>
-      </div>
-    </section>
-  </div>
+    <div class="container hero-container">
+        <!-- equipo -->
+        <section class="d-flex align-items-center justify-content-between mb-4">
+            <div class="d-flex align-items-center">
+                <!-- icono del equipo -->
+                <div class="team-icon mr-2 bg-success p-2 d-flex justify-content-center align-items-center">
+                    E2
+                </div>
+                <!-- nombre del equipo -->
+                <p class="m-0 text-light">Equipo 2</p>
+            </div>
+            <div class="d-flex align-items-center">
+                <a class="m-0 text-light" href="/login">Cuenta</a>
+            </div>
+        </section>
+        <!-- titulo  y button de inicio del curso-->
+        <section>
+            <h1 class="text-center mb-5 text-light title">Patrones de Diseño más usados</h1>
+            <!-- button -->
+            <div class="d-flex justify-content-center">
+                <button class="boton">
+                    <a href="/lecciones?view=que-es-un-patron-de-diseno" role="button">Empezar curso</a>
+                </button>
+            </div>
+        </section>
+    </div>
 </header>
 
 <!-- secciones del ova  -->
@@ -36,53 +41,66 @@ de Diseño
     <div class="cover__details-content-wrap mb-2">
         <!-- seccion de introduccion -->
         <section class="mb-6">
-          <div class="cover__details-content">
-              <p class="cover__details-content-text">
-                ¡Bienvenido al OVA "Patrones de Diseño Más Usados"! En este entorno virtual de aprendizaje, exploraremos los patrones de diseño más populares y efectivos en el desarrollo de software, proporcionando herramientas y conocimientos esenciales para mejorar la calidad y eficiencia de tus proyectos. Nuestro contenido incluye un video introductorio y secciones dedicadas a los conceptos fundamentales, donde aprenderás qué es un patrón de diseño, su importancia y aplicación, y los componentes esenciales de un patrón de diseño.
-                <br/> 
-                <br/> 
-                A continuación, profundizaremos en los patrones creacionales, como Factory Method, Abstract Factory, Builder, Prototype y Singleton. También abordaremos los patrones estructurales, incluyendo Adapter, Bridge, Decorator y Facade. Finalmente, cubriremos los patrones de comportamiento, como Iterator, Observer y Strategy. Para complementar tu aprendizaje, presentaremos casos de estudio y ejemplos prácticos de aplicación, así como un análisis detallado de la necesidad y los beneficios del uso de patrones en la programación orientada a objetos. ¡Acompáñanos en este recorrido y transforma tu enfoque y habilidades en la programación!
-              </p>
-          </div>
+            <div class="cover__details-content">
+                <p class="cover__details-content-text">
+                    ¡Bienvenido al OVA "Patrones de Diseño Más Usados"! En este entorno virtual de aprendizaje,
+                    exploraremos los patrones de diseño más populares y efectivos en el desarrollo de software,
+                    proporcionando herramientas y conocimientos esenciales para mejorar la calidad y eficiencia de tus
+                    proyectos. Nuestro contenido incluye un video introductorio y secciones dedicadas a los conceptos
+                    fundamentales, donde aprenderás qué es un patrón de diseño, su importancia y aplicación, y los
+                    componentes esenciales de un patrón de diseño.
+                    <br />
+                    <br />
+                    A continuación, profundizaremos en los patrones creacionales, como Factory Method, Abstract Factory,
+                    Builder, Prototype y Singleton. También abordaremos los patrones estructurales, incluyendo Adapter,
+                    Bridge, Decorator y Facade. Finalmente, cubriremos los patrones de comportamiento, como Iterator,
+                    Observer y Strategy. Para complementar tu aprendizaje, presentaremos casos de estudio y ejemplos
+                    prácticos de aplicación, así como un análisis detallado de la necesidad y los beneficios del uso de
+                    patrones en la programación orientada a objetos. ¡Acompáñanos en este recorrido y transforma tu
+                    enfoque y habilidades en la programación!
+                </p>
+            </div>
         </section>
-      
+
         <!-- Los temas del ova  -->
         <section class="">
 
             <div class="cover__details-content">
 
                 <!-- video de introduccion -->
-                 <ul style="list-style: none;" class="mb-3 cover__details-content-text">
+                <ul style="list-style: none;" class="mb-3 cover__details-content-text">
                     <li class=" mb-5 item">
                         <a href="#" style="text-decoration: none;" class="d-block ">
                             <i class="fa-solid fa-align-left"></i>
                             <span class="d-inline-block ml-2">Video introductorio</span>
                         </a>
                     </li>
-                 </ul>
+                </ul>
 
-                 <!-- contenidos -->
-                 <div aria-label="contents">
+                <!-- contenidos -->
+                <div aria-label="contents">
 
                     {% for content in contents %}
-                        <section class="mb-4">   
-                            <h2 class="section_title mb-0">{{ content.title }}</h2>
-                            <ul aria-label="{{ content.ariaLabel }}" style="list-style: none;" class="mb-3 cover cover__details-content-text">
-                                {% for item in content.items %}
-                                    <li class="item">
-                                        <a href="{% url 'lecciones' %}?view={{ item.url }}" style="text-decoration: none;" class="d-block ">
-                                            <i class="fa-solid fa-align-left"></i>
-                                            <span class="d-inline-block ml-2">{{ item.label }}</span>
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </section>
+                    <section class="mb-4">
+                        <h2 class="section_title mb-0">{{ content.title }}</h2>
+                        <ul aria-label="{{ content.ariaLabel }}" style="list-style: none;"
+                            class="mb-3 cover cover__details-content-text">
+                            {% for item in content.items %}
+                            <li class="item">
+                                <a href="{% url 'lecciones' %}?view={{ item.url }}" style="text-decoration: none;"
+                                    class="d-block ">
+                                    <i class="fa-solid fa-align-left"></i>
+                                    <span class="d-inline-block ml-2">{{ item.label }}</span>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </section>
                     {% endfor %}
 
-                 </div>
+                </div>
             </div>
-          
+
         </section>
 
     </div>

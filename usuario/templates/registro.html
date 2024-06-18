@@ -17,13 +17,13 @@ Inicio Sesión
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-6 text-center mb-5">
-          <h2 class="heading-section">Iniciar Sesión</h2>
+          <h2 class="heading-section">Registrate</h2>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
           <div class="login-wrap p-0">
-            <h3 class="mb-4 text-center">Bienvenido!</h3>
+            <h3 class="mb-4 text-center">Crea una cuenta</h3>
             {% if messages %}
             <div>
               {% for message in messages %}
@@ -33,8 +33,14 @@ Inicio Sesión
               {% endfor %}
             </div>
             {% endif %}
-            <form action="/login" method="POST" class="signin-form">
+            <form action="/registro" method="POST" class="signin-form">
               {% csrf_token %}
+              <div class="form-group">
+                <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required>
+              </div>
+              <div class="form-group">
+                <input id="apellido" name="apellido"   type="text" class="form-control" placeholder="Apellido" required>
+              </div>
               <div class="form-group">
                 <input id="email" name="email" type="text" class="form-control" placeholder="Correo" required>
               </div>
@@ -43,11 +49,15 @@ Inicio Sesión
                 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
               </div>
               <div class="form-group">
-                <button type="submit" class="form-control btn btn-primary submit px-3">Ingresar</button>
+                <input id="confirm_password"  name="confirm_password" type="password" class="form-control" placeholder="Confirmación de contraseña" required>
+                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="form-control btn btn-primary submit px-3">Registrarse</button>
               </div>
 
             </form>
-            <p class="w-100 text-center">&mdash;<a href="/registro">Registrate</a> &mdash;</p>
+
           </div>
         </div>
       </div>

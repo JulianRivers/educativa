@@ -25,7 +25,7 @@ def loginView(request):
             usuario = UserProfile.objects.get(email=email)
             if usuario is not None and usuario.check_password(password):
                 login(request, usuario)
-                return redirect('producto:inicio') if usuario.is_superuser else redirect('usuario:index')
+                return redirect('producto:inicio') if usuario.is_superuser else redirect('/')
             else:
                 messages.error(request, "Contraseña incorrecta")
         except Exception as e:
@@ -49,21 +49,34 @@ def logoutView(request):
 def registerView(request):
     if not request.user.is_anonymous: 
         messages.error(request, "Cierre sesión antes de registrar otro usuario.")
-        return redirect('usuario:index')
+        return redirect('/login')
+    
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
-        if form.is_valid():
-            password = request.POST.get('password')  # Recuperar el valor del campo "password"
-            usuario = form.save(commit=False)
-            usuario.set_password(password)
-            usuario.save()
-            return redirect('usuario:login')        
-    else:
-        form = RegistroForm()
-    context = {
-        'form': form,
-    }
-    return render(request, 'registro.html', context)
+        nombre = request.POST.get('nombre')
+        apellido = request.POST.get('apellido')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        
+        # Validaciones básicas
+        if not all([nombre, apellido, email, password]):
+            messages.error(request, "Todos los campos son obligatorios.")
+        elif password != confirm_password:
+            messages.error(request, "Las contraseñas no coinciden.")
+        elif UserProfile.objects.filter(email=email).exists():
+            messages.error(request, "El email ya está registrado.")
+        else:
+            # Crear el nuevo usuario
+            user = UserProfile.objects.create_user(
+                email=email,
+                password=password,
+                name=nombre,
+                apellidos=apellido
+            )
+            messages.success(request, "Usuario registrado exitosamente.")
+            return redirect('usuario:login')
+    
+    return render(request, 'registro.html')
 
 
 def perfil(request):
