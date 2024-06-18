@@ -1,0 +1,176 @@
+.und1b-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+}
+
+.und1b-div-cnt{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+.und1b-title {
+    text-align: center;
+    color: #333;
+}
+
+
+/* Definición card única */
+
+.und1b-bgblue {
+    background: linear-gradient(135deg, #fffffff5, #3a4b8a, #ffffff98);
+    padding: 1px;
+    border-radius: 1.2rem;
+    box-shadow: 0px 1rem 1.5rem -0.9rem #000000e1;
+    max-width: 700px;
+    margin-bottom: 30px;
+  }
+  
+.und1b-def1-card {
+    font-size: 1rem;
+    color: #bec4cf;
+    background: linear-gradient(135deg, #0d1120 0%, #3a4b8a 43%, #0d1120 100%);
+    padding: 1.5rem;
+    border-radius: 1.2rem;
+}
+  
+
+
+/* Cards de Importancia con ejemplos */
+
+.und1b-cards-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding-bottom: 20px;
+}
+
+
+  .flip-card {
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+    perspective: 1000px;
+    font-family: sans-serif;
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid;
+    border-radius: 1rem;
+  }
+  
+  .flip-card-front {
+    /* background: linear-gradient(120deg, rgba(2,0,36,1) 4%, rgba(61,44,254,1) 87%, rgba(29, 111, 255, 0.803) ); */
+    color: white;
+  }
+  
+  .flip-card-back {
+    padding-left: 20px;
+    padding-right: 20px;
+    /* background: linear-gradient(120deg, rgba(6,0,108,1) 23%, rgba(61,44,254,1) 98%, rgb(255, 185, 160)); */
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  /* Colores de las cards por separado */
+
+  .card1fa{
+    border-color: #2e2ec2;
+    background: linear-gradient(120deg, rgba(112,164,251,1) 21%, rgba(0,127,250,1) 88%);
+  }
+
+  .card1ba{
+    border-color: #2e2ec2;
+    background: linear-gradient(120deg, rgba(112,180,251,1) 21%, rgba(0,144,250,1) 88%);
+  }
+
+  .card1fb{
+    border-color: #2e2ec2;
+    background: linear-gradient(120deg, rgba(88,195,255,1) 21%, rgba(0,176,209,1) 94%);
+  }
+
+  .card1bb{
+    border-color: #2e2ec2;
+    background: linear-gradient(120deg, rgba(88,167,255,1) 21%, rgba(0,120,209,1) 94%);
+  }
+
+  .card2fa{
+    background: linear-gradient(120deg, rgba(32,134,0,1) 21%, rgba(1,167,45,1) 94%);
+  }
+
+  .card2ba{
+    background: linear-gradient(120deg, rgba(18,201,61,1) 21%, rgba(0,179,60,1) 94%);
+  }
+
+  .card2fb{
+    background: linear-gradient(120deg, rgba(64,182,23,1) 21%, rgba(123,191,0,1) 94%);
+  }
+
+  .card2bb{
+    background: linear-gradient(120deg, rgba(61,150,30,1) 21%, rgba(74,168,0,1) 94%);
+  }
+
+  .card3fa{
+    background: linear-gradient(120deg, rgba(244,213,0,1) 21%, rgba(255,233,79,1) 88%);
+  }
+
+  .card3ba{
+    background: linear-gradient(120deg, rgba(244,213,0,1) 21%, rgba(249,233,85,1) 88%);
+  }
+
+  .card3fb{
+    background: linear-gradient(120deg, rgba(244,196,0,1) 21%, rgba(242,187,31,1) 88%);
+  }
+
+  .card3bb{
+    background: linear-gradient(120deg, rgba(249,160,5,1) 21%, rgba(242,151,31,1) 88%);
+  }
+
+  .card4fa{
+    background: linear-gradient(120deg, rgba(249,78,5,1) 21%, rgba(242,62,31,1) 88%);
+  }
+
+  .card4ba{
+    background: linear-gradient(120deg, rgba(247,132,82,1) 21%, rgba(226,117,98,1) 88%);
+  }
+
+  .card4fb{
+    background: linear-gradient(120deg, rgba(247,112,82,1) 21%, rgba(255,102,0,1) 88%);
+  }
+
+  .card4bb{
+    background: linear-gradient(120deg, rgba(251,137,112,1) 21%, rgba(254,172,117,1) 88%);
+  }

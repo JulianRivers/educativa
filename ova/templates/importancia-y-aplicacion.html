@@ -1,6 +1,127 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>importancia-y-aplicacion</h1>
+    <div class="und1b-container">
+        <h1 class="und1b-title">Importancia y Aplicación de los Patrones de Diseño</h1>
+        <div class="und1b-div-cnt">
+        <div class="und1b-bgblue">
+            <div class="und1b-def1-card">
+                Los patrones de diseño en el desarrollo de software son soluciones probadas y reutilizables para problemas comunes que enfrentan los desarrolladores. Estos patrones juegan un papel fundamental al proporcionar estructuras y guías que no solo estandarizan el proceso de desarrollo, sino que también mejoran la eficiencia, la mantenibilidad y la flexibilidad del software. En esta sección exploraremos por qué son tan cruciales y cómo se aplican en diversas áreas del desarrollo de software moderno.
+            </div>
+          </div>
+        </div>
+
+        {% comment %} Sección de cards importancias con ejemplo {% endcomment %}
+    <h2 class="und1a-title">¿Por qué son importantes los patrones de diseño?</h2>
+
+        <div class="und1b-cards-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card1fa">
+                        <p class="card-title">Estandarización y Comunicación</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card1ba">
+                        <p>Los patrones proporcionan un lenguaje común para que los desarrolladores describan problemas y soluciones, facilitando la comunicación y comprensión entre equipos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card2fa">
+                        <p class="card-title">Eficiencia y Reutilización</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card2ba">
+                        <p>Permite a los desarrolladores utilizar soluciones probadas en lugar de desarrollar nuevas soluciones desde cero, lo que ahorra tiempo y esfuerzo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card3fa">
+                        <p class="card-title">Mantenibilidad y Evolución</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card3ba">
+                        <p>Los patrones fomentan la creación de código limpio y estructurado, facilitando su mantenimiento y evolución a lo largo del ciclo de vida del software.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card4fa">
+                        <p class="card-title">Flexibilidad y Adaptabilidad</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card4ba">
+                        <p>Ayudan a diseñar sistemas que puedan adaptarse fácilmente a cambios futuros, mejorando la capacidad de respuesta y la escalabilidad del software.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% comment %} Ejemplos {% endcomment %}
+        <div class="und1b-cards-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card1fb">
+                        <p class="card-title">Aplicación: Estandarización y Comunicación</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card1bb">
+                        <p>Utilización de terminología específica como Singleton, Factory Method, etc., para describir problemas y soluciones.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card2fb">
+                        <p class="card-title">Aplicación: Eficiencia y Reutilización</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card2bb">
+                        <p>Implementación de patrones como Singleton para garantizar la existencia de una única instancia de una clase en todo el sistema.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card3fb">
+                        <p class="card-title">Aplicación: Mantenibilidad y Evolucion</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card3bb">
+                        <p>Aplicación de patrones estructurales como Adapter para adaptar interfaces incompatibles y facilitar futuras modificaciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front card4fb">
+                        <p class="card-title">Aplicación: Flexibilidad y Adaptabilidad</p>
+                        <p>Pon el cursor aqui</p>
+                    </div>
+                    <div class="flip-card-back card4bb">
+                        <p>Uso de patrones de comportamiento como Strategy para permitir la selección de algoritmos o comportamientos dinámicamente en tiempo de ejecución.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="und1a-title">Actividad interactiva</h2>
+            {% load static %}
+            <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad1b.htm' %}"></iframe>
+        </div>
+    
+        <div class="und1a-div-cnt">
+            <a class="next-lession-btn" href="/lecciones?view=que-es-un-patron-de-diseno">Anterior sección</a>
+            <a class="next-lession-btn" href="/lecciones?view=componentes-esenciales-de-un-patron-de-diseno">Siguiente sección</a>
+        </div>
+
+    </div>
+
 {% endblock contenido %}
 
