@@ -1,7 +1,7 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <div class="und1b-container">
+    <div class="und1b-container unit-section">
         <h1 class="und1b-title">Importancia y Aplicación de los Patrones de Diseño</h1>
         <div class="und1b-div-cnt">
         <div class="und1b-bgblue">
@@ -14,7 +14,7 @@
         {% comment %} Sección de cards importancias con ejemplo {% endcomment %}
     <h2 class="und1a-title">¿Por qué son importantes los patrones de diseño?</h2>
 
-        <div class="und1b-cards-container">
+        <div class="und1b-cards-container unit-section">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front card1fa">
@@ -62,7 +62,7 @@
             </div>
         </div>
 {% comment %} Ejemplos {% endcomment %}
-        <div class="und1b-cards-container">
+        <div class="und1b-cards-container unit-section">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front card1fb">
@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="unit-section">
             <h2 class="und1a-title">Actividad interactiva</h2>
             {% load static %}
             <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad1b.htm' %}"></iframe>

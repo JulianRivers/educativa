@@ -44,8 +44,32 @@ Patrones de Diseño
                 <ol class="list__sublist list-collapse">
                     {% for lesson in seccion.lessons %}
                         <li class="list__li">
-                            <a href="{% url 'lecciones' %}?view={{ lesson.url }}" class="list__item">
-                                <i class="fa-solid fa-align-left " style="font-size: .85rem;"></i>
+                            <a href="{% url 'lecciones' %}?view={{ lesson.url }}&i={{lesson.index}}" class="list__item">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                    <i class="fa-solid fa-align-left " style="font-size: .85rem;"></i>
+                                    <svg id="progress-circle" width="25" height="25" viewBox="0 0 36 36">
+                                        <path
+                                            class="circle-bg"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#eee"
+                                            stroke-width="2.8"
+                                        />
+                                        <path
+                                            class="circle"
+                                            stroke-dasharray="0, 100"
+                                            d="M18 2.0845
+                                            a 15.9155 15.9155 0 0 1 0 31.831
+                                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                                            fill="none"
+                                            stroke="#4caf50"
+                                            stroke-width="2.8"
+                                            stroke-linecap="round"
+                                        />
+                                    </svg>
+                                </div>
                                 <span>{{ lesson.label }}</span>
                             </a>
                         </li>
@@ -66,13 +90,32 @@ Patrones de Diseño
 
 <script>
     const btns = document.querySelectorAll('.custom-btn');
+    const openSections = JSON.parse(localStorage.getItem('currentSection')) || [];
 
-    btns.forEach(btn => {
+    btns.forEach((btn,i) => {
+
+        openSections.forEach(section => {
+            if (section == i) {
+                const ol = btn.nextElementSibling;
+                const icon = btn.querySelector('i')
+                icon.classList.add('open');
+                ol.classList.remove('list-collapse');
+            }
+        });
+
         btn.addEventListener('click', () => {
             const ol = btn.nextElementSibling;
             const icon = btn.querySelector('i')
 
             icon.classList.toggle('open');
+            
+            if(openSections.includes(i)) {
+                openSections.splice(openSections.indexOf(i), 1);
+            } else {
+                openSections.push(i);
+            }
+
+            localStorage.setItem('currentSection', JSON.stringify(openSections));
 
             if (ol && ol.tagName.toLowerCase() === 'ol') {
                 // Alterna la clase 'list-collapse' en el ol
@@ -81,6 +124,60 @@ Patrones de Diseño
 
         });
     });
+</script>
+
+<script>
+    const progressIndex = Number(window.location.href.split('i=')[1])
+    const sections = document.querySelectorAll('.unit-section');
+    let progress = 0;
+    const totalSections = sections.length;
+
+    // Configuración del IntersectionObserver
+    const options = {
+        root: null, // Esto significa que está observando el viewport
+        rootMargin: '0px',
+        threshold: .99 // El umbral del 50% de visibilidad
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('viewed')) {
+                entry.target.classList.add('viewed');
+                progress++;
+                updateProgress(progress, totalSections);
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    function updateProgress(progress, totalSections) {
+        const progressPercentage = (progress / totalSections) * 100;
+        const progressCircle = document.querySelectorAll('.circle')[progressIndex];
+
+
+        // Calculate the stroke-dasharray value
+        const radius = 15.9155;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference - (progressPercentage / 100) * circumference;
+
+        progressCircle.style.strokeDasharray = `${circumference - offset}, ${circumference}`;
+ 
+
+        // Enviar progreso al servidor
+        fetch('/update_progress/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ progress: progressPercentage })
+        }).then( res => res.json()).then(data => {
+            console.log(data);
+        });
+    }
 </script>
 
 {% endblock body %}

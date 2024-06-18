@@ -1,9 +1,5 @@
 {% extends 'contenido.html' %}
 
-{% comment %} {% load static %}
-{% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/ova/unidad1a.css' %}" />
-{% endblock extra_css %}  {% endcomment %}
 
 {% block contenido %}
 
@@ -12,7 +8,7 @@
 {% comment %} Sección de cards definicion {% endcomment %}
     <h1 class="und1a-title">¿Qué son los patrones de diseño?</h1>
 
-    <div class="und1a-div-cnt extra-def-cnt">
+    <div class="und1a-div-cnt extra-def-cnt unit-section">
         <div class="und1a-def-card">
             <div class="und1a-def-content">
                 Los patrones de diseño son soluciones generales, reutilizables y aplicables a problemas comunes en el desarrollo de software, basadas en la experiencia acumulada de los desarrolladores. 
@@ -52,9 +48,9 @@
             </div>
         </div>
     </div>
-{% comment %} Sección de cards libros {% endcomment %}
-<h2 class="und1a-title">Libros importantes de patrones de diseño</h2>
-    <div class="und1a-div-cnt">
+    {% comment %} Sección de cards libros {% endcomment %}
+    <h2 class="und1a-title">Libros importantes de patrones de diseño</h2>
+    <div class="und1a-div-cnt unit-section">
         <article class="und1-history-card">
             <div class="und1-history-card-icon book1">
               <i class="fa fa-book" aria-hidden="true"></i>
@@ -111,10 +107,10 @@
 
     </div>
 
-{% comment %} Sección de cards ventajas {% endcomment %}
+    {% comment %} Sección de cards ventajas {% endcomment %}
     <h2 class="und1a-title">Ventajas de utilizar patrones de diseño</h2>
 
-    <div class="und1a-cards-container">
+    <div class="und1a-cards-container unit-section">
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -162,7 +158,7 @@
         </div>
     </div>
 
-{% comment %} Sección de video {% endcomment %}
+    {% comment %} Sección de video {% endcomment %}
     <h2 class="und1a-title">Video explicativo del tema</h2>
      <div class="und1a-video-container">
         <span>aqui va un video pero sin copyright</span>
@@ -172,7 +168,7 @@
         Fuentes: <a href="https://www.youtube.com/c/SoyDalto" target="_blank">Soy Dalto</a>
     </div> {% endcomment %}
 
-    <div>
+    <div class="unit-section">
         <h2 class="und1a-title">Actividad interactiva</h2>
         {% load static %}
         <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad1a.htm' %}"></iframe>
