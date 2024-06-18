@@ -1,6 +1,89 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>componentes-esenciales-de-un-patron-de-diseno</h1>
+
+<div class="und1c-container">
+
+    <h1 class="und1c-title">Componentes Esenciales de un Patrón de Diseño</h1>
+
+    <div class="und1c-div-cnt unit-section">
+            <div class="und1c-def-unique-card">
+                <div class="und1c-def-background-overlay"></div>
+                <div class="und1c-def-card-content">
+                  <div class="und1c-def-card-description">Los patrones de diseño se componen de varios elementos esenciales que definen su estructura y propósito. Estos componentes proporcionan una guía clara para la implementación de soluciones probadas y reutilizables en el desarrollo de software. En esta sección exploraremos los elementos clave que conforman un patrón de diseño y cómo interactúan entre sí para resolver problemas comunes de manera efectiva.</div>
+                </div>
+              </div>
+
+        </div>
+
+        
+    <h2 class="und1c-title">Componentes:</h2>
+
+    <div class="und1c-div-cnt unit-section">
+
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Propósito del Patrón</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">En esta sección, se explica de manera breve y clara cuál es el problema que el patrón busca resolver y cómo lo hace. Es como un resumen ejecutivo que te da una idea rápida de por qué este patrón es útil.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Motivación</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">Aquí nos adentramos un poco más en el problema y la solución. Se describe con mayor detalle por qué surgió la necesidad de este patrón y cómo ayuda a resolver el problema de manera efectiva. Es como entender la historia detrás de la solución.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Estructura de las Clases</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">En esta parte, se muestra un esquema visual de todas las partes del patrón y cómo se relacionan entre sí. Piensa en ello como un mapa que te guía a través de los componentes y sus interacciones, facilitando la comprensión de su funcionamiento.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Ejemplo de Código</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">Para hacer todo esto aún más claro, se incluye un ejemplo práctico de código en un lenguaje de programación popular. Esto te permite ver cómo se implementa el patrón en la práctica y cómo puedes aplicarlo en tus propios proyectos.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Consecuencias</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">Esta sección describe los resultados y efectos de aplicar el patrón, tanto positivos como negativos. Incluye consideraciones sobre el uso del patrón, como la complejidad añadida o los beneficios en términos de reutilización de código y flexibilidad.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Casos de Uso</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">Aquí se enumeran situaciones específicas en las que el patrón es particularmente útil.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Implementación</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">Se proporcionan detalles adicionales sobre cómo implementar el patrón, incluyendo posibles variaciones y técnicas para adaptarlo a diferentes contextos.</p>
+            </div>
+        </div>
+        <div class="und1c-def-card">
+            <span class="und1c-title und1c-def-title">Relaciones con Otros Patrones</span>
+            <div class="und1c-def-card__content">
+                <p class="und1c-def-card__description">Esta sección muestra cómo el patrón se relaciona y coopera con otros patrones.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="unit-section">
+        <h2 class="und1a-title">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad1c.htm' %}"></iframe>
+    </div>
+
+    <div class="und1a-div-cnt unit-section">
+        <a class="next-lession-btn" href="/lecciones?view=importancia-y-aplicacion">Anterior sección</a>
+        <a class="next-lession-btn" href="/lecciones?view=examen-de-conceptos-fundamentales">Siguiente sección</a>
+    </div>
+
+</div>
+
 {% endblock contenido %}
 
