@@ -6,7 +6,7 @@
 }
 
 .und3-a-next-lession-btn {
-    background-color: #a779e4; 
+    background-color: #a779e4;
     color: #fff;
     padding: 15px 30px;
     font-size: 1.5em;
@@ -20,7 +20,7 @@
 }
 
 .und3-a-prev-lession-btn {
-    background-color: #5c7be4; 
+    background-color: #5c7be4;
     color: #fff;
     padding: 15px 30px;
     font-size: 1.5em;
@@ -34,32 +34,38 @@
 }
 
 .und-3a-next-lession-btn:hover {
-    background-color: #c39dc3; /* Violeta más oscuro */
+    background-color: #c39dc3;
+    /* Violeta más oscuro */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
 .und3-a-next-lession-btn:active {
-    background-color: #ad7bad; /* Violeta aún más oscuro */
+    background-color: #ad7bad;
+    /* Violeta aún más oscuro */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transform: translateY(0);
 }
 
 .und-3a-prev-lession-btn:hover {
-    background-color: #9fb6cd; /* Azul rey más oscuro */
+    background-color: #9fb6cd;
+    /* Azul rey más oscuro */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
 .und3-a-prev-lession-btn:active {
-    background-color: #8da6bd; /* Azul rey aún más oscuro */
+    background-color: #8da6bd;
+    /* Azul rey aún más oscuro */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transform: translateY(0);
 }
+
 /*Seccion Texto*/
-.und3a-title{
+.und3a-title {
     text-align: center;
 }
+
 .und3a-text-justify {
     text-align: justify;
     margin-top: 25px;
@@ -75,17 +81,23 @@
     margin-top: 20px;
 }
 
-/*Estilos de las Cards*/
+.und3a-actividad {
+    margin-top: 30px;
+    text-align: center;
+}
+
 
 /* Estilos de las Cards */
-.cards {
+
+/*Cards Seccion Necesidades*/
+.und3a-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
 }
 
-.cards .card {
+.und3a-card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,51 +114,115 @@
     box-sizing: border-box;
 }
 
-.cards .card.purple {
+.und3a-card.purple {
     background-color: #774af3;
 }
 
-.cards .card.blue {
+.und3a-card.blue {
     background-color: #3b82f6;
 }
 
-.cards .card p.tip {
-    font-size: 1.3em; /* Aumentado el tamaño de la fuente */
+.und3a-card p.tip {
+    font-size: 1.3em;
+    /* Aumentado el tamaño de la fuente */
     font-weight: 700;
     margin: 0;
 }
 
-.cards .card p.second-text {
-    font-size: 1.1em; /* Aumentado el tamaño de la fuente */
+.und3a-card p.second-text {
+    font-size: 1.1em;
+    /* Aumentado el tamaño de la fuente */
     margin-top: 10px;
 }
 
-.cards .card:hover {
+.und3a-card:hover {
     transform: scale(1.05);
 }
 
-.cards:hover > .card:not(:hover) {
+.und3a-cards:hover>.und3a-card:not(:hover) {
     filter: blur(5px);
     transform: scale(0.95);
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
-    .cards .card {
+    .und3a-card {
         flex: 1 1 100%;
         max-width: 100%;
-        padding: 20px; /* Asegurar suficiente espacio para el contenido */
+        padding: 20px;
+        /* Asegurar suficiente espacio para el contenido */
         height: auto;
     }
 }
 
 @media (max-width: 480px) {
-    .cards .card p.tip {
-        font-size: 1.5em; /* Aumentar el tamaño de la fuente en pantallas pequeñas */
+    .und3a-card p.tip {
+        font-size: 1.5em;
+        /* Aumentar el tamaño de la fuente en pantallas pequeñas */
     }
 
-    .cards .card p.second-text {
-        font-size: 1.2em; /* Aumentar el tamaño de la fuente en pantallas pequeñas */
+    .und3a-card p.second-text {
+        font-size: 1.2em;
+        /* Aumentar el tamaño de la fuente en pantallas pequeñas */
+    }
+
+
+}
+
+/* Card Seccion Beneficios */
+.und3a-cards-beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.card {
+
+    background-color: #d2d7ed;
+    border: 2px solid #300181;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card .icon {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.card strong {
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    color: #1C274C;
+}
+
+.card span {
+    font-size: 1.1em;
+    color: #484848;
+    line-height: 1.5;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .und3a-cards-beneficios {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) {
+    .und3a-cards-beneficios {
+        grid-template-columns: repeat(2, 1fr);
+        /* Dos columnas en pantallas medianas y grandes */
     }
 }
 
@@ -154,5 +230,5 @@
 .und3-a-button-cnt {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 30px;
 }

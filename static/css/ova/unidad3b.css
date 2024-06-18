@@ -1,0 +1,78 @@
+/*Seccion Texto*/
+.und3b-tittle{
+    text-align: center;
+}
+
+.und3b-text-justify {
+    text-align: justify;
+    margin-top: 25px;
+    font-size: 1em;
+}
+
+.und3b-mt-2 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* Botones */
+.und3-b-button-cnt {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.und3-b-next-lession-btn {
+    background-color: #a779e4;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+.und3-b-prev-lession-btn {
+    background-color: #5c7be4;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-right: 50px;
+}
+
+.und-3b-next-lession-btn:hover {
+    background-color: #c39dc3;
+    /* Violeta más oscuro */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.und3-b-next-lession-btn:active {
+    background-color: #ad7bad;
+    /* Violeta aún más oscuro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+.und-3b-prev-lession-btn:hover {
+    background-color: #9fb6cd;
+    /* Azul rey más oscuro */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.und3-b-prev-lession-btn:active {
+    background-color: #8da6bd;
+    /* Azul rey aún más oscuro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
