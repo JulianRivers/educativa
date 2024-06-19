@@ -1,6 +1,296 @@
+{% extends 'contenido.html' %} {% block contenido %}
 
-{% extends 'contenido.html' %}
-{% block contenido %}
-    <h1>factory-method</h1>
+<div class="container">
+  <section class="my-5">
+    <h1 class="mb-0">Factory Method</h1>
+    <h2 class="mb-4" style="font-size: 1rem;">(Virtual Constructor)</h2>
+  </section>
+
+  <section class="my-5 unit-section">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="card p-4 h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <i class="fa-solid fa-question fa-2x text-primary"></i>
+              <h2 class="card-title ml-2">Propósito</h2>
+            </div>
+            <p class="card-text">
+              <strong>Factory Method</strong> (Metodo de Fabrica en español)
+              es un patrón de diseño creacional que define una interfaz para
+              crear objetos en una superclase, pero permite a las subclases
+              alterar el tipo de objetos que se crearán.
+            </p>
+            <p class="card-text">
+              Su propósito es permitir la creación de objetos sin especificar la
+              clase exacta que se creará, promoviendo la flexibilidad y
+              extensibilidad del código.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img
+          src="../../static/images/factory-method/factory-hero.jpg"
+          alt="Factory Method hero image"
+          class="img-fluid rounded"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+      <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+      <h2 class="card-title ml-2">Problema</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="lead">
+          Imagina que estás desarrollando una aplicación de notificaciones que
+          inicialmente solo envía correos electrónicos. Todo tu código está
+          centrado en la clase EmailNotification. La aplicación se vuelve
+          popular y recibes solicitudes para agregar soporte para notificaciones
+          SMS y push. Sin embargo, agregar nuevas clases de notificación se
+          vuelve complicado porque el código está estrechamente acoplado a
+          EmailNotification. Cada vez que quieras añadir un nuevo tipo de
+          notificación, tendrás que modificar muchas partes del código base, lo
+          que puede llevar a un código desordenado y lleno de condicionales.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img
+          src="../../static/images/factory-method/problema.jpg"
+          alt="Factory Method problema imagen"
+          class="img-fluid rounded"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+      <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+      <h2 class="card-title ml-2" >Solución</h2>
+    </div>
+    <div class="row">
+        <div class="img-container mb-3">
+            <img
+                src="../../static/images/factory-method/factory.png"
+                alt="Factory Method solucion imagen"
+                class="img-fluid rounded"
+            />
+        </div>
+      <div class="col-md-12">
+        <p class="lead">
+          El patrón Factory Method sugiere reemplazar las llamadas directas al
+          constructor de los objetos (usando el operador new) con llamadas a un
+          método de fábrica especial. Este método de fábrica se define en una
+          clase base y puede ser sobrescrito por subclases para alterar el tipo
+          de objeto que se crea. Así, podrías tener una interfaz Notification
+          con métodos comunes, y subclases como EmailNotification,
+          SMSNotification, y PushNotification implementando esta interfaz. La
+          clase base NotificationFactory tendría el método de fábrica que sería
+          sobrescrito por subclases como EmailNotificationFactory,
+          SMSNotificationFactory, y PushNotificationFactory. Esto permite
+          agregar nuevos tipos de notificación sin cambiar el código existente,
+          simplemente creando nuevas subclases de NotificationFactory y
+          Notification.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+      </div>
+    <figure>
+      <pre class="bg-light p-4 rounded">
+          <code class="language-pseudo">
+            // La clase creadora declara el método de fábrica que debe
+            // devolver un objeto de una clase de producto. Las subclases del creador
+            // generalmente proporcionan la implementación de este método.
+            abstract class NotificationService {
+                // El creador puede también proporcionar una implementación por defecto
+                // del método de fábrica.
+                abstract method createNotification(): Notification
+            
+                // A pesar de su nombre, la responsabilidad principal del creador no es
+                // crear productos. Normalmente contiene lógica de negocio central que
+                // depende de objetos de producto devueltos por el método de fábrica.
+                // Las subclases pueden cambiar indirectamente esa lógica de negocio
+                // sobrescribiendo el método de fábrica y devolviendo un tipo diferente
+                // de producto.
+                method send(message: String) {
+                    // Llamar al método de fábrica para crear un objeto producto.
+                    Notification notification = createNotification()
+                    // Ahora usar el producto.
+                    notification.send(message)
+                }
+            }
+            
+            // Los creadores concretos sobrescriben el método de fábrica para cambiar el
+            // tipo de producto resultante.
+            class EmailNotificationService extends NotificationService {
+                method createNotification(): Notification {
+                    return new EmailNotification()
+                }
+            }
+            
+            class SMSNotificationService extends NotificationService {
+                method createNotification(): Notification {
+                    return new SMSNotification()
+                }
+            }
+            
+            class PushNotificationService extends NotificationService {
+                method createNotification(): Notification {
+                    return new PushNotification()
+                }
+            }
+            
+            // La interfaz del producto declara las operaciones que todos los
+            // productos concretos deben implementar.
+            interface Notification {
+                method send(message: String)
+            }
+            
+            // Los productos concretos proporcionan varias implementaciones de la
+            // interfaz del producto.
+            class EmailNotification implements Notification {
+                method send(message: String) {
+                    // Lógica para enviar un correo electrónico
+                }
+            }
+            
+            class SMSNotification implements Notification {
+                method send(message: String) {
+                    // Lógica para enviar un SMS
+                }
+            }
+            
+            class PushNotification implements Notification {
+                method send(message: String) {
+                    // Lógica para enviar una notificación push
+                }
+            }
+            
+            class Application {
+                field notificationService: NotificationService
+            
+                // La aplicación elige el tipo del creador dependiendo de la
+                // configuración actual o de las configuraciones del entorno.
+                method initialize(config) {
+                    if (config.notificationType == "Email") {
+                        notificationService = new EmailNotificationService()
+                    } else if (config.notificationType == "SMS") {
+                        notificationService = new SMSNotificationService()
+                    } else if (config.notificationType == "Push") {
+                        notificationService = new PushNotificationService()
+                    } else {
+                        throw new Exception("Error! Unknown notification type.")
+                     }
+                     }
+                     
+                     // El código del cliente trabaja con una instancia de un creador concreto,
+                     // aunque a través de su interfaz base. Mientras el cliente siga trabajando
+                     // con el creador a través de la interfaz base, se le puede pasar cualquier subclase del creador.
+                     method main() {
+                        config = readApplicationConfigFile()
+                        this.initialize(config)
+                        notificationService.send("Hello!")
+                     }
+                            </code>
+                          </pre>
+    </figure>
+  </section>
+
+  <section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+      <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+      <h2 class="card-title ml-2">Pros y contras</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="card-title mb-3">Pros</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2 ">
+                <div class="d-flex">
+                    <i class="fa-solid fa-check text-success py-1"></i>
+                    <span class="inline-block ml-2">
+                        Evita acoplamientos fuertes entre el cliente y los
+                        productos. El cliente trabaja con objetos a través de una interfaz común,
+                        por lo que no necesita conocer la clase concreta de un objeto
+                        que utiliza.
+                    </span>
+                </div>
+                
+              </li>
+              <li class="mb-2 d-flex">
+                <div class="d-flex">
+                    <i class="fa-solid fa-check text-success py-1"></i>
+                    <span class="inline-block ml-2">
+                        Principio de responsabilidad única.
+                        Puedes mover el código de creación de objetos a un solo lugar,
+                        haciendo que el código sea más fácil de mantener.
+                    </span>
+                </div>
+              </li>
+              <li class="mb-2 d-flex">
+                <div class="d-flex">
+                    <i class="fa-solid fa-check text-success py-1"></i>
+                    <span class="inline-block ml-2">
+                        Principio de abierto/cerrado.
+                        Puedes introducir nuevos tipos de productos en el programa sin
+                        romper el código existente, lo que facilita la extensión del
+                        código.
+                    </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h3 class="card-title mb-3">Contras</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <div class="d-flex">
+                    <i class="fa-solid fa-times text-danger py-1"></i>
+                    <span class="inline-block ml-2">
+                        El código puede volverse más complicado.
+                        Ya que necesitas introducir muchas nuevas subclases para
+                        implementar el patrón.
+                    </span>
+                </div>
+              </li>
+              <li class="mb-2">
+                <div class="d-flex">
+                    <i class="fa-solid fa-times text-danger py-1"></i>
+                    <span class="inline-block ml-2">
+                        Requiere la creación de subclases.
+                        A veces, es más fácil extender una clase que crear una nueva
+                        subclase.
+                    </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="und1a-div-cnt unit-section">
+    <a class="next-lession-btn" href="/lecciones?view=examen-de-conceptos-fundamentales&i=3">Anterior sección</a>
+    <a class="next-lession-btn" href="/lecciones?view=abstract-factory&i=5">Siguiente sección</a>
+</div>
+</div>
+
 {% endblock contenido %}
-
