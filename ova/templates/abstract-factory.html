@@ -1,6 +1,318 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>abstract-factory</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Abstract Factory</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">(Fábrica abstracta)</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Abstract Factory</strong> (Fábrica abstracta en español)
+                tiene como objetivo proporcionar una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas. Este patrón es útil cuando un sistema debe ser independiente de cómo se crean, componen y representan sus productos.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/abstract-factory/abstract-factory.jpeg"
+            alt="Factory Method hero image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Imagina que estás desarrollando una aplicación de interfaz de usuario (UI) que debe ser compatible con múltiples sistemas operativos, como Windows, macOS y Linux. Cada sistema operativo tiene su propio conjunto de componentes de interfaz, como botones, menús y cuadros de diálogo, que deben mantener un estilo consistente para proporcionar una experiencia de usuario coherente.
+          </p>
+          <p class="lead">
+            En tu aplicación, quieres asegurarte de que si el sistema operativo es Windows, se usen botones, menús y cuadros de diálogo con estilo Windows. Si es macOS, se deben usar los correspondientes componentes con estilo macOS, y lo mismo para Linux. Sin embargo, no quieres que el código de tu aplicación esté lleno de condiciones para verificar el sistema operativo y crear los componentes apropiados.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/abstract-factory/abstract_factory_uml.png"
+                  alt="Factory Method solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para resolver el problema de mantener una interfaz de usuario consistente y adaptable en diferentes sistemas operativos, el patrón Abstract Factory proporciona una solución elegante al definir una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas. Implementando fábricas concretas para cada sistema operativo (como Windows, macOS y Linux), y definiendo interfaces abstractas para los componentes de la UI (como Botón, Menú y Cuadro de diálogo), podemos crear componentes específicos del sistema operativo de manera consistente. El código cliente interactúa con la interfaz de la fábrica abstracta, lo que permite la creación de componentes sin acoplarse a sus implementaciones concretas, facilitando así la extensibilidad y el mantenimiento del software.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                // Definición de las interfaces abstractas para los productos
+                interface Button {
+                    void paint();
+                }
+                
+                interface Menu {
+                    void display();
+                }
+                
+                interface Dialog {
+                    void open();
+                }
+                
+                // Definición de la fábrica abstracta
+                interface UIFactory {
+                    Button createButton();
+                    Menu createMenu();
+                    Dialog createDialog();
+                }
+                
+                // Implementaciones concretas de los productos para Windows
+                class WindowsButton implements Button {
+                    @Override
+                    public void paint() {
+                        System.out.println("Dibujando un botón estilo Windows");
+                    }
+                }
+                
+                class WindowsMenu implements Menu {
+                    @Override
+                    public void display() {
+                        System.out.println("Mostrando un menú estilo Windows");
+                    }
+                }
+                
+                class WindowsDialog implements Dialog {
+                    @Override
+                    public void open() {
+                        System.out.println("Abriendo un cuadro de diálogo estilo Windows");
+                    }
+                }
+                
+                // Implementaciones concretas de los productos para macOS
+                class MacOSButton implements Button {
+                    @Override
+                    public void paint() {
+                        System.out.println("Dibujando un botón estilo macOS");
+                    }
+                }
+                
+                class MacOSMenu implements Menu {
+                    @Override
+                    public void display() {
+                        System.out.println("Mostrando un menú estilo macOS");
+                    }
+                }
+                
+                class MacOSDialog implements Dialog {
+                    @Override
+                    public void open() {
+                        System.out.println("Abriendo un cuadro de diálogo estilo macOS");
+                    }
+                }
+                
+                // Implementación concreta de la fábrica para Windows
+                class WindowsFactory implements UIFactory {
+                    @Override
+                    public Button createButton() {
+                        return new WindowsButton();
+                    }
+                
+                    @Override
+                    public Menu createMenu() {
+                        return new WindowsMenu();
+                    }
+                
+                    @Override
+                    public Dialog createDialog() {
+                        return new WindowsDialog();
+                    }
+                }
+                
+                // Implementación concreta de la fábrica para macOS
+                class MacOSFactory implements UIFactory {
+                    @Override
+                    public Button createButton() {
+                        return new MacOSButton();
+                    }
+                
+                    @Override
+                    public Menu createMenu() {
+                        return new MacOSMenu();
+                    }
+                
+                    @Override
+                    public Dialog createDialog() {
+                        return new MacOSDialog();
+                    }
+                }
+                
+                // Código cliente
+                class Application {
+                    private UIFactory factory;
+                
+                    public void initialize(String OS) {
+                        if (OS.equalsIgnoreCase("Windows")) {
+                            factory = new WindowsFactory();
+                        } else if (OS.equalsIgnoreCase("macOS")) {
+                            factory = new MacOSFactory();
+                        }
+                    }
+                
+                    public void createUI() {
+                        Button btn = factory.createButton();
+                        Menu menu = factory.createMenu();
+                        Dialog dlg = factory.createDialog();
+                
+                        btn.paint();
+                        menu.display();
+                        dlg.open();
+                    }
+                }
+                
+                // Uso del código cliente
+                public class Main {
+                    public static void main(String[] args) {
+                        Application app = new Application();
+                        app.initialize("Windows");
+                        app.createUI();
+                
+                        Application app2 = new Application();
+                        app2.initialize("macOS");
+                        app2.createUI();
+                    }
+                }
+                
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Garantiza que los productos creados por las fábricas sean compatibles entre sí. Por ejemplo, todos los componentes de la interfaz de usuario en un sistema operativo tendrán un estilo uniforme.
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        El cliente utiliza interfaces y clases abstractas, lo que disminuye la dependencia de clases concretas. Esto mejora la flexibilidad y facilita cambios y extensiones en el futuro.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Nuevos tipos de productos o familias de productos se pueden añadir fácilmente mediante la creación de nuevas fábricas concretas sin afectar al código cliente.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Introducir el patrón Abstract Factory puede incrementar la complejidad del código debido a la necesidad de crear múltiples interfaces y clases concretas.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        La implementación de este patrón puede resultar en la creación de muchas clases, lo que puede hacer que el sistema sea más difícil de manejar y mantener.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                    <div class="d-flex">
+                        <i class="fa-solid fa-times text-danger py-1"></i>
+                        <span class="inline-block ml-2">
+                            Para desarrolladores novatos o en proyectos más pequeños, el uso de este patrón puede parecer innecesariamente complicado y ser difícil de comprender.
+                        </span>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="unit-section">
+        <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad2b.htm' %}"></iframe>
+    </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=factory-method&i=4">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=builder&i=6">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 

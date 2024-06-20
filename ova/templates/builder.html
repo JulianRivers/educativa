@@ -1,6 +1,284 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>builder</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Builder</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">(Constructor)</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Builder</strong> (Constructor en español)
+                separa la construcción de un objeto complejo de su representación, de manera que el mismo proceso de construcción pueda crear diferentes representaciones. Este patrón es especialmente útil cuando la creación de un objeto implica una serie de pasos complicados o cuando el proceso de construcción permite múltiples configuraciones del objeto final.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/builder/construction-site-silhouettes.jpg"
+            alt="Factory Method hero image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Imaginemos que estamos diseñando una aplicación para construir distintos tipos de comidas (como menús de restaurantes). Cada comida puede consistir en una bebida, una entrada, un plato principal y un postre. La construcción de estas comidas puede ser muy variada y compleja, ya que cada componente (bebida, entrada, etc.) puede tener múltiples variantes (por ejemplo, diferentes tipos de bebidas, entradas, etc.). Queremos evitar que el código cliente tenga que lidiar con esta complejidad directamente, y en su lugar, proporcionar una manera más flexible y estructurada de construir estas comidas.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/builder/uml_builder_pattern.png"
+                  alt="Factory Method solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            El patrón Builder permite crear un objeto Meal utilizando un objeto MealBuilder que construye la comida paso a paso. Cada paso añade un componente diferente a la comida, y al final del proceso, se obtiene una Meal completamente construida y configurada según las necesidades específicas. Este patrón facilita la creación de objetos complejos, separando la lógica de construcción en componentes manejables y reutilizables.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                // Product
+class Meal {
+    private String drink;
+    private String appetizer;
+    private String mainCourse;
+    private String dessert;
+
+    public void setDrink(String drink) {
+        this.drink = drink;
+    }
+
+    public void setAppetizer(String appetizer) {
+        this.appetizer = appetizer;
+    }
+
+    public void setMainCourse(String mainCourse) {
+        this.mainCourse = mainCourse;
+    }
+
+    public void setDessert(String dessert) {
+        this.dessert = dessert;
+    }
+
+    @Override
+    public String toString() {
+        return "Meal [Drink=" + drink + ", Appetizer=" + appetizer + ", MainCourse=" + mainCourse + ", Dessert=" + dessert + "]";
+    }
+}
+
+// Builder
+abstract class MealBuilder {
+    protected Meal meal = new Meal();
+
+    public Meal getMeal() {
+        return meal;
+    }
+
+    public abstract void buildDrink();
+    public abstract void buildAppetizer();
+    public abstract void buildMainCourse();
+    public abstract void buildDessert();
+}
+
+// Concrete Builder
+class VegetarianMealBuilder extends MealBuilder {
+    public void buildDrink() {
+        meal.setDrink("Vegetable Juice");
+    }
+
+    public void buildAppetizer() {
+        meal.setAppetizer("Salad");
+    }
+
+    public void buildMainCourse() {
+        meal.setMainCourse("Vegetable Curry");
+    }
+
+    public void buildDessert() {
+        meal.setDessert("Fruit Salad");
+    }
+}
+
+// Director
+class MealDirector {
+    private MealBuilder mealBuilder;
+
+    public void setMealBuilder(MealBuilder mb) {
+        mealBuilder = mb;
+    }
+
+    public Meal getMeal() {
+        return mealBuilder.getMeal();
+    }
+
+    public void constructMeal() {
+        mealBuilder.buildDrink();
+        mealBuilder.buildAppetizer();
+        mealBuilder.buildMainCourse();
+        mealBuilder.buildDessert();
+    }
+}
+
+// Client
+public class BuilderPatternExample {
+    public static void main(String[] args) {
+        MealDirector director = new MealDirector();
+        MealBuilder vegetarianBuilder = new VegetarianMealBuilder();
+
+        director.setMealBuilder(vegetarianBuilder);
+        director.constructMeal();
+
+        Meal meal = director.getMeal();
+        System.out.println(meal);
+    }
+}
+
+                
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Mayor Control sobre el Proceso de Construcción: Permite un control más preciso sobre la creación de objetos complejos mediante pasos específicos.
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Reutilización de Código: Facilita la reutilización del código de construcción entre diferentes configuraciones del mismo objeto.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Separación de la Lógica de Construcción: Separa la lógica de construcción del objeto de su representación final, lo que resulta en un código más limpio y manejable.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Flexibilidad: Permite crear diferentes representaciones de un objeto utilizando el mismo proceso de construcción.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Complejidad Adicional: Añade complejidad al sistema al introducir múltiples clases y métodos para el proceso de construcción.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Menos Eficiencia para Objetos Simples: Puede ser una solución excesiva para objetos que no requieren un proceso de construcción complejo.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                    <div class="d-flex">
+                        <i class="fa-solid fa-times text-danger py-1"></i>
+                        <span class="inline-block ml-2">
+                            Requiere Conocimiento Detallado: Los desarrolladores deben entender completamente el proceso de construcción y la estructura del patrón para implementarlo correctamente.
+                        </span>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="unit-section">
+        <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/CRUCIUnidad2c.htm' %}"></iframe>
+    </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=abstract-factory&i=5">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=protoype&i=7">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 
