@@ -1,17 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
 /*Seccion Texto*/
-.und3b-tittle{
+.und3b-title{
     text-align: center;
 }
 
 .und3b-text-justify {
     text-align: justify;
-    margin-top: 25px;
-    font-size: 1em;
+    margin-top: 10px;
+    font-size: 1.15em;
+    margin-left: 17px;
+}
+
+.und3b-sbtittle {
+    text-align: justify;
+    margin-top: 17px;
+    margin-bottom: 20px;
+    margin-left: 15px;
 }
 
 .und3b-mt-2 {
     margin-top: 25px;
     margin-bottom: 25px;
+}
+
+.und3b-actividad{
+    margin-top: 17px;
 }
 
 /* Botones */
@@ -75,4 +89,151 @@
     /* Azul rey aún más oscuro */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transform: translateY(0);
+}
+
+.und3-b-button-cnt {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Estilos cards casos*/
+.und3b-case-study {
+    margin-right: 15px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+
+.und3b-card-case {
+
+    background-image: linear-gradient(163deg, #57aeff 0%, #3700ff 100%);
+    border-radius: 15px;
+    transition: all .3s;
+    margin-left: 17px;
+    margin-top: 15px;
+}
+
+.und3b-card2-case {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    padding: 10px;
+    padding-top: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    transition: all .2s;
+    border: 0.5px solid #535353 ;
+    width: 100%;
+}
+
+.und3b-card2-case:hover {
+  transform: scale(0.995);
+  border-radius: 20px;
+}
+
+.und3b-card-case:hover {
+  box-shadow: 0px 0px 20px 1px rgba(27, 99, 255, 0.3);
+}
+/* Estilos de los IDEs */
+.und3b-card-code {
+    justify-content: center;
+    font-family: casca;
+    width: 80%;
+    max-width: 850px;
+    height: 450px;
+    margin: 25px auto;
+    background-color: #24233b;
+    border-radius: 8px;
+    z-index: 1;
+    box-shadow: 0px 10px 10px rgb(73, 70, 92);
+    transition: 0.5s;
+    margin-bottom: 40px;
+}
+
+.und3b-card-code:hover {
+    transform: translateY(-7px);
+    box-shadow: 0px 10px 10px black;
+}
+
+.und3b-top {
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+}
+
+.und3b-circle {
+    padding: 0 4px;
+}
+
+.und3b-circle2 {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+.red {
+    background-color: #ff605c;
+}
+
+.yellow {
+    background-color: #ffbd44;
+}
+
+.green {
+    background-color: #00ca4e;
+}
+
+.und3b-header-code {
+    margin: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+#und3b-title2 {
+    margin-top: 17px;
+    color: white;
+    padding-left: 50px;
+    font-size: 17px;
+    font-family: "Fira Code", monospace;
+}
+
+.und3b-code-container {
+    text-align: center;
+    font-family: "Fira Code", monospace;
+    padding: 0px -10px;
+    margin-left: 10px;
+}
+
+#und3b-code {
+    width: 98%;
+    height: 370px;
+    resize: none;
+    background-color: #29293f;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+#und3b-code:focus {
+    outline: none !important;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .und3b-card-code {
+        width: 90%;
+        height: auto;
+    }
+
+    #und3b-code {
+        height: 300px;
+    }
 }

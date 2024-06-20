@@ -61,6 +61,13 @@
     transform: translateY(0);
 }
 
+
+.und3-a-button-cnt {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
 /*Seccion Texto*/
 .und3a-title {
     text-align: center;
@@ -170,65 +177,60 @@
 }
 
 /* Card Seccion Beneficios */
-.und3a-cards-beneficios {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.und3a-cards-ben {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
-    margin-top: 2rem;
 }
 
-.card {
-
-    background-color: #d2d7ed;
-    border: 2px solid #300181;
+.und3a-card-ben {
+    background: #d1e6f3;
+    border: 2px solid #2e0994;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    box-sizing: border-box;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card .icon {
+    max-width: 300px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-left: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.card strong {
+.und3a-card-ben:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.und3a-icon-ben {
     text-align: center;
-    display: block;
     margin-bottom: 10px;
-    font-size: 1.4em;
-    color: #1C274C;
 }
 
-.card span {
-    font-size: 1.1em;
-    color: #484848;
-    line-height: 1.5;
+
+
+.und3a-strong-ben {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.und3a-span-ben {
+    font-size: 1em;
+    color: #424242;
+    line-height: 1.6;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-    .und3a-cards-beneficios {
+    .und3a-cards-ben {
         grid-template-columns: 1fr;
     }
 }
 
 @media (min-width: 769px) {
-    .und3a-cards-beneficios {
+    .und3a-cards-ben {
         grid-template-columns: repeat(2, 1fr);
         /* Dos columnas en pantallas medianas y grandes */
     }
-}
-
-/* Botones de navegación */
-.und3-a-button-cnt {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
 }
