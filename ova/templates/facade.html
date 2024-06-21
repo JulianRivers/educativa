@@ -1,6 +1,267 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>facade</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Facade</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Fachada</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Facade</strong> El patrón de diseño Facade (o Fachada) es un patrón estructural que 
+                proporciona una interfaz simplificada para un conjunto complejo de interfaces en un sistema. 
+                Este patrón oculta la complejidad de las subsistemas y expone solo una interfaz fácil de usar.
+              </p>
+              <p class="card-text">
+                Su propósito es proporcionar una interfaz más simple y clara para interactuar 
+                con sistemas complejos. Facilita a los clientes el uso de subsistemas complejos y desacoplar 
+                el código cliente del subsistema subyacente. Permite cambiar el subsistema sin afectar el código cliente.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Facade/facade.png"
+            alt="Facade image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Imagina que estás desarrollando un sistema de gestión para un hogar inteligente. 
+            Este sistema permite a los usuarios controlar varios dispositivos como luces, 
+            termostatos, cámaras de seguridad y sistemas de entretenimiento. Cada dispositivo tiene 
+            su propia interfaz compleja con múltiples funciones. Sin embargo, los usuarios quieren 
+            una forma sencilla de controlar todos estos dispositivos sin tener que interactuar 
+            directamente con cada uno.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Facade/SmartHomeFacade.png"
+                  alt="facade solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para resolver el problema de gestión de un hogar inteligente utilizando el patrón de diseño Facade, 
+            implementamos una clase SmartHomeFacade que proporciona una interfaz simplificada para controlar varios 
+            dispositivos inteligentes, tales como LightManager, ThermostatManager, SecurityCameraManager, y EntertainmentSystemManager. 
+            La clase SmartHomeFacade encapsula las complejidades de cada dispositivo y expone métodos fáciles de usar para las operaciones comunes, 
+            como encender y apagar todas las luces, ajustar la temperatura del termostato, iniciar la grabación de todas las cámaras de seguridad, 
+            y reproducir música en el sistema de entretenimiento. De esta manera, los usuarios pueden interactuar con el sistema de hogar inteligente 
+            a través de una única interfaz simplificada, sin necesidad de conocer los detalles internos de cada dispositivo.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                Inicio
+
+    Definir Clase LightManager
+        Método turn_on()
+            Imprimir "Luces encendidas"
+        
+        Método turn_off()
+            Imprimir "Luces apagadas"
+        
+        Método set_brightness(level)
+            Imprimir "Brillo ajustado a level%"
+
+    Definir Clase ThermostatManager
+        Método set_temperature(temperature)
+            Imprimir "Temperatura establecida a temperature grados Celsius"
+        
+        Método turn_on()
+            Imprimir "Termostato encendido"
+        
+        Método turn_off()
+            Imprimir "Termostato apagado"
+
+    Definir Clase SecurityCameraManager
+        Método turn_on()
+            Imprimir "Cámaras de seguridad encendidas"
+        
+        Método turn_off()
+            Imprimir "Cámaras de seguridad apagadas"
+        
+        Método start_recording()
+            Imprimir "Grabación de cámaras iniciada"
+
+    Definir Clase EntertainmentSystemManager
+        Método turn_on()
+            Imprimir "Sistema de entretenimiento encendido"
+        
+        Método turn_off()
+            Imprimir "Sistema de entretenimiento apagado"
+        
+        Método play_music(playlist)
+            Imprimir "Reproduciendo música: playlist"
+
+    Definir Clase SmartHomeFacade
+        Método __init__()
+            Crear instancia de LightManager
+            Crear instancia de ThermostatManager
+            Crear instancia de SecurityCameraManager
+            Crear instancia de EntertainmentSystemManager
+
+        Método turn_on_all_lights()
+            Llamar a LightManager.turn_on()
+        
+        Método turn_off_all_lights()
+            Llamar a LightManager.turn_off()
+        
+        Método set_thermostat_temperature(temperature)
+            Llamar a ThermostatManager.set_temperature(temperature)
+        
+        Método start_all_security_cameras()
+            Llamar a SecurityCameraManager.start_recording()
+        
+        Método play_music(playlist)
+            Llamar a EntertainmentSystemManager.play_music(playlist)
+
+    Definir Ejemplo de Uso
+        Crear instancia de SmartHomeFacade llamada home_system
+        
+        Llamar a home_system.turn_on_all_lights()
+        Llamar a home_system.set_thermostat_temperature(22)
+        Llamar a home_system.start_all_security_cameras()
+        Llamar a home_system.play_music("Jazz Classics")
+
+Fin
+
+
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        El patrón Facade proporciona una interfaz simplificada y unificada para interactuar con un sistema complejo. 
+                        Esto facilita la comprensión y el uso del sistema para los clientes.
+                        
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Encapsula las complejidades internas del subsistema, permitiendo a los desarrolladores trabajar con una 
+                        interfaz más manejable y reduciendo la carga cognitiva.</span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Proporciona un único punto de control para las operaciones del subsistema, lo que facilita la localización de errores 
+                        y la implementación de cambios.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Si la clase Facade crece demasiado, puede convertirse en un "Dios objeto" con demasiadas responsabilidades, lo que contradice
+                        el principio de responsabilidad única y puede dificultar su mantenimiento.</span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Introduce una capa adicional de abstracción, lo que puede añadir complejidad al diseño del sistema. Esto puede ser innecesario en sistemas 
+                        simples donde el uso de Facade no aporta mucho beneficio.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad2I.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=decorator&i=12">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=examen-de-patrones-estructurales&i=14">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 

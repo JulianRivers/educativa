@@ -1,6 +1,242 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>decorator</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Decorator</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Decorador</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Decorator</strong> El patrón de diseño Decorator es un patrón estructural que permite extender o 
+                modificar las funcionalidades de un objeto dinámicamente sin alterar su estructura. El propósito principal 
+                del patrón Decorator es proporcionar una flexibilidad mayor al permitir que los objetos envuelvan 
+                comportamientos adicionales de manera transparente.
+              </p>
+              <p class="card-text">
+                Su propósito es permitir añadir nuevas funcionalidades o 
+                comportamiento adicional sin modificar las clases originales.
+                Tambien permite separar responsabilidades y agregar 
+                funcionalidad nueva sin mezclarla con la funcionalidad 
+                existente del componente
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Decorator/decorator.png"
+            alt="decorator image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            En una aplicación de administración de notificaciones, necesitas enviar 
+            mensajes a los usuarios con características adicionales como marcas de tiempo, 
+            formato especial o un tema de notificación personalizado. El objetivo es permitir 
+            la extensión de estas características sin modificar el componente base, manteniendo
+             la flexibilidad y la separación de responsabilidades.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Decorator/DecoratorDesignPattern.png"
+                  alt="Adapter solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para resolver el problema de administrar notificaciones personalizadas en una aplicación, 
+            empleando el patrón de diseño Decorator, implementamos las siguientes clases y decoradores: 
+            IMessage, que define la interfaz básica para todos los mensajes y decoradores; SimpleMessage, 
+            que implementa el mensaje base sin características adicionales; MessageDecorator, que define la 
+            estructura de la clase decoradora, permitiendo delegar llamadas al componente base; y finalmente, 
+            decoradores concretos como TimestampDecorator, que añade la marca de tiempo al mensaje; FormatDecorator, 
+            que permite formatear el mensaje; y ThemeDecorator, que añade un tema personalizado al mensaje. 
+            Estos decoradores trabajan combinados y delegan las llamadas al componente base para gestionar y enriquecer 
+            el mensaje sin modificar el componente base directamente, proporcionando flexibilidad y modularidad en la 
+            gestión de mensajes personalizados según los requerimientos del usuario.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                Inicio
+
+    Definir Interfaz IMessage:
+        Método get_content() -> str
+
+    Definir Clase SimpleMessage que implementa IMessage:
+        Método __init__(content: str)
+        Método get_content() -> str
+        # Almacenar el contenido del mensaje
+        # Retornar el contenido del mensaje
+
+    Definir Clase MessageDecorator que implementa IMessage:
+        Método __init__(message: IMessage)
+        Método get_content() -> str
+        # Almacenar una instancia de IMessage para delegar llamadas
+        # Retornar el contenido del mensaje delegado
+
+    Definir Clase TimestampDecorator que hereda de MessageDecorator e implementa IMessage:
+        Método get_content() -> str
+        # Obtener el contenido del mensaje
+        # Agregar la marca de tiempo actual
+        # Retornar el contenido extendido
+
+    Definir Clase FormatDecorator que hereda de MessageDecorator e implementa IMessage:
+        Método get_content() -> str
+        # Obtener el contenido del mensaje
+        # Formatear el contenido como deseado
+        # Retornar el contenido formateado
+
+    Definir Clase ThemeDecorator que hereda de MessageDecorator e implementa IMessage:
+        Método __init__(message: IMessage, theme: str)
+        Método get_content() -> str
+        # Obtener el contenido del mensaje
+        # Añadir el tema deseado
+        # Retornar el contenido extendido
+
+    Definir Ejemplo de Uso:
+        mensaje_simple ← Nueva instancia de SimpleMessage("Nuevo mensaje de notificación")
+        mensaje_con_timestamp ← Nueva instancia de TimestampDecorator(mensaje_simple)
+        mensaje_con_formato ← Nueva instancia de FormatDecorator(mensaje_con_timestamp)
+        mensaje_con_tema ← Nueva instancia de ThemeDecorator(mensaje_con_formato, "dark")
+        Imprimir mensaje_con_tema.get_content()
+        # Salida: "*** Nuevo mensaje de notificación *** [Timestamp: <marca de tiempo>] [Tema: dark]"
+
+Fin
+
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Permite agregar funcionalidades adicionales a objetos de manera dinámica y sin modificar el objeto original.
+                        Facilita la creación de objetos compuestos con funcionalidades combinadas, lo que permite extender o cambiar el comportamiento de manera flexible.
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Los decoradores pueden contener y gestionar responsabilidades específicas, evitando que las clases originales estén comprometidas con diferentes responsabilidades.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Facilita la composición modular de sistemas y su mantenimiento a largo plazo, ya que las responsabilidades pueden ser 
+                        agregadas o retiradas según sea necesario sin necesidad de modificar la estructura básica de las clases.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede aumentar la complejidad del diseño y la arquitectura del sistema debido a la creación de múltiples decoradores y la relación entre ellos.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        La implementación de múltiples decoradores puede incrementar el costo de procesamiento y el uso de memoria, especialmente si se aplican a objetos grandes o complejos.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad2H.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=bridge&i=11">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=facade&i=13">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 
