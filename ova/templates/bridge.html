@@ -1,6 +1,270 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>bridge</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Bridge</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Puente</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Bridge</strong> El patrón de diseño Bridge es una estructura que permite 
+                desacoplar la abstracción de la implementación de un objeto, de forma que ambas 
+                puedan variar de manera independiente. El objetivo principal del patrón de diseño 
+                Bridge es facilitar la flexibilidad y la extensión de las clases y el diseño de sistemas 
+                complejos, permitiendo una separación clara entre la interfaz y la implementación.
+              </p>
+              <p class="card-text">
+                Su propósito es facilitar el desacoplamiento entre la abstracción y la implementación. 
+                Esto significa que se pueden modificar y extender tanto la abstracción como la implementación 
+                sin afectar la otra parte.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Bridge/bridge.png"
+            alt="Bridge image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Imagina que necesitas desarrollar un sistema de renderizado para una galería de arte digital. 
+            Este sistema debe ser capaz de mostrar imágenes de diferentes tipos de obras de arte (pinturas, 
+            esculturas, fotografías, etc.) y permitir que cada obra sea renderizada con diferentes estilos 
+            (realista, abstracto, esquemático, etc.).
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Adapter/adapter_design_pattern.png"
+                  alt="Adapter solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para implementar la solución al problema del sistema de renderizado para una galería de arte digital, 
+            utilizaremos el patrón de diseño Bridge para lograr una separación clara entre la abstracción de la 
+            obra de arte y la implementación del estilo de renderización. Primero, definiremos una interfaz o clase 
+            abstracta que represente la abstracción de la obra de arte y proporcione métodos para configurar atributos 
+            básicos como el tamaño y el color. Luego, desarrollaremos una clase concreta para cada tipo de obra de arte 
+            (pintura, escultura, fotografía, etc.) que implemente la abstracción y proporcione detalles específicos sobre
+             cada tipo. Por otro lado, definiremos una interfaz o clase abstracta para representar el estilo de renderización 
+             y proporcionar métodos para definir cómo se muestra visualmente la obra de arte con ese estilo. A continuación, 
+             crearemos una clase concreta para cada estilo de renderización (realista, abstracto, esquemático, etc.) que 
+             implemente la interfaz o clase abstracta de la implementación y defina cómo se renderiza visualmente la obra de 
+             arte con ese estilo. Finalmente, desarrollaremos una clase principal o controlador que utilice la abstracción e 
+             implemente el patrón de diseño Bridge para gestionar el proceso de renderización.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                // Clase abstracta para la obra de arte
+                class AbstractArt:
+                    def __init__(self, size, color):
+                        self.size = size
+                        self.color = color
+                
+                    def set_size(self, size):
+                        self.size = size
+                
+                    def set_color(self, color):
+                        self.color = color
+                
+                    def render(self):
+                        pass
+                
+                // Clase concreta para una pintura que hereda de AbstractArt
+                class Painting(AbstractArt):
+                    def render(self, renderer):
+                        renderer.render_art(self)
+                
+                // Clase concreta para una escultura que hereda de AbstractArt
+                class Sculpture(AbstractArt):
+                    def render(self, renderer):
+                        renderer.render_art(self)
+                
+                // Clase concreta para una fotografía que hereda de AbstractArt
+                class Photograph(AbstractArt):
+                    def render(self, renderer):
+                        renderer.render_art(self)
+                
+                // Clase abstracta para el estilo de renderización
+                class RenderingStyle:
+                    def render_art(self, art):
+                        pass
+                
+                // Clase concreta para un estilo de renderización realista que hereda de RenderingStyle
+                class RealisticStyle(RenderingStyle):
+                    def render_art(self, art):
+                        # Implementación del estilo realista de renderización
+                        print(f"Renderizando la obra de arte '{art.__class__.__name__}' con estilo realista.")
+                
+                // Clase concreta para un estilo de renderización abstracto que hereda de RenderingStyle
+                class AbstractStyle(RenderingStyle):
+                    def render_art(self, art):
+                        # Implementación del estilo abstracto de renderización
+                        print(f"Renderizando la obra de arte '{art.__class__.__name__}' con estilo abstracto.")
+                
+                // Clase concreta para un estilo de renderización esquemático que hereda de RenderingStyle
+                class SchematicStyle(RenderingStyle):
+                    def render_art(self, art):
+                        # Implementación del estilo esquemático de renderización
+                        print(f"Renderizando la obra de arte '{art.__class__.__name__}' con estilo esquemático.")
+                
+                // Clase principal para controlar el proceso de renderización
+                def main():
+                    # Crear diferentes tipos de obras de arte
+                    painting = Painting(1024, "rojo")
+                    sculpture = Sculpture(2048, "verde")
+                    photograph = Photograph(512, "azul")
+                
+                    # Crear estilos de renderización
+                    realistic_style = RealisticStyle()
+                    abstract_style = AbstractStyle()
+                    schematic_style = SchematicStyle()
+                
+                    # Renderizar cada obra de arte con diferentes estilos
+                    painting.render(realistic_style)
+                    sculpture.render(abstract_style)
+                    photograph.render(schematic_style)
+                
+                main()
+                
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Facilita el desacoplamiento entre la abstracción y la implementación, lo que permite una mayor flexibilidad y escalabilidad en el diseño del sistema.
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Permite que tanto la abstracción como la implementación puedan variar y evolucionar independientemente,
+                         lo cual facilita la adición de nuevas funcionalidades y estilos sin afectar el código existente.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Facilita la reutilización de la implementación en diferentes contextos y evita duplicar código, lo que simplifica el
+                         mantenimiento y reduce el riesgo de errores.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        En algunos casos, el uso del patrón de diseño Bridge puede afectar ligeramente el rendimiento debido 
+                        a la necesidad de manejar dos niveles de abstracción para la comunicación entre la abstracción e implementación.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede añadir cierta complejidad al diseño y a la implementación del sistema debido a la necesidad de separar la 
+                        abstracción de la implementación y mantener relaciones entre ellas.    
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad2G.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=adpter&i=10">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=decorator&i=12">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 

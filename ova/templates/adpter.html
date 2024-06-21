@@ -1,6 +1,239 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>adpter</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Adapter</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Adaptador</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Adapter</strong> El patrón de diseño Adapter, también conocido como Wrapper, 
+                es un patrón estructural cuyo propósito es permitir que dos interfaces incompatibles 
+                puedan trabajar juntas. Este patrón se utiliza cuando se necesita que una clase, que no 
+                tiene la interfaz adecuada, pueda integrarse con otras clases de una forma que sea 
+                comprensible para estas.
+              </p>
+              <p class="card-text">
+                Su propósito es convertir la interfaz de una clase en otra interfaz que el cliente espera: 
+                Esto permite que clases con interfaces incompatibles puedan trabajar juntas.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Adapter/Adapter.png"
+            alt="Adapter image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Supongamos que estás desarrollando una aplicación que maneja el procesamiento de pagos para una tienda en línea. 
+            Inicialmente, la tienda solo trabajaba con una API de pagos llamada PaymentAPI, la cual tiene un método para procesar pagos. 
+            Recientemente, la tienda decidió integrar un nuevo sistema de pagos llamado NewPaymentSystem debido a sus mejores tarifas y 
+            características avanzadas. Sin embargo, NewPaymentSystem tiene una interfaz diferente y no es compatible con la implementación 
+            existente de la tienda.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Adapter/adapter_design_pattern.png"
+                  alt="Adapter solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para resolver el problema de integrar NewPaymentSystem con la interfaz PaymentAPI existente, seguiremos los siguientes pasos:
+
+            Definir la Interfaz Existente (PaymentAPI): Esta es la interfaz que la tienda en línea ya utiliza para procesar pagos.
+
+            Implementar la Nueva Clase (NewPaymentSystem): Esta es la nueva clase de sistema de pagos que tiene una interfaz diferente a la que espera PaymentAPI.
+
+            Crear el Adaptador (PaymentAdapter): El adaptador implementará la interfaz PaymentAPI y traducirá las llamadas al método makePayment() de NewPaymentSystem.
+
+            Modificar el Código Cliente para Usar el Adaptador: En lugar de utilizar directamente NewPaymentSystem, el código cliente usará PaymentAdapter.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+              # Interfaz existente que el cliente espera usar
+                  interface PaymentAPI:
+                    # Método para procesar pagos
+                    method processPayment(amount: double)
+
+                # Implementación actual de PaymentAPI
+                class PaymentProcessor implements PaymentAPI:
+                    # Implementación del método processPayment
+                    method processPayment(amount: double):
+                        # Lógica para procesar el pago usando la API antigua
+                        print("Processing payment of $" + amount + " using PaymentAPI.")
+
+                # Nueva clase de sistema de pagos con una interfaz diferente
+                class NewPaymentSystem:
+                    # Método para procesar pagos en el nuevo sistema
+                    method makePayment(amount: double):
+                        # Lógica para procesar el pago usando la nueva API
+                        print("Processing payment of $" + amount + " using NewPaymentSystem.")
+
+                # Adaptador que permite que NewPaymentSystem funcione con PaymentAPI
+                class PaymentAdapter implements PaymentAPI:
+                    # Referencia a la instancia de NewPaymentSystem
+                    private newPaymentSystem: NewPaymentSystem
+
+                    # Constructor que inicializa el adaptador con una instancia de NewPaymentSystem
+                    constructor PaymentAdapter(newPaymentSystem: NewPaymentSystem):
+                        this.newPaymentSystem = newPaymentSystem
+
+                    # Implementación del método processPayment de PaymentAPI
+                    method processPayment(amount: double):
+                        # Traduce la llamada al método makePayment del nuevo sistema de pagos
+                        this.newPaymentSystem.makePayment(amount)
+
+                # Función principal que demuestra el uso del adaptador
+                function main():
+                    # Crear una instancia de la implementación antigua de PaymentAPI
+                    oldPaymentProcessor: PaymentAPI = new PaymentProcessor()
+                    # Procesar un pago usando la implementación antigua
+                    oldPaymentProcessor.processPayment(100.0)
+
+                    # Crear una instancia del nuevo sistema de pagos
+                    newPaymentSystem: NewPaymentSystem = new NewPaymentSystem()
+                    # Crear una instancia del adaptador, pasando la instancia del nuevo sistema de pagos
+                    adapter: PaymentAPI = new PaymentAdapter(newPaymentSystem)
+                    # Procesar un pago usando el adaptador, que internamente usa el nuevo sistema de pagos
+                    adapter.processPayment(200.0)
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Facilita la integración de clases que no son compatibles mediante la creación de un adaptador.
+                        Permite reutilizar código existente sin modificar las interfaces originales.
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Ayuda a mantener un diseño limpio y modular al desacoplar las clases adaptadas.
+                        Permite extender la funcionalidad sin modificar el código fuente original.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Mejora la claridad y comprensión del código al utilizar un adaptador para solucionar problemas de compatibilidad.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Introduce un nivel adicional de complejidad al sistema, lo que puede dificultar la comprensión y el mantenimiento del mismo.
+                      </span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        En ciertos casos, el uso de un adaptador puede implicar una sobrecarga en el rendimiento debido a la necesidad de realizar conversiones o manipulaciones adicionales.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/QuizUnidad2F.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=examen-de-patrones-creacionales&i=9">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=bridge&i=11">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
     
