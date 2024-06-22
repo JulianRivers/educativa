@@ -22,7 +22,7 @@ de Diseño
             {% if user.is_authenticated %}
             <div class="d-flex align-items-center">
                 <span class="m-0 text-light">Hola, {{ user.get_full_name }}</span> <!-- Muestra el nombre completo del usuario -->
-                <a class="m-0 text-light" href="/logout">, Cerrar sesión</a>
+                <a class="m-0 text-light" href="/logout">. Cerrar sesión</a>
             </div>
         {% else %}
             <div class="d-flex align-items-center">
