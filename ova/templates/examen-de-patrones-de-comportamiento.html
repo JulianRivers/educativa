@@ -1,6 +1,23 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>examen-de-patrones-de-comportamiento</h1>
+<div class="und1c-container">
+    <h1 class="und1c-title  unit-section">Examén de fin de módulo: Patrones De Diseño Comportamiento</h1>
+    <p class="und1a-paragraph">
+        Esta es la actividad de fin de curso donde se te evaluará los conocimientos que se te impartieron en las tres secciones anteriores, esta actividad tendrá nota lo cual se guardará en el sistema
+    </p>
+
+    <div class=" unit-section">
+        <h2 class="und1a-title">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/finModulo3.htm' %}"></iframe>
+    </div>
+
+    <div class="und1a-div-cnt unit-section">
+        <a class="next-lession-btn" href="/lecciones?view=strategy&i=17">Anterior sección</a>
+        <a class="next-lession-btn" href="/lecciones?view=analisis-de-la-necesidad-y-beneficios-de-su-uso&i=19">Siguiente sección</a>
+    </div>
+
+</div>
 {% endblock contenido %}
     
