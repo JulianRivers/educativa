@@ -3,6 +3,9 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import JsonResponse
 
+from ova.models import Actividad
+from usuario.models import Puntaje
+
 # Create your views here.
 # manejamos esto como una Base de Datos de contenidos
 contents = [
@@ -168,3 +171,61 @@ def update_progress(request):
         # Aquí puedes guardar el progreso en la base de datos, por ejemplo, usando request.user para obtener el usuario actual
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'failed'}, status=400)
+
+def subirSumativa(request):
+    if request.method == 'GET':
+        score = request.GET.get('score')
+        actividad = request.GET.get('actividad')
+        print(actividad)
+        if score is not None:
+            try:
+                score = int(score)
+                usuario = request.user
+                actividad = Actividad.objects.get(id=actividad)
+                print(f'Debug: usuario={usuario}, score={score}, actividad_id={actividad}')
+                puntajes = Puntaje.objects.filter(usuario=usuario, actividad=actividad)
+                if puntajes.exists():
+                    puntaje = puntajes.first()
+                    puntaje.resultado = score
+                    puntaje.is_sumativo = True  # Puedes ajustar este valor según sea necesario
+                    puntaje.save()
+                else:
+                    nuevo_puntaje = Puntaje.objects.create(
+                      usuario=usuario, 
+                    actividad=actividad, 
+                    resultado=score, 
+                    is_sumativo=True  # Puedes ajustar este valor según sea necesario
+                    )
+                    nuevo_puntaje.save()
+                print(f'Received score: {score}')
+                return JsonResponse({'status': 'success', 'score': score})
+            except ValueError:
+                return JsonResponse({'status': 'error', 'message': 'Invalid score value'}, status=400)
+        else:
+            return JsonResponse({'status': 'error', 'message': 'No score provided'}, status=400)
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
+    
+def subirFormativa(request):
+    if request.method == 'GET':
+        score = request.GET.get('score')
+        actividad = request.GET.get('actividad')
+        if score is not None:
+            try:
+                score = int(score)
+                usuario = request.user
+                nuevo_puntaje = Puntaje.objects.create(
+                    usuario=usuario, 
+                    actividad=actividad, 
+                    resultado=score, 
+                    is_sumativo=False  # Puedes ajustar este valor según sea necesario
+                )
+                nuevo_puntaje.save()
+                print(f'Received score: {score}')
+                return JsonResponse({'status': 'success', 'score': score})
+            except ValueError:
+                return JsonResponse({'status': 'error', 'message': 'Invalid score value'}, status=400)
+        else:
+            return JsonResponse({'status': 'error', 'message': 'No score provided'}, status=400)
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)

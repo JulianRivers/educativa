@@ -6,4 +6,4 @@ class Actividad(models.Model):
 
     def __str__(self):
         ''' Obtener cadena representativa de nuestro usuario '''
-        return f"{self.usuario} nota: {self.resultado}"
+        return f"{self.titulo}"
