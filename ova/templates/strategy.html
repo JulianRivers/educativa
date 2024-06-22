@@ -1,6 +1,237 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>strategy</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Strategy</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Estrategia</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Strategy</strong> El patrón de diseño Strategy es un patrón de comportamiento que permite definir una familia de algoritmos,
+                 encapsular cada uno de ellos y hacerlos intercambiables. Esto permite que el algoritmo varíe independientemente de los clientes que
+                  lo usan. En otras palabras, el patrón Strategy permite seleccionar un algoritmo en tiempo de ejecución.
+              </p>
+              <p class="card-text">
+                El propósito principal del patrón Strategy es separar el comportamiento de una clase del cliente, permitiendo que este comportamiento 
+                se pueda cambiar sin modificar la clase del cliente. Este patrón es especialmente útil cuando una clase tiene múltiples comportamientos 
+                que pueden ser elegidos y cambiados dinámicamente.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Facade/facade.png"
+            alt="Facade image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Imaginemos que estamos desarrollando una aplicación que ofrece diferentes métodos de pago (tarjeta de crédito, PayPal, criptomonedas). 
+            Queremos que el usuario pueda seleccionar su método de pago preferido en tiempo de ejecución y que cada método de pago tenga su propia 
+            lógica de procesamiento.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Strategy/strategy_pattern.png"
+                  alt="facade solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para resolver este problema utilizando el patrón Strategy, definiremos una interfaz PaymentStrategy con un método pay(amount). 
+            Luego, crearemos varias estrategias concretas, como CreditCardPayment, PayPalPayment y CryptoPayment, cada una implementando 
+            la interfaz PaymentStrategy con su propia lógica de pago. La clase ShoppingCart actuará como el contexto, manteniendo una 
+            referencia a una instancia de PaymentStrategy y utilizando esa instancia para realizar el pago.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                // Definición de la interfaz Strategy
+interface PaymentStrategy {
+    method pay(amount: Float)
+}
+
+// Implementaciones concretas de la estrategia
+class CreditCardPayment implements PaymentStrategy {
+    method pay(amount: Float) {
+        // Lógica para el pago con tarjeta de crédito
+        print("Pago de " + amount + " usando tarjeta de crédito.")
+    }
+}
+
+class PayPalPayment implements PaymentStrategy {
+    method pay(amount: Float) {
+        // Lógica para el pago con PayPal
+        print("Pago de " + amount + " usando PayPal.")
+    }
+}
+
+class CryptoPayment implements PaymentStrategy {
+    method pay(amount: Float) {
+        // Lógica para el pago con criptomonedas
+        print("Pago de " + amount + " usando criptomonedas.")
+    }
+}
+
+// Contexto que usa una estrategia de pago
+class ShoppingCart {
+    private paymentStrategy: PaymentStrategy
+
+    method setPaymentStrategy(strategy: PaymentStrategy) {
+        this.paymentStrategy = strategy
+    }
+
+    method checkout(amount: Float) {
+        paymentStrategy.pay(amount)
+    }
+}
+
+// Uso del patrón Strategy
+cart = new ShoppingCart()
+
+// El cliente selecciona la estrategia de pago
+cart.setPaymentStrategy(new CreditCardPayment())
+cart.checkout(100.0)  // Pago de 100.0 usando tarjeta de crédito.
+
+cart.setPaymentStrategy(new PayPalPayment())
+cart.checkout(200.0)  // Pago de 200.0 usando PayPal.
+
+cart.setPaymentStrategy(new CryptoPayment())
+cart.checkout(300.0)  // Pago de 300.0 usando criptomonedas.
+
+
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Permite cambiar los algoritmos o comportamientos en tiempo de ejecución.
+                        
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Separa el comportamiento del contexto, lo que facilita la adición de nuevas estrategias sin modificar el contexto.
+</span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Promueve la reutilización de código al encapsular algoritmos en clases separadas.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede introducir sobrecarga adicional si se crean demasiadas estrategias pequeñas.</span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Incrementa la complejidad del sistema al añadir múltiples clases y la necesidad de mantener las interfaces y sus implementaciones.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/CrucigramaUnidad3B.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=observer&i=16">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=examen-de-patrones-de-comportamiento&i=18">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 

@@ -1,6 +1,251 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>observer</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Observer</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Observador</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Observer</strong> El patrón de diseño Observer es un patrón de comportamiento que define una relación de 
+                dependencia uno a muchos entre objetos, de tal manera que cuando un objeto cambia su estado, todos los objetos 
+                dependientes son notificados y actualizados automáticamente. Este patrón es muy útil para implementar la comunicación 
+                entre objetos de forma que se mantenga el bajo acoplamiento entre ellos.
+              </p>
+              <p class="card-text">
+                El propósito principal del patrón Observer es establecer una manera de notificar automáticamente a múltiples objetos sobre 
+                cualquier cambio en el estado de otro objeto. Esto se logra mediante la definición de dos roles principales: el sujeto (o observable) 
+                y los observadores. El sujeto mantiene una lista de observadores y proporciona métodos para añadir, eliminar y notificar a los observadores. 
+                Cuando el estado del sujeto cambia, todos los observadores son notificados para que puedan actualizarse en consecuencia.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Facade/facade.png"
+            alt="Facade image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Supongamos que estamos desarrollando una aplicación meteorológica que permite a los usuarios recibir actualizaciones 
+            sobre las condiciones meteorológicas. La aplicación debe notificar automáticamente a todos los dispositivos (por ejemplo, 
+            teléfonos inteligentes, tabletas, computadoras) cuando haya un cambio en las condiciones meteorológicas.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Observer/observer_pattern.png"
+                  alt="facade solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Para resolver este problema utilizando el patrón Observer, crearemos una clase WeatherStation que actúa como el sujeto y 
+            mantiene una lista de dispositivos que desean recibir actualizaciones meteorológicas. Los dispositivos actuarán como 
+            observadores y se registrarán en la estación meteorológica para recibir actualizaciones. Cada vez que la estación 
+            meteorológica actualice su estado (por ejemplo, temperatura, humedad), notificará automáticamente a todos los dispositivos 
+            registrados para que puedan actualizar su información meteorológica.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                // Definición de la interfaz Observer
+                interface Observer {
+                    method update(temperature: Float, humidity: Float, pressure: Float)
+                }
+                
+                // Definición de la interfaz Subject
+                interface Subject {
+                    method registerObserver(observer: Observer)
+                    method removeObserver(observer: Observer)
+                    method notifyObservers()
+                }
+                
+                // Implementación concreta del Subject
+                class WeatherStation implements Subject {
+                    private observers: List<Observer> = []
+                    private temperature: Float
+                    private humidity: Float
+                    private pressure: Float
+                
+                    method registerObserver(observer: Observer) {
+                        observers.add(observer)
+                    }
+                
+                    method removeObserver(observer: Observer) {
+                        observers.remove(observer)
+                    }
+                
+                    method notifyObservers() {
+                        for each observer in observers {
+                            observer.update(temperature, humidity, pressure)
+                        }
+                    }
+                
+                    method setMeasurements(temperature: Float, humidity: Float, pressure: Float) {
+                        this.temperature = temperature
+                        this.humidity = humidity
+                        this.pressure = pressure
+                        notifyObservers()
+                    }
+                }
+                
+                // Implementación concreta del Observer
+                class WeatherDisplay implements Observer {
+                    private temperature: Float
+                    private humidity: Float
+                    private pressure: Float
+                
+                    method update(temperature: Float, humidity: Float, pressure: Float) {
+                        this.temperature = temperature
+                        this.humidity = humidity
+                        this.pressure = pressure
+                        display()
+                    }
+                
+                    method display() {
+                        print("Current conditions: " + temperature + "C degrees and " + humidity + "% humidity")
+                    }
+                }
+                
+                // Uso del patrón Observer
+                weatherStation = new WeatherStation()
+                weatherDisplay = new WeatherDisplay()
+                
+                weatherStation.registerObserver(weatherDisplay)
+                weatherStation.setMeasurements(25.0, 65.0, 1013.0)
+
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Facilita la comunicación entre objetos de manera que reduce el acoplamiento entre el sujeto y los observadores.
+                        
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Permite cambiar o reutilizar sujetos y observadores de manera independiente.</span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Los observadores reciben actualizaciones automáticamente cuando el estado del sujeto cambia.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Aumenta la complejidad del código debido a la necesidad de gestionar las listas de observadores y las notificaciones.</span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede haber un impacto en el rendimiento si hay un gran número de observadores o si las notificaciones son frecuentes.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/CrucigramaUnidad3B.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=iterator&i=15">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=strategy&i=17">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 

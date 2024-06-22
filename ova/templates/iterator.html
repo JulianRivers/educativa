@@ -1,6 +1,255 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>iterator</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Iterator</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">Iterador</h2>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fa-solid fa-question fa-2x text-primary"></i>
+                <h2 class="card-title ml-2">Propósito</h2>
+              </div>
+              <p class="card-text">
+                <strong>Iterator</strong> El patrón de diseño Iterator es un patrón de comportamiento que permite 
+                recorrer una colección de elementos sin exponer su representación subyacente (lista, pila, árbol, etc.). 
+                Este patrón proporciona una manera de acceder a los elementos de una colección secuencialmente sin necesidad 
+                de conocer la estructura interna de la colección.
+              </p>
+              <p class="card-text">
+                El propósito principal del patrón Iterator es separar la lógica de iteración de la colección misma, proporcionando 
+                una interfaz uniforme para iterar sobre diferentes tipos de colecciones. Esto mejora la cohesión y reduce el acoplamiento, 
+                permitiendo a los desarrolladores cambiar la colección subyacente sin afectar el código que la recorre.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/Facade/facade.png"
+            alt="Facade image"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="lead">
+            Imagina que estás desarrollando una aplicación de biblioteca digital que necesita manejar una variedad 
+            de colecciones de libros. Estas colecciones pueden ser listas de libros en formato físico, listas 
+            de libros electrónicos, listas de audiolibros, etc. Cada tipo de colección puede estar almacenada 
+            de manera diferente, por ejemplo, los libros físicos en una base de datos relacional, los libros 
+            electrónicos en una base de datos no relacional y los audiolibros en un sistema de archivos.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2" >Solución</h2>
+      </div>
+      <div class="row">
+          <div class="img-container mb-3">
+              <img
+                  src="../../static/images/Iterator/iterator_pattern.png"
+                  alt="facade solucion imagen"
+                  class="img-fluid rounded"
+              />
+          </div>
+        <div class="col-md-12">
+          <p class="lead">
+            Vamos a definir una interfaz Iterator que proporciona métodos para comprobar si hay más elementos (has_next()) y 
+            para obtener el siguiente elemento (next()). También definiremos una interfaz Aggregate para las colecciones, 
+            con un método create_iterator() que devolverá un iterador para la colección. Implementaremos iteradores concretos 
+            para cada tipo de colección (libros físicos, libros electrónicos, audiolibros) y las correspondientes colecciones 
+            concretas que implementen la interfaz Aggregate. De esta manera, podremos recorrer cualquier tipo de colección de 
+            libros de manera uniforme usando los iteradores correspondientes.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2" >Implementacion en Pseudocodigo</h2>
+        </div>
+      <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+                // Definición de la interfaz Iterator
+interface Iterator {
+    method hasNext(): Boolean
+    method next(): Element
+}
+
+// Implementación concreta del Iterator
+class ConcreteIterator implements Iterator {
+    private collection: Collection
+    private position: Integer = 0
+
+    constructor(collection: Collection) {
+        this.collection = collection
+    }
+
+    method hasNext(): Boolean {
+        return position < collection.size()
+    }
+
+    method next(): Element {
+        if (!hasNext()) {
+            throw new NoSuchElementException()
+        }
+        return collection.get(position++)
+    }
+}
+
+// Definición de la interfaz Aggregate
+interface Aggregate {
+    method createIterator(): Iterator
+}
+
+// Implementación concreta del Aggregate
+class ConcreteAggregate implements Aggregate {
+    private items: List<Element> = new ArrayList()
+
+    method createIterator(): Iterator {
+        return new ConcreteIterator(this)
+    }
+
+    method size(): Integer {
+        return items.size()
+    }
+
+    method get(index: Integer): Element {
+        return items.get(index)
+    }
+
+    method add(item: Element) {
+        items.add(item)
+    }
+}
+
+// Uso del patrón Iterator
+collection = new ConcreteAggregate()
+collection.add("Item 1")
+collection.add("Item 2")
+collection.add("Item 3")
+
+iterator = collection.createIterator()
+while (iterator.hasNext()) {
+    item = iterator.next()
+    print(item)
+}
+
+
+                              </code>
+                            </pre>
+      </figure>
+    </section>
+  
+    <section class="my-5 unit-section">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y contras</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Pros</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2 ">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Proporciona una interfaz común para recorrer diferentes colecciones, 
+                        lo que facilita el uso de estas colecciones en el código cliente sin importar cómo están implementadas internamente.
+                        
+                      </span>
+                  </div>
+                  
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Separa la lógica de iteración de la lógica de almacenamiento, permitiendo cambios en 
+                        la estructura de la colección sin afectar el código de iteración.</span>
+                  </div>
+                </li>
+                <li class="mb-2 d-flex">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Simplifica la implementación de algoritmos de recorrido sin necesidad de conocer los detalles internos de la colección.
+                      </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title mb-3">Contras</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede aumentar la complejidad del sistema al introducir múltiples clases e interfaces adicionales para manejar la iteración.</span>
+                  </div>
+                </li>
+                <li class="mb-2">
+                  <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Dependiendo de la implementación, el patrón Iterator puede introducir sobrecarga de rendimiento, especialmente si los iteradores son complejos 
+                        o si se utilizan de manera ineficiente.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <div class="unit-section">
+      <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+      {% load static %}
+      <iframe class="und1a-activity" src="{% static 'activities/CrucigramaUnidad3A.htm' %}"></iframe>
+  </div>
+  
+    <div class="und1a-div-cnt unit-section">
+      <a class="next-lession-btn" href="/lecciones?view=examen-de-patrones-estructurales&i=14">Anterior sección</a>
+      <a class="next-lession-btn" href="/lecciones?view=observer&i=16">Siguiente sección</a>
+  </div>
+  </div>
 {% endblock contenido %}
 
