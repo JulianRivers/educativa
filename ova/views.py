@@ -7,6 +7,16 @@ from django.http import JsonResponse
 # manejamos esto como una Base de Datos de contenidos
 contents = [
         {
+            "title": 'Introducción a los patrones de diseño',
+            "items": [
+                {
+                    "label":'Video Introductorio',
+                    "url": 'video-intro',
+                }
+            ],
+            "ariaLabel": "index-introduction"
+        },
+        {
             "title": 'Conceptos fundamentales',
             "items": [
                 {
