@@ -25,8 +25,22 @@ def lecciones(request):
     view = request.GET.get('view', None)
     progreso = list(ProgresoLeccion.objects.filter(usuario=request.user).values_list( 'progreso',flat=True))
     
-    htmlTemplatesNames = {}
-    data = []
+    htmlTemplatesNames = {
+        'video-intro': 'video-intro.html',
+    }
+
+    data = [{
+            'sectionTitle': 'Video introduccion',
+            'lessons': [
+                {
+                'label': 'Video introduccion',
+                'url': 'video-intro',
+                'index': -1,
+                'progress': 100
+            }
+            ]
+        }]
+    
     i = 0
     for content in contents:
         data.append({
@@ -42,7 +56,7 @@ def lecciones(request):
                 'progress': progreso[i] if i < len(progreso) else 0
             })
             i += 1
-    print(data)
+
     return render(request, htmlTemplatesNames[view], {'secciones': data})
 
 @csrf_exempt
@@ -52,7 +66,7 @@ def update_progress(request):
         progress = data.get('progress')
         index = data.get('progressIndex')
 
-        lecciones = ProgresoLeccion.objects.filter(unidad_id=index)
+        lecciones = ProgresoLeccion.objects.filter(unidad_id=index, usuario=request.user)
 
         # # sino existe algun progreso para esa leccion, se crea uno nuevo
         if not lecciones.exists():
@@ -87,7 +101,7 @@ def subirSumativa(request):
     if request.method == 'GET':
         score = request.GET.get('score')
         actividad = request.GET.get('actividad')
-        print(actividad)
+
         if score is not None:
             try:
                 score = int(score)
