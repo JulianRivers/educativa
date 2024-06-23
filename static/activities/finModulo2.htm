@@ -1545,6 +1545,14 @@ function CalculateOverallScore(){
 //if TotalWeighting is 0, no questions so far have any value, so 
 //no penalty should be shown.
 		Score = 100; 
+		fetch(`/subir-sumativa/?score=${Score}&actividad=15`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 	}
 }
 

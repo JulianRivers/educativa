@@ -1546,7 +1546,7 @@ function CalculateOverallScore(){
 //no penalty should be shown.
 		Score = 100; 
 	}
-	fetch(`/subir-formativa/?score=${Score}&actividad=23`)
+	fetch(`/subir-sumativa/?score=${Score}&actividad=23`)
 	.then(response => response.json())
 	.then(data => {
 		console.log('Success:', data);
