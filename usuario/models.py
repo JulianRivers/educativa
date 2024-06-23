@@ -72,7 +72,7 @@ class Puntaje(models.Model):
     usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE)
     resultado = models.DecimalField('Resultado', max_digits=5, decimal_places=2)
-    is_sumativo = models.BooleanField()
+    is_sumativo = models.BooleanField(default=False)
 
     def __str__(self):
         ''' Obtener cadena representativa de nuestro usuario '''
