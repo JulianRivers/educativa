@@ -1,6 +1,63 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>Aspectos Concretos de los Patrones de Uso en POO</h1>
+<h1 class="und3a-title">Aspectos Concretos del Uso de Patrones en Lenguajes de POO</h1>
+    <div class="und3b-card-case">
+        <div class="und3b-card2-case">
+            <div class="und3b-text-justify unit-section" >
+                Los patrones de diseño en la programación orientada a objetos proporcionan soluciones probadas y eficaces para problemas recurrentes en el desarrollo de software. A continuación, exploraremos aspectos concretos del uso de patrones en este contexto:
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="und3a-cards unit-section">
+        <div class="und3a-card purple">
+            <p class="tip">Abstracción y reutilización</p>
+            <p class="second-text">Los patrones de diseño permiten abstraer soluciones comunes a problemas específicos, promoviendo la reutilización de diseño en lugar de reinventar la rueda. Esto mejora la mantenibilidad del código y reduce la duplicación.</p>
+        </div>
+        <div class="und3a-card blue">
+            <p class="tip">Adaptabilidad y flexibilidad</p>
+            <p class="second-text">Los patrones facilitan la adaptación de soluciones a diferentes contextos y requisitos cambiantes del software. Al utilizar interfaces y clases abstractas, los patrones permiten cambios controlados y minimizan el impacto en otras partes del sistema.</p>
+        </div>
+        <div class="und3a-card blue">
+            <p class="tip">Claridad y estructura</p>
+            <p class="second-text">Al aplicar patrones reconocidos, el código resultante tiende a ser más claro y estructurado. Los desarrolladores familiarizados con los patrones pueden comprender rápidamente la intención del diseño, facilitando la colaboración y el mantenimiento del equipo.</p>
+        </div>
+        <div class="und3a-card purple">
+            <p class="tip">Aplicación específica a problemas recurrentes</p>
+            <p class="second-text">Cada patrón tiene su área de aplicación específica y criterios de uso recomendados. Por ejemplo, el patrón Singleton se utiliza para garantizar la existencia de una única instancia de una clase, mientras que el patrón Strategy permite definir una familia de algoritmos y seleccionar uno de ellos dinámicamente.</p>
+        </div>
+        <div class="und3a-card purple">
+            <p class="tip">Consideraciones de diseño y mantenibilidad</p>
+            <p class="second-text">Al utilizar patrones, es crucial considerar la complejidad agregada y el equilibrio entre una implementación flexible y mantenible frente a una sobreingeniería. Los patrones deben aplicarse con prudencia para evitar complicaciones innecesarias en el código base.
+            </p>
+        </div>
+        <div class="und3a-card blue">
+            <p class="tip">Ejemplos en lenguajes específicos</p>
+            <p class="second-text">Muchos patrones de diseño son independientes del lenguaje de programación, pero su implementación puede variar. Por ejemplo, el patrón Observer se puede implementar de manera diferente en Java utilizando interfaces y clases abstractas, en comparación con C# utilizando delegados y eventos.</p>
+        </div>
+        <div class="und3a-card blue">
+            <p class="tip">Estandarización del diseño</p>
+            <p class="second-text">Los patrones bien establecidos ofrecen un vocabulario común para describir soluciones de diseño. Esto ayuda a comunicar ideas de diseño de manera efectiva entre desarrolladores y equipos, mejorando la consistencia y la coherencia del código.</p>
+        </div>
+        <div class="und3a-card purple">
+            <p class="tip">Performance y optimización</p>
+            <p class="second-text">Aunque algunos patrones pueden introducir un ligero costo de rendimiento debido a la complejidad añadida, la mayoría están diseñados para mejorar la estructura y la eficiencia del software a largo plazo. Al elegir y aplicar patrones de manera apropiada, se puede minimizar cualquier impacto negativo en el rendimiento.
+            </p>
+        </div>
+       
+    </div>
+
+    <div class="unit-section">
+        <h2 class="und3a-actividad">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/Quiz-Unidad-3C.htm' %}"></iframe>
+    </div>
+
+    <div class="und1a-div-cnt unit-section">
+        <a class="next-lession-btn" href="/lecciones?view=casos-de-estudio-y-ejemplos-de-aplicacion">Sección anterior</a>
+        <a class="next-lession-btn" href="/lecciones?view=examen-de-aplicaciones-practicas-de-patrones">Siguiente sección</a>
+      </div>
 {% endblock contenido %}
     
