@@ -2,7 +2,10 @@ from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser, PermissionsMixin, BaseUserManager)
 from django.contrib.auth.models import AbstractUser
+
 from django.utils import timezone
+
+from ova.models import Actividad
 # Modelos de la base de datos relacionados a los usuarios clientes o administrador
 
 class UserProfileManager(BaseUserManager):
@@ -67,7 +70,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
 class Puntaje(models.Model):
     usuario = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
-    actividad = models.CharField('Actividad', max_length=100)
+    actividad = models.ForeignKey(Actividad, on_delete=models.CASCADE)
     resultado = models.DecimalField('Resultado', max_digits=5, decimal_places=2)
     is_sumativo = models.BooleanField()
 

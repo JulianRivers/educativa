@@ -44,7 +44,7 @@ def index(request):
 
 def logoutView(request):
     logout(request)
-    return redirect('usuario:index')
+    return redirect('/')
 
 def registerView(request):
     if not request.user.is_anonymous: 
