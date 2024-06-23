@@ -1280,6 +1280,14 @@ function CheckAnswers(){
 		Finished = true;
 	}
 
+	fetch(`/subir-formativa/?score=${Score}&actividad=7`)
+	.then(response => response.json())
+	.then(data => {
+		console.log('Success:', data);
+	})
+	.catch((error) => {
+		console.error('Error:', error);
+	});
 }
 
 function TypeChars(Chars){

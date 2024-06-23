@@ -1482,6 +1482,14 @@ function CheckAnswers(){
 	}
 	ShowMessage(Feedback);
 	
+	fetch(`/subir-formativa/?score=${Score}&actividad=3`)
+	.then(response => response.json())
+	.then(data => {
+		console.log('Success:', data);
+	})
+	.catch((error) => {
+		console.error('Error:', error);
+	});
 //If the exercise is over, deal with that
 	if ((AllDone == true)||(TimeOver == true)){
 
@@ -1496,6 +1504,7 @@ function CheckAnswers(){
 //The window layout may be affected by the feedback, so 
 //put the cards in place again.
 	DragEx.SetInitialPositions(false);
+	
 }
 
 

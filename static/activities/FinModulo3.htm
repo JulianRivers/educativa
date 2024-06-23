@@ -1546,6 +1546,14 @@ function CalculateOverallScore(){
 //no penalty should be shown.
 		Score = 100; 
 	}
+	fetch(`/subir-sumativa/?score=${Score}&actividad=19`)
+	.then(response => response.json())
+	.then(data => {
+		console.log('Success:', data);
+	})
+	.catch((error) => {
+		console.error('Error:', error);
+	});
 }
 
 //New for 6.2.2.0
