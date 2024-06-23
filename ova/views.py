@@ -14,7 +14,6 @@ from .serializers import ProgresoLeccionSerializer
 # Create your views here.
 contents = obtener_estructura()
 
-
 @login_required(login_url='/login')
 def index(request):
     # montamos los contenidos del ova

@@ -9,7 +9,10 @@
     text-align: justify;
     margin-top: 10px;
     font-size: 1.15em;
-    margin-left: 17px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 2px;
 }
 
 .und3b-sbtittle {
@@ -113,7 +116,9 @@
     border-radius: 15px;
     transition: all .3s;
     margin-left: 17px;
+    margin-right: 12px;
     margin-top: 15px;
+    padding: 1px 1px 1px 1px
 }
 
 .und3b-card2-case {
@@ -123,10 +128,10 @@
     padding: 10px;
     padding-top: 5px;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: all .2s;
-    border: 0.5px solid #535353 ;
     width: 100%;
+    padding-bottom: 15px;
 }
 
 .und3b-card2-case:hover {

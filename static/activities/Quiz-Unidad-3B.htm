@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" prefix="dc: http://purl.org/dc/elements/1.1/">
-<head><meta name="author" content="Created with Hot Potatoes by Half-Baked Software, registered to Sunjay."/><meta name="keywords" content="Hot Potatoes, Hot Potatoes, Half-Baked Software, Windows, University of Victoria"/>
+<head><meta name="author" content="Created with Hot Potatoes by Half-Baked Software, registered to Duqcrack."/><meta name="keywords" content="Hot Potatoes, Hot Potatoes, Half-Baked Software, Windows, University of Victoria"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-<meta name="dc:creator" content="Sunjay" />
-<meta name="dc:title" content="Cuestionario fin de modulo" />
+<meta name="dc:creator" content="Duqcrack" />
+<meta name="dc:title" content="QUIZ CASOS DE ESTUDIO PATRONES DE DISE&#x00D1;O" />
 
 
 
 <title>
-Cuestionario fin de modulo
+QUIZ CASOS DE ESTUDIO PATRONES DE DISE&#x00D1;O
 </title>
 
 <!-- Made with executable version 7.0 Release 3 Build 0 -->
@@ -970,7 +970,7 @@ var ShuffleQs = false;
 var ShuffleAs = false;
 var DefaultRight = 'Correct!';
 var DefaultWrong = 'Sorry! Try again.';
-var QsToShow = 15;
+var QsToShow = 5;
 var Score = 0;
 var Finished = false;
 var Qs = null;
@@ -1157,122 +1157,42 @@ I[0]=new Array();I[0][0]=100;
 I[0][1]='';
 I[0][2]='0';
 I[0][3]=new Array();
-I[0][3][0]=new Array('Proveer una manera de recorrer una colecci\u00F3n sin exponer su representaci\u00F3n subyacente.','',0,0,1);
-I[0][3][1]=new Array('Permitir que un objeto notifique a otros objetos sobre cambios en su estado.','',1,100,1);
-I[0][3][2]=new Array('Proveer una interfaz para crear familias de objetos relacionados o dependientes.','',0,0,1);
-I[0][3][3]=new Array('Encapsular un algoritmo dentro de una clase.','',0,0,1);
+I[0][3][0]=new Array('Singleton','Respuesta Incorrecta',0,0,1);
+I[0][3][1]=new Array('Observer','Respuesta Incorrecta',0,0,1);
+I[0][3][2]=new Array('Factory Method','Correcto. El patr\u00F3n Factory Method se utiliz\u00F3 para crear objetos de diferentes tipos de documentos (PDF, HTML, Word) sin especificar sus clases concretas en el c\u00F3digo cliente.',1,100,1);
+I[0][3][3]=new Array('Decorator','Respuesta Incorrecta',0,0,1);
 I[1]=new Array();I[1][0]=100;
 I[1][1]='';
 I[1][2]='0';
 I[1][3]=new Array();
-I[1][3][0]=new Array('Define la interfaz para las actualizaciones de los observadores.','',0,0,1);
-I[1][3][1]=new Array('Mantiene una lista de observadores y los notifica sobre cambios.','',1,100,1);
-I[1][3][2]=new Array('Implementa la l\u00F3gica concreta del algoritmo.','',0,0,1);
-I[1][3][3]=new Array('Provee una manera de recorrer los elementos de una colecci\u00F3n.','',0,0,1);
+I[1][3][0]=new Array('Definir m\u00FAltiples interfaces para diferentes tipos de documentos.','Respuesta Incorrecta',0,0,1);
+I[1][3][1]=new Array('Crear objetos de diferentes tipos de documentos sin especificar sus clases concretas.','Correcto. El patr\u00F3n Factory Method permite la creaci\u00F3n de objetos de diferentes tipos de documentos (PDF, HTML, Word) sin necesidad de especificar sus clases concretas en el c\u00F3digo cliente, facilitando la extensibilidad y el mantenimiento del sistema.',1,100,1);
+I[1][3][2]=new Array('Permitir la herencia m\u00FAltiple de clases de documentos.','Respuesta Incorrecta',0,0,1);
+I[1][3][3]=new Array('Modularizar el comportamiento de los documentos.','Respuesta Incorrecta',0,0,1);
 I[2]=new Array();I[2][0]=100;
 I[2][1]='';
 I[2][2]='0';
 I[2][3]=new Array();
-I[2][3][0]=new Array('Observador (Observer)','',0,0,1);
-I[2][3][1]=new Array('Iterador (Iterator)','',1,100,1);
-I[2][3][2]=new Array('Sujeto (Subject)','',0,0,1);
-I[2][3][3]=new Array('Observador Concreto (Concrete Observer)','',0,0,1);
+I[2][3][0]=new Array('Strategy','El patr\u00F3n Strategy se utiliz\u00F3 para definir una familia de algoritmos (comportamientos de usuario) y hacerlos intercambiables en tiempo de ejecuci\u00F3n, permitiendo seleccionar din\u00E1micamente el comportamiento de cada tipo de usuario.',1,100,1);
+I[2][3][1]=new Array('Factory Method','Respuesta Incorrecta',0,0,1);
+I[2][3][2]=new Array('Singleton','Respuesta Incorrecta',0,0,1);
+I[2][3][3]=new Array('Observer','Respuesta Incorrecta',0,0,1);
 I[3]=new Array();I[3][0]=100;
 I[3][1]='';
 I[3][2]='0';
 I[3][3]=new Array();
-I[3][3][0]=new Array('Fomenta el bajo acoplamiento entre el sujeto y sus observadores.','',1,50,1);
-I[3][3][1]=new Array('Facilita la reutilizaci\u00F3n de c\u00F3digo.','',0,0,1);
-I[3][3][2]=new Array('Permite que los observadores se actualicen autom\u00E1ticamente.','',1,50,1);
-I[3][3][3]=new Array('Incrementa la complejidad del c\u00F3digo al a\u00F1adir m\u00FAltiples interfaces.','',0,0,1);
+I[3][3][0]=new Array('Definiendo m\u00FAltiples constructores en la clase usuario.','Respuesta Incorrecta',0,0,1);
+I[3][3][1]=new Array('Permitiendo la herencia m\u00FAltiple de las clases de usuarios.','Respuesta Incorrecta',0,0,1);
+I[3][3][2]=new Array('Modularizando las interfaces de usuario.','Respuesta Incorrecta',0,0,1);
+I[3][3][3]=new Array('Encapsulando los comportamientos de usuario en clases separadas y permitiendo su selecci\u00F3n din\u00E1mica.','Correcto. El patr\u00F3n Strategy encapsula los comportamientos de usuario en clases separadas y permite su selecci\u00F3n din\u00E1mica, facilitando la gesti\u00F3n y el cambio de comportamientos en tiempo de ejecuci\u00F3n.',1,100,1);
 I[4]=new Array();I[4][0]=100;
 I[4][1]='';
 I[4][2]='0';
 I[4][3]=new Array();
-I[4][3][0]=new Array('notify()','',0,0,1);
-I[4][3][1]=new Array('update()','',1,100,1);
-I[4][3][2]=new Array('subscribe()','',0,0,1);
-I[4][3][3]=new Array('attach()','',0,0,1);
-I[5]=new Array();I[5][0]=100;
-I[5][1]='';
-I[5][2]='0';
-I[5][3]=new Array();
-I[5][3][0]=new Array('Proveer una manera de recorrer una colecci\u00F3n sin exponer su representaci\u00F3n subyacente.','',1,100,1);
-I[5][3][1]=new Array('Permitir que un objeto notifique a otros objetos sobre cambios en su estado.','',0,0,1);
-I[5][3][2]=new Array('Encapsular un algoritmo dentro de una clase.','',0,0,1);
-I[5][3][3]=new Array('Proveer una interfaz para crear familias de objetos relacionados o dependientes.','',0,0,1);
-I[6]=new Array();I[6][0]=100;
-I[6][1]='';
-I[6][2]='0';
-I[6][3]=new Array();
-I[6][3][0]=new Array('notify()','',0,0,1);
-I[6][3][1]=new Array('next()','',1,100,1);
-I[6][3][2]=new Array('update()','',0,0,1);
-I[6][3][3]=new Array('execute()','',0,0,1);
-I[7]=new Array();I[7][0]=100;
-I[7][1]='';
-I[7][2]='0';
-I[7][3]=new Array();
-I[7][3][0]=new Array('Permite la iteraci\u00F3n sobre diferentes estructuras de datos de manera uniforme.','',1,100,1);
-I[7][3][1]=new Array('Simplifica el c\u00F3digo de la colecci\u00F3n al separar la l\u00F3gica de iteraci\u00F3n.','',1,100,1);
-I[7][3][2]=new Array('Incrementa el acoplamiento entre la colecci\u00F3n y su iterador.','',0,0,1);
-I[7][3][3]=new Array('Facilita la modificaci\u00F3n de la estructura de la colecci\u00F3n sin afectar al cliente.','',0,0,1);
-I[8]=new Array();I[8][0]=100;
-I[8][1]='';
-I[8][2]='0';
-I[8][3]=new Array();
-I[8][3][0]=new Array('Sujeto (Subject)','',0,0,1);
-I[8][3][1]=new Array('Observador (Observer)','',0,0,1);
-I[8][3][2]=new Array('Iterador (Iterator)','',1,100,1);
-I[8][3][3]=new Array('Estrategia (Strategy)','',0,0,1);
-I[9]=new Array();I[9][0]=100;
-I[9][1]='';
-I[9][2]='0';
-I[9][3]=new Array();
-I[9][3][0]=new Array('hasNext()','',1,100,1);
-I[9][3][1]=new Array('isEmpty()','',0,0,1);
-I[9][3][2]=new Array('size()','',0,0,1);
-I[9][3][3]=new Array('current()','',0,0,1);
-I[10]=new Array();I[10][0]=100;
-I[10][1]='';
-I[10][2]='0';
-I[10][3]=new Array();
-I[10][3][0]=new Array('Permitir que una familia de algoritmos sean intercambiables y var\u00EDen independientemente del cliente que los usa.','',1,100,1);
-I[10][3][1]=new Array('Proveer una manera de recorrer una colecci\u00F3n sin exponer su representaci\u00F3n subyacente.','',0,0,1);
-I[10][3][2]=new Array('Encapsular el estado interno de un objeto.','',0,0,1);
-I[10][3][3]=new Array('Proveer una interfaz para crear familias de objetos relacionados o dependientes.','',0,0,1);
-I[11]=new Array();I[11][0]=100;
-I[11][1]='';
-I[11][2]='0';
-I[11][3]=new Array();
-I[11][3][0]=new Array('Contexto (Context)','',1,33,1);
-I[11][3][1]=new Array('Estrategia (Strategy)','',1,33,1);
-I[11][3][2]=new Array('Observador (Observer)','',0,0,1);
-I[11][3][3]=new Array('Estrategia Concreta (Concrete Strategy)','',1,34,1);
-I[12]=new Array();I[12][0]=100;
-I[12][1]='';
-I[12][2]='0';
-I[12][3]=new Array();
-I[12][3][0]=new Array('Mediante la herencia m\u00FAltiple.','',0,0,1);
-I[12][3][1]=new Array('Al definir m\u00E9todos abstractos que son implementados por clases derivadas.','',0,0,1);
-I[12][3][2]=new Array('Al encapsular algoritmos dentro de clases que implementan una interfaz com\u00FAn.','',1,100,1);
-I[12][3][3]=new Array('Al utilizar patrones de dise\u00F1o compuestos.','',0,0,1);
-I[13]=new Array();I[13][0]=100;
-I[13][1]='';
-I[13][2]='0';
-I[13][3]=new Array();
-I[13][3][0]=new Array('Observer','',0,0,1);
-I[13][3][1]=new Array('Strategy','',1,100,1);
-I[13][3][2]=new Array('Iterator','',0,0,1);
-I[13][3][3]=new Array('Singleton','',0,0,1);
-I[14]=new Array();I[14][0]=100;
-I[14][1]='';
-I[14][2]='0';
-I[14][3]=new Array();
-I[14][3][0]=new Array('Define la interfaz para los algoritmos.','',0,0,1);
-I[14][3][1]=new Array('Mantiene una referencia a un objeto Strategy y lo utiliza para ejecutar un comportamiento.','',1,100,1);
-I[14][3][2]=new Array('Mantiene una referencia a un objeto Strategy y lo utiliza para ejecutar un comportamiento.','',0,0,1);
-I[14][3][3]=new Array('Provee una manera de recorrer los elementos de una colecci\u00F3n.','',0,0,1);
+I[4][3][0]=new Array('Acceso limitado','Respuesta Incorrecta',0,0,1);
+I[4][3][1]=new Array('Acceso completo','Correcto. La estrategia de Admin en el Sistema de Gesti\u00F3n de Usuarios otorga acceso completo, permitiendo realizar todas las acciones necesarias sin restricciones.',1,100,1);
+I[4][3][2]=new Array('Sin acceso','Respuesta Incorrecta',0,0,1);
+I[4][3][3]=new Array('Acceso condicional','Respuesta Incorrecta',0,0,1);
 
 
 function StartUp(){
@@ -1646,13 +1566,10 @@ function CheckFinished(){
 
 <!-- BeginTopNavButtons -->
 
-
-
-
 <!-- EndTopNavButtons -->
 
 <div class="Titles">
-	<h2 class="ExerciseTitle">Cuestionario fin de modulo</h2>
+	<h2 class="ExerciseTitle">QUIZ CASOS DE ESTUDIO PATRONES DE DISE&#x00D1;O</h2>
 
 	<h3 class="ExerciseSubtitle">Quiz</h3>
 
@@ -1689,21 +1606,11 @@ function CheckFinished(){
 </div>
  
 <ol class="QuizQuestions" id="Questions">
-<li class="QuizQuestion" id="Q_0" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l es el prop&#x00F3;sito principal del patr&#x00F3;n Observer?</div><ol class="MCAnswers"><li id="Q_0_0"><button class="FuncButton" id="Q_0_0_Btn" onclick="CheckMCAnswer(0,0,this)">?</button>&#160;&#160;Proveer una manera de recorrer una colecci&#x00F3;n sin exponer su representaci&#x00F3;n subyacente.</li><li id="Q_0_1"><button class="FuncButton" id="Q_0_1_Btn" onclick="CheckMCAnswer(0,1,this)">?</button>&#160;&#160;Permitir que un objeto notifique a otros objetos sobre cambios en su estado.</li><li id="Q_0_2"><button class="FuncButton" id="Q_0_2_Btn" onclick="CheckMCAnswer(0,2,this)">?</button>&#160;&#160;Proveer una interfaz para crear familias de objetos relacionados o dependientes.</li><li id="Q_0_3"><button class="FuncButton" id="Q_0_3_Btn" onclick="CheckMCAnswer(0,3,this)">?</button>&#160;&#160;Encapsular un algoritmo dentro de una clase.</li></ol></li>
-<li class="QuizQuestion" id="Q_1" style="display: none;"><div class="QuestionText">&#x00BF;Qu&#x00E9; rol juega el 'Sujeto' (Subject) en el patr&#x00F3;n Observer?</div><ol class="MCAnswers"><li id="Q_1_0"><button class="FuncButton" id="Q_1_0_Btn" onclick="CheckMCAnswer(1,0,this)">?</button>&#160;&#160;Define la interfaz para las actualizaciones de los observadores.</li><li id="Q_1_1"><button class="FuncButton" id="Q_1_1_Btn" onclick="CheckMCAnswer(1,1,this)">?</button>&#160;&#160;Mantiene una lista de observadores y los notifica sobre cambios.</li><li id="Q_1_2"><button class="FuncButton" id="Q_1_2_Btn" onclick="CheckMCAnswer(1,2,this)">?</button>&#160;&#160;Implementa la l&#x00F3;gica concreta del algoritmo.</li><li id="Q_1_3"><button class="FuncButton" id="Q_1_3_Btn" onclick="CheckMCAnswer(1,3,this)">?</button>&#160;&#160;Provee una manera de recorrer los elementos de una colecci&#x00F3;n.</li></ol></li>
-<li class="QuizQuestion" id="Q_2" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l de los siguientes componentes NO es parte del patr&#x00F3;n Observer?</div><ol class="MCAnswers"><li id="Q_2_0"><button class="FuncButton" id="Q_2_0_Btn" onclick="CheckMCAnswer(2,0,this)">?</button>&#160;&#160;Observador (Observer)</li><li id="Q_2_1"><button class="FuncButton" id="Q_2_1_Btn" onclick="CheckMCAnswer(2,1,this)">?</button>&#160;&#160;Iterador (Iterator)</li><li id="Q_2_2"><button class="FuncButton" id="Q_2_2_Btn" onclick="CheckMCAnswer(2,2,this)">?</button>&#160;&#160;Sujeto (Subject)</li><li id="Q_2_3"><button class="FuncButton" id="Q_2_3_Btn" onclick="CheckMCAnswer(2,3,this)">?</button>&#160;&#160;Observador Concreto (Concrete Observer)</li></ol></li>
-<li class="QuizQuestion" id="Q_3" style="display: none;"><div class="QuestionText">(Selecci&#x00F3;n m&#x00FA;ltiple) &#x00BF;Cu&#x00E1;les son beneficios del patr&#x00F3;n Observer?</div><ol class="MCAnswers"><li id="Q_3_0"><button class="FuncButton" id="Q_3_0_Btn" onclick="CheckMCAnswer(3,0,this)">?</button>&#160;&#160;Fomenta el bajo acoplamiento entre el sujeto y sus observadores.</li><li id="Q_3_1"><button class="FuncButton" id="Q_3_1_Btn" onclick="CheckMCAnswer(3,1,this)">?</button>&#160;&#160;Facilita la reutilizaci&#x00F3;n de c&#x00F3;digo.</li><li id="Q_3_2"><button class="FuncButton" id="Q_3_2_Btn" onclick="CheckMCAnswer(3,2,this)">?</button>&#160;&#160;Permite que los observadores se actualicen autom&#x00E1;ticamente.</li><li id="Q_3_3"><button class="FuncButton" id="Q_3_3_Btn" onclick="CheckMCAnswer(3,3,this)">?</button>&#160;&#160;Incrementa la complejidad del c&#x00F3;digo al a&#x00F1;adir m&#x00FA;ltiples interfaces.</li></ol></li>
-<li class="QuizQuestion" id="Q_4" style="display: none;"><div class="QuestionText">&#x00BF;Qu&#x00E9; m&#x00E9;todo se usa generalmente en un Observador para recibir actualizaciones del Sujeto?</div><ol class="MCAnswers"><li id="Q_4_0"><button class="FuncButton" id="Q_4_0_Btn" onclick="CheckMCAnswer(4,0,this)">?</button>&#160;&#160;notify()</li><li id="Q_4_1"><button class="FuncButton" id="Q_4_1_Btn" onclick="CheckMCAnswer(4,1,this)">?</button>&#160;&#160;update()</li><li id="Q_4_2"><button class="FuncButton" id="Q_4_2_Btn" onclick="CheckMCAnswer(4,2,this)">?</button>&#160;&#160;subscribe()</li><li id="Q_4_3"><button class="FuncButton" id="Q_4_3_Btn" onclick="CheckMCAnswer(4,3,this)">?</button>&#160;&#160;attach()</li></ol></li>
-<li class="QuizQuestion" id="Q_5" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l es el prop&#x00F3;sito principal del patr&#x00F3;n Iterator?</div><ol class="MCAnswers"><li id="Q_5_0"><button class="FuncButton" id="Q_5_0_Btn" onclick="CheckMCAnswer(5,0,this)">?</button>&#160;&#160;Proveer una manera de recorrer una colecci&#x00F3;n sin exponer su representaci&#x00F3;n subyacente.</li><li id="Q_5_1"><button class="FuncButton" id="Q_5_1_Btn" onclick="CheckMCAnswer(5,1,this)">?</button>&#160;&#160;Permitir que un objeto notifique a otros objetos sobre cambios en su estado.</li><li id="Q_5_2"><button class="FuncButton" id="Q_5_2_Btn" onclick="CheckMCAnswer(5,2,this)">?</button>&#160;&#160;Encapsular un algoritmo dentro de una clase.</li><li id="Q_5_3"><button class="FuncButton" id="Q_5_3_Btn" onclick="CheckMCAnswer(5,3,this)">?</button>&#160;&#160;Proveer una interfaz para crear familias de objetos relacionados o dependientes.</li></ol></li>
-<li class="QuizQuestion" id="Q_6" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l de los siguientes m&#x00E9;todos es t&#x00ED;pico en una interfaz Iterator?</div><ol class="MCAnswers"><li id="Q_6_0"><button class="FuncButton" id="Q_6_0_Btn" onclick="CheckMCAnswer(6,0,this)">?</button>&#160;&#160;notify()</li><li id="Q_6_1"><button class="FuncButton" id="Q_6_1_Btn" onclick="CheckMCAnswer(6,1,this)">?</button>&#160;&#160;next()</li><li id="Q_6_2"><button class="FuncButton" id="Q_6_2_Btn" onclick="CheckMCAnswer(6,2,this)">?</button>&#160;&#160;update()</li><li id="Q_6_3"><button class="FuncButton" id="Q_6_3_Btn" onclick="CheckMCAnswer(6,3,this)">?</button>&#160;&#160;execute()</li></ol></li>
-<li class="QuizQuestion" id="Q_7" style="display: none;"><div class="QuestionText">(Selecci&#x00F3;n m&#x00FA;ltiple) &#x00BF;Cu&#x00E1;les son ventajas del uso del patr&#x00F3;n Iterator?</div><ol class="MCAnswers"><li id="Q_7_0"><button class="FuncButton" id="Q_7_0_Btn" onclick="CheckMCAnswer(7,0,this)">?</button>&#160;&#160;Permite la iteraci&#x00F3;n sobre diferentes estructuras de datos de manera uniforme.</li><li id="Q_7_1"><button class="FuncButton" id="Q_7_1_Btn" onclick="CheckMCAnswer(7,1,this)">?</button>&#160;&#160;Simplifica el c&#x00F3;digo de la colecci&#x00F3;n al separar la l&#x00F3;gica de iteraci&#x00F3;n.</li><li id="Q_7_2"><button class="FuncButton" id="Q_7_2_Btn" onclick="CheckMCAnswer(7,2,this)">?</button>&#160;&#160;Incrementa el acoplamiento entre la colecci&#x00F3;n y su iterador.</li><li id="Q_7_3"><button class="FuncButton" id="Q_7_3_Btn" onclick="CheckMCAnswer(7,3,this)">?</button>&#160;&#160;Facilita la modificaci&#x00F3;n de la estructura de la colecci&#x00F3;n sin afectar al cliente.</li></ol></li>
-<li class="QuizQuestion" id="Q_8" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l es el componente principal que define c&#x00F3;mo se recorren los elementos de una colecci&#x00F3;n?</div><ol class="MCAnswers"><li id="Q_8_0"><button class="FuncButton" id="Q_8_0_Btn" onclick="CheckMCAnswer(8,0,this)">?</button>&#160;&#160;Sujeto (Subject)</li><li id="Q_8_1"><button class="FuncButton" id="Q_8_1_Btn" onclick="CheckMCAnswer(8,1,this)">?</button>&#160;&#160;Observador (Observer)</li><li id="Q_8_2"><button class="FuncButton" id="Q_8_2_Btn" onclick="CheckMCAnswer(8,2,this)">?</button>&#160;&#160;Iterador (Iterator)</li><li id="Q_8_3"><button class="FuncButton" id="Q_8_3_Btn" onclick="CheckMCAnswer(8,3,this)">?</button>&#160;&#160;Estrategia (Strategy)</li></ol></li>
-<li class="QuizQuestion" id="Q_9" style="display: none;"><div class="QuestionText">&#x00BF;Qu&#x00E9; m&#x00E9;todo de la interfaz Iterator verifica si hay m&#x00E1;s elementos por recorrer?</div><ol class="MCAnswers"><li id="Q_9_0"><button class="FuncButton" id="Q_9_0_Btn" onclick="CheckMCAnswer(9,0,this)">?</button>&#160;&#160;hasNext()</li><li id="Q_9_1"><button class="FuncButton" id="Q_9_1_Btn" onclick="CheckMCAnswer(9,1,this)">?</button>&#160;&#160;isEmpty()</li><li id="Q_9_2"><button class="FuncButton" id="Q_9_2_Btn" onclick="CheckMCAnswer(9,2,this)">?</button>&#160;&#160;size()</li><li id="Q_9_3"><button class="FuncButton" id="Q_9_3_Btn" onclick="CheckMCAnswer(9,3,this)">?</button>&#160;&#160;current()</li></ol></li>
-<li class="QuizQuestion" id="Q_10" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l es el prop&#x00F3;sito principal del patr&#x00F3;n Strategy?</div><ol class="MCAnswers"><li id="Q_10_0"><button class="FuncButton" id="Q_10_0_Btn" onclick="CheckMCAnswer(10,0,this)">?</button>&#160;&#160;Permitir que una familia de algoritmos sean intercambiables y var&#x00ED;en independientemente del cliente que los usa.</li><li id="Q_10_1"><button class="FuncButton" id="Q_10_1_Btn" onclick="CheckMCAnswer(10,1,this)">?</button>&#160;&#160;Proveer una manera de recorrer una colecci&#x00F3;n sin exponer su representaci&#x00F3;n subyacente.</li><li id="Q_10_2"><button class="FuncButton" id="Q_10_2_Btn" onclick="CheckMCAnswer(10,2,this)">?</button>&#160;&#160;Encapsular el estado interno de un objeto.</li><li id="Q_10_3"><button class="FuncButton" id="Q_10_3_Btn" onclick="CheckMCAnswer(10,3,this)">?</button>&#160;&#160;Proveer una interfaz para crear familias de objetos relacionados o dependientes.</li></ol></li>
-<li class="QuizQuestion" id="Q_11" style="display: none;"><div class="QuestionText">(Selecci&#x00F3;n m&#x00FA;ltiple) &#x00BF;Qu&#x00E9; clases o interfaces son t&#x00ED;picas en el patr&#x00F3;n Strategy?</div><ol class="MCAnswers"><li id="Q_11_0"><button class="FuncButton" id="Q_11_0_Btn" onclick="CheckMCAnswer(11,0,this)">?</button>&#160;&#160;Contexto (Context)</li><li id="Q_11_1"><button class="FuncButton" id="Q_11_1_Btn" onclick="CheckMCAnswer(11,1,this)">?</button>&#160;&#160;Estrategia (Strategy)</li><li id="Q_11_2"><button class="FuncButton" id="Q_11_2_Btn" onclick="CheckMCAnswer(11,2,this)">?</button>&#160;&#160;Observador (Observer)</li><li id="Q_11_3"><button class="FuncButton" id="Q_11_3_Btn" onclick="CheckMCAnswer(11,3,this)">?</button>&#160;&#160;Estrategia Concreta (Concrete Strategy)</li></ol></li>
-<li class="QuizQuestion" id="Q_12" style="display: none;"><div class="QuestionText">&#x00BF;C&#x00F3;mo permite el patr&#x00F3;n Strategy que el comportamiento de una clase var&#x00ED;e?</div><ol class="MCAnswers"><li id="Q_12_0"><button class="FuncButton" id="Q_12_0_Btn" onclick="CheckMCAnswer(12,0,this)">?</button>&#160;&#160;Mediante la herencia m&#x00FA;ltiple.</li><li id="Q_12_1"><button class="FuncButton" id="Q_12_1_Btn" onclick="CheckMCAnswer(12,1,this)">?</button>&#160;&#160;Al definir m&#x00E9;todos abstractos que son implementados por clases derivadas.</li><li id="Q_12_2"><button class="FuncButton" id="Q_12_2_Btn" onclick="CheckMCAnswer(12,2,this)">?</button>&#160;&#160;Al encapsular algoritmos dentro de clases que implementan una interfaz com&#x00FA;n.</li><li id="Q_12_3"><button class="FuncButton" id="Q_12_3_Btn" onclick="CheckMCAnswer(12,3,this)">?</button>&#160;&#160;Al utilizar patrones de dise&#x00F1;o compuestos.</li></ol></li>
-<li class="QuizQuestion" id="Q_13" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l de los siguientes patrones de dise&#x00F1;o se enfoca en el cambio din&#x00E1;mico de algoritmos en tiempo de ejecuci&#x00F3;n?</div><ol class="MCAnswers"><li id="Q_13_0"><button class="FuncButton" id="Q_13_0_Btn" onclick="CheckMCAnswer(13,0,this)">?</button>&#160;&#160;Observer</li><li id="Q_13_1"><button class="FuncButton" id="Q_13_1_Btn" onclick="CheckMCAnswer(13,1,this)">?</button>&#160;&#160;Strategy</li><li id="Q_13_2"><button class="FuncButton" id="Q_13_2_Btn" onclick="CheckMCAnswer(13,2,this)">?</button>&#160;&#160;Iterator</li><li id="Q_13_3"><button class="FuncButton" id="Q_13_3_Btn" onclick="CheckMCAnswer(13,3,this)">?</button>&#160;&#160;Singleton</li></ol></li>
-<li class="QuizQuestion" id="Q_14" style="display: none;"><div class="QuestionText">&#x00BF;Qu&#x00E9; rol juega el 'Contexto' en el patr&#x00F3;n Strategy?</div><ol class="MCAnswers"><li id="Q_14_0"><button class="FuncButton" id="Q_14_0_Btn" onclick="CheckMCAnswer(14,0,this)">?</button>&#160;&#160;Define la interfaz para los algoritmos.</li><li id="Q_14_1"><button class="FuncButton" id="Q_14_1_Btn" onclick="CheckMCAnswer(14,1,this)">?</button>&#160;&#160;Mantiene una referencia a un objeto Strategy y lo utiliza para ejecutar un comportamiento.</li><li id="Q_14_2"><button class="FuncButton" id="Q_14_2_Btn" onclick="CheckMCAnswer(14,2,this)">?</button>&#160;&#160;Mantiene una referencia a un objeto Strategy y lo utiliza para ejecutar un comportamiento.</li><li id="Q_14_3"><button class="FuncButton" id="Q_14_3_Btn" onclick="CheckMCAnswer(14,3,this)">?</button>&#160;&#160;Provee una manera de recorrer los elementos de una colecci&#x00F3;n.</li></ol></li></ol>
+<li class="QuizQuestion" id="Q_0" style="display: none;"><div class="QuestionText">&#x00BF;Qu&#x00E9; patr&#x00F3;n de dise&#x00F1;o se utiliz&#x00F3; en el caso de estudio del Generador de Documentos?</div><ol class="MCAnswers"><li id="Q_0_0"><button class="FuncButton" id="Q_0_0_Btn" onclick="CheckMCAnswer(0,0,this)">?</button>&#160;&#160;Singleton</li><li id="Q_0_1"><button class="FuncButton" id="Q_0_1_Btn" onclick="CheckMCAnswer(0,1,this)">?</button>&#160;&#160;Observer</li><li id="Q_0_2"><button class="FuncButton" id="Q_0_2_Btn" onclick="CheckMCAnswer(0,2,this)">?</button>&#160;&#160;Factory Method</li><li id="Q_0_3"><button class="FuncButton" id="Q_0_3_Btn" onclick="CheckMCAnswer(0,3,this)">?</button>&#160;&#160;Decorator</li></ol></li>
+<li class="QuizQuestion" id="Q_1" style="display: none;"><div class="QuestionText">&#x00BF;Cu&#x00E1;l es el principal problema que se resuelve con el patr&#x00F3;n Factory Method en el Generador de Documentos?</div><ol class="MCAnswers"><li id="Q_1_0"><button class="FuncButton" id="Q_1_0_Btn" onclick="CheckMCAnswer(1,0,this)">?</button>&#160;&#160;Definir m&#x00FA;ltiples interfaces para diferentes tipos de documentos.</li><li id="Q_1_1"><button class="FuncButton" id="Q_1_1_Btn" onclick="CheckMCAnswer(1,1,this)">?</button>&#160;&#160;Crear objetos de diferentes tipos de documentos sin especificar sus clases concretas.</li><li id="Q_1_2"><button class="FuncButton" id="Q_1_2_Btn" onclick="CheckMCAnswer(1,2,this)">?</button>&#160;&#160;Permitir la herencia m&#x00FA;ltiple de clases de documentos.</li><li id="Q_1_3"><button class="FuncButton" id="Q_1_3_Btn" onclick="CheckMCAnswer(1,3,this)">?</button>&#160;&#160;Modularizar el comportamiento de los documentos.</li></ol></li>
+<li class="QuizQuestion" id="Q_2" style="display: none;"><div class="QuestionText">&#x00BF;Qu&#x00E9; patr&#x00F3;n de dise&#x00F1;o se aplic&#x00F3; en el caso de estudio del Sistema de Gesti&#x00F3;n de Usuarios?</div><ol class="MCAnswers"><li id="Q_2_0"><button class="FuncButton" id="Q_2_0_Btn" onclick="CheckMCAnswer(2,0,this)">?</button>&#160;&#160;Strategy</li><li id="Q_2_1"><button class="FuncButton" id="Q_2_1_Btn" onclick="CheckMCAnswer(2,1,this)">?</button>&#160;&#160;Factory Method</li><li id="Q_2_2"><button class="FuncButton" id="Q_2_2_Btn" onclick="CheckMCAnswer(2,2,this)">?</button>&#160;&#160;Singleton</li><li id="Q_2_3"><button class="FuncButton" id="Q_2_3_Btn" onclick="CheckMCAnswer(2,3,this)">?</button>&#160;&#160;Observer</li></ol></li>
+<li class="QuizQuestion" id="Q_3" style="display: none;"><div class="QuestionText">&#x00BF;C&#x00F3;mo el patr&#x00F3;n Strategy ayuda a manejar diferentes tipos de usuarios en el Sistema de Gesti&#x00F3;n de Usuarios?</div><ol class="MCAnswers"><li id="Q_3_0"><button class="FuncButton" id="Q_3_0_Btn" onclick="CheckMCAnswer(3,0,this)">?</button>&#160;&#160;Definiendo m&#x00FA;ltiples constructores en la clase usuario.</li><li id="Q_3_1"><button class="FuncButton" id="Q_3_1_Btn" onclick="CheckMCAnswer(3,1,this)">?</button>&#160;&#160;Permitiendo la herencia m&#x00FA;ltiple de las clases de usuarios.</li><li id="Q_3_2"><button class="FuncButton" id="Q_3_2_Btn" onclick="CheckMCAnswer(3,2,this)">?</button>&#160;&#160;Modularizando las interfaces de usuario.</li><li id="Q_3_3"><button class="FuncButton" id="Q_3_3_Btn" onclick="CheckMCAnswer(3,3,this)">?</button>&#160;&#160;Encapsulando los comportamientos de usuario en clases separadas y permitiendo su selecci&#x00F3;n din&#x00E1;mica.</li></ol></li>
+<li class="QuizQuestion" id="Q_4" style="display: none;"><div class="QuestionText">En el Sistema de Gesti&#x00F3;n de Usuarios, &#x00BF;qu&#x00E9; comportamiento espec&#x00ED;fico se asocia con la estrategia de Admin?</div><ol class="MCAnswers"><li id="Q_4_0"><button class="FuncButton" id="Q_4_0_Btn" onclick="CheckMCAnswer(4,0,this)">?</button>&#160;&#160;Acceso limitado</li><li id="Q_4_1"><button class="FuncButton" id="Q_4_1_Btn" onclick="CheckMCAnswer(4,1,this)">?</button>&#160;&#160;Acceso completo</li><li id="Q_4_2"><button class="FuncButton" id="Q_4_2_Btn" onclick="CheckMCAnswer(4,2,this)">?</button>&#160;&#160;Sin acceso</li><li id="Q_4_3"><button class="FuncButton" id="Q_4_3_Btn" onclick="CheckMCAnswer(4,3,this)">?</button>&#160;&#160;Acceso condicional</li></ol></li></ol>
 
 
 
@@ -1717,6 +1624,7 @@ function CheckFinished(){
 </div>
 
 <!-- BeginBottomNavButtons -->
+
 
 
 
