@@ -1,6 +1,258 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>Prototype</h1>
+<div class="container">
+    <section class="my-5">
+      <h1 class="mb-0">Prototype</h1>
+      <h2 class="mb-4" style="font-size: 1rem;">(Prototipo)</h2>
+    </section>
+
+    <section class="my-5 unit-section">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="card p-4 h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fa-solid fa-question fa-2x text-primary"></i>
+                            <h2 class="card-title ml-2">Propósito</h2>
+                        </div>
+                        <p class="card-text">
+                            <strong>Prototype</strong> (Prototipo en español)
+                            es un patrón de diseño creacional que permite copiar objetos existentes sin que el código dependa de sus clases.
+                        </p>
+                        <p class="card-text">
+                            Su propósito es permitir la creación de nuevos objetos a partir de una instancia prototípica, clonando el prototipo original. Esto es útil para evitar el costo de creación de un objeto desde cero y para preservar la configuración compleja del prototipo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img
+                    src="../../static/images/Prototype/prototype-intro.jpeg"
+                    alt="Prototype hero image"
+                    class="img-fluid rounded"
+                />
+            </div>
+        </div>
+    </section>
+    
+    <section class="my-5 unit-section">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+            <h2 class="card-title ml-2">Problema</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="lead">
+                    Imagina que estás desarrollando una aplicación de diseño gráfico en la que los usuarios pueden crear y manipular formas geométricas como círculos, cuadrados y triángulos. Cada forma tiene una configuración compleja y muchos atributos. Crear cada forma desde cero implica inicializar muchos parámetros, lo cual es ineficiente y propenso a errores. Además, el sistema debe permitir a los usuarios clonar formas existentes para reutilizar sus configuraciones sin tener que establecer todos los atributos nuevamente.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img
+                src="../../static/images/factory-method/problema.jpg"
+                alt="Factory Method problema imagen"
+                class="img-fluid rounded"
+                />
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5 unit-section">
+        <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2">Solución</h2>
+        </div>
+        <div class="row">
+          <div class="img-container mb-3">
+            <img
+              src="../../static/images/prototype/prototype_pattern.png"
+              alt="Prototype solucion imagen"
+              class="img-fluid rounded"
+            />
+          </div>
+          <div class="col-md-12">
+            <p class="lead">
+              El patrón Prototype es una solución eficiente para crear nuevos objetos mediante la clonación de una instancia existente, en lugar de crear nuevos objetos desde cero. Esto es especialmente útil cuando la creación de un objeto es costosa o compleja.
+            </p>
+            <p class="lead">
+              Al utilizar el patrón Prototype, definimos una interfaz para clonar objetos y luego implementamos esta interfaz en las clases concretas. De esta manera, podemos crear una copia exacta de un objeto existente, lo que nos permite agregar y modificar objetos rápidamente sin depender de sus clases específicas.
+            </p>
+            <p class="lead">
+              En la implementación del patrón Prototype, el código cliente interactúa con la interfaz Prototype, lo que facilita la creación de objetos mediante la clonación. Esto promueve la flexibilidad y la reutilización del código, y reduce el acoplamiento entre las clases.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="my-5 unit-section">
+        <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+          <h2 class="card-title ml-2">Implementación en Pseudocódigo</h2>
+        </div>
+        <figure>
+          <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+              // Definición de la interfaz Prototype
+              interface Prototype {
+                  Prototype clone();
+              }
+      
+              // Implementación concreta del prototipo
+              class ConcretePrototype1 implements Prototype {
+                  private String field1;
+                  private int field2;
+      
+                  public ConcretePrototype1(String field1, int field2) {
+                      this.field1 = field1;
+                      this.field2 = field2;
+                  }
+      
+                  @Override
+                  public Prototype clone() {
+                      return new ConcretePrototype1(this.field1, this.field2);
+                  }
+      
+                  public void display() {
+                      System.out.println("Prototype1: " + field1 + ", " + field2);
+                  }
+              }
+      
+              // Otra implementación concreta del prototipo
+              class ConcretePrototype2 implements Prototype {
+                  private String attribute1;
+                  private double attribute2;
+      
+                  public ConcretePrototype2(String attribute1, double attribute2) {
+                      this.attribute1 = attribute1;
+                      this.attribute2 = attribute2;
+                  }
+      
+                  @Override
+                  public Prototype clone() {
+                      return new ConcretePrototype2(this.attribute1, this.attribute2);
+                  }
+      
+                  public void show() {
+                      System.out.println("Prototype2: " + attribute1 + ", " + attribute2);
+                  }
+              }
+      
+              // Código cliente
+              class Client {
+                  private Prototype prototype;
+      
+                  public Client(Prototype prototype) {
+                      this.prototype = prototype;
+                  }
+      
+                  public Prototype makeCopy() {
+                      return prototype.clone();
+                  }
+              }
+      
+              // Uso del código cliente
+              public class Main {
+                  public static void main(String[] args) {
+                      ConcretePrototype1 prototype1 = new ConcretePrototype1("Prototype1", 100);
+                      Client client1 = new Client(prototype1);
+                      ConcretePrototype1 copy1 = (ConcretePrototype1) client1.makeCopy();
+                      copy1.display();
+      
+                      ConcretePrototype2 prototype2 = new ConcretePrototype2("Prototype2", 200.5);
+                      Client client2 = new Client(prototype2);
+                      ConcretePrototype2 copy2 = (ConcretePrototype2) client2.makeCopy();
+                      copy2.show();
+                  }
+              }
+            </code>
+          </pre>
+        </figure>
+      </section>
+      
+      <section class="my-5 unit-section">
+        <div class="d-flex align-items-center mb-3">
+          <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+          <h2 class="card-title ml-2">Pros y Contras</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title mb-3">Pros</h3>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Permite clonar objetos sin acoplarse a sus clases concretas. Esto es útil para la creación de copias precisas de objetos complejos.
+                      </span>
+                    </div>
+                  </li>
+                  <li class="mb-2 d-flex">
+                    <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede ayudar a evitar el costo de creación de un objeto desde cero, especialmente en casos donde la inicialización es costosa.
+                      </span>
+                    </div>
+                  </li>
+                  <li class="mb-2 d-flex">
+                    <div class="d-flex">
+                      <i class="fa-solid fa-check text-success py-1"></i>
+                      <span class="inline-block ml-2">
+                        Facilita la creación de nuevos objetos basados en un prototipo existente, promoviendo la reutilización de código.
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title mb-3">Contras</h3>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        La clonación de objetos puede ser complicada cuando los objetos incluyen referencias a otros objetos.
+                      </span>
+                    </div>
+                  </li>
+                  <li class="mb-2">
+                    <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede ser difícil implementar un clon profundo en objetos complejos, requiriendo una lógica adicional para copiar los objetos referenciados.
+                      </span>
+                    </div>
+                  </li>
+                  <li class="mb-2">
+                    <div class="d-flex">
+                      <i class="fa-solid fa-times text-danger py-1"></i>
+                      <span class="inline-block ml-2">
+                        Puede ser innecesariamente complicado para objetos simples, donde la creación de instancias nuevas sería más directa y fácil de mantener.
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <div class="unit-section">
+        <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+        {% load static %}
+        <iframe class="und1a-activity" src="{% static 'activities/Quiz-Prototype.htm' %}"></iframe>
+    </div>
+
+      <div class="und1a-div-cnt unit-section">
+        <a class="next-lession-btn" href="/lecciones?view=builder&i=7">Anterior sección</a>
+        <a class="next-lession-btn" href="/lecciones?view=singleton&i=9">Siguiente sección</a>
+    </div>
 {% endblock contenido %}
 

@@ -3,9 +3,15 @@
 {% block contenido %}
 <h1 class="und3a-title">Examén de fin de módulo: Aplicaciones Practicas de los Patrones de Diseño</h1>
 
-<p class="und1a-paragraph">
+<p class="und1a-paragraph unit-section">
     Esta es la actividad de fin de curso donde se te evaluará los conocimientos que se te impartieron en las tres secciones anteriores, esta actividad tendrá nota lo cual se guardará en el sistema
 </p>
+
+<div class=" unit-section">
+    <h2 class="und1a-title">Actividad interactiva</h2>
+    {% load static %}
+    <iframe class="und1a-activity" src="{% static 'activities/Examen-AP-PD.htm' %}"></iframe>
+</div>
 
 <div class="und1a-div-cnt unit-section">
     <a class="next-lession-btn" href="/lecciones?view=aspectos-concretos-del-uso-de-patrones-en-poo">Sección anterior</a>

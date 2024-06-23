@@ -1,6 +1,226 @@
 
 {% extends 'contenido.html' %}
 {% block contenido %}
-    <h1>singleton</h1>
+<section class="my-5">
+    <h1 class="mb-0">Singleton</h1>
+    <h2 class="mb-4" style="font-size: 1rem;">(Único)</h2>
+  </section>
+
+  <section class="my-5 unit-section">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="card p-4 h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-question fa-2x text-primary"></i>
+                        <h2 class="card-title ml-2">Propósito</h2>
+                    </div>
+                    <p class="card-text">
+                        <strong>Singleton</strong> (Único en español)
+                        es un patrón de diseño creacional que garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a esta instancia.
+                    </p>
+                    <p class="card-text">
+                        Su propósito es controlar la creación de objetos, limitando la cantidad de instancias de una clase a solo una. Esto es útil en situaciones donde es necesario coordinar acciones a través del sistema, como en la gestión de conexiones a bases de datos o en el manejo de recursos compartidos.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img
+                src="../../static/images/Singleton/singleton_intro.jpeg"
+                alt="Singleton hero image"
+                class="img-fluid rounded"
+            />
+        </div>
+    </div>
+</section>
+
+<section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-exclamation fa-2x text-danger"></i>
+        <h2 class="card-title ml-2">Problema</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="lead">
+                Imagina que estás desarrollando una aplicación que necesita gestionar la configuración global, como los parámetros de conexión a una base de datos. Sin un mecanismo que garantice la existencia de una única instancia de configuración, podrían crearse múltiples instancias, llevando a un estado inconsistente y errores difíciles de rastrear. Además, la creación y administración de múltiples instancias de recursos compartidos puede resultar en un uso ineficiente de la memoria y otros recursos del sistema.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img
+            src="../../static/images/factory-method/problema.jpg"
+            alt="Factory Method problema imagen"
+            class="img-fluid rounded"
+            />
+        </div>
+    </div>
+</section>
+
+<section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2">Solución</h2>
+    </div>
+    <div class="row">
+        <div class="img-container mb-3">
+            <img
+                src="../../static/images/singleton/singleton_pattern.png"
+                alt="Singleton solucion imagen"
+                class="img-fluid rounded"
+            />
+        </div>
+        <div class="col-md-12">
+            <p class="lead">
+                El patrón Singleton garantiza que una clase tenga una única instancia y proporciona un punto de acceso global a esta instancia.
+            </p>
+            <p class="lead">
+                Al utilizar el patrón Singleton, restringimos la creación de objetos de una clase a una sola instancia, asegurando que todas las operaciones se realicen sobre la misma instancia. Esto es útil cuando solo se necesita una única instancia para coordinar acciones en todo el sistema, como por ejemplo, un registro centralizado, un pool de conexiones a bases de datos, o un sistema de configuración.
+            </p>
+            <p class="lead">
+                La implementación del patrón Singleton generalmente utiliza un método estático para devolver siempre la misma instancia, asegurando así que no se pueda crear más de una instancia de la clase. Esto promueve la consistencia y evita problemas de concurrencia cuando múltiples partes del sistema intentan acceder o modificar la misma instancia.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-check fa-2x text-success me-3"></i>
+        <h2 class="card-title ml-2">Implementación en Pseudocódigo</h2>
+    </div>
+    <figure>
+        <pre class="bg-light p-4 rounded">
+            <code class="language-pseudo">
+              // Definición de la clase Singleton
+              class Singleton {
+                  private static Singleton instance;
+                  private String data;
+      
+                  private Singleton(String data) {
+                      this.data = data;
+                  }
+      
+                  public static synchronized Singleton getInstance(String data) {
+                      if (instance == null) {
+                          instance = new Singleton(data);
+                      }
+                      return instance;
+                  }
+      
+                  public String getData() {
+                      return this.data;
+                  }
+              }
+      
+              // Código cliente
+              public class Main {
+                  public static void main(String[] args) {
+                      Singleton singleton1 = Singleton.getInstance("Instancia Singleton 1");
+                      System.out.println("Datos de singleton1: " + singleton1.getData());
+      
+                      Singleton singleton2 = Singleton.getInstance("Instancia Singleton 2");
+                      System.out.println("Datos de singleton2: " + singleton2.getData());
+      
+                      // Verificamos que ambos objetos Singleton sean el mismo
+                      if (singleton1 == singleton2) {
+                          System.out.println("singleton1 y singleton2 son la misma instancia.");
+                      } else {
+                          System.out.println("singleton1 y singleton2 son instancias diferentes.");
+                      }
+                  }
+              }
+            </code>
+        </pre>
+    </figure>
+</section>
+
+
+<section class="my-5 unit-section">
+    <div class="d-flex align-items-center mb-3">
+        <i class="fa-solid fa-thumbs-up fa-2x text-info me-3"></i>
+        <h2 class="card-title ml-2">Pros y Contras</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">Pros</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-check text-success py-1"></i>
+                                <span class="inline-block ml-2">
+                                    Garantiza que solo exista una única instancia de la clase Singleton en el programa.
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mb-2 d-flex">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-check text-success py-1"></i>
+                                <span class="inline-block ml-2">
+                                    Mejora el rendimiento al evitar la creación repetida de objetos costosos.
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mb-2 d-flex">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-check text-success py-1"></i>
+                                <span class="inline-block ml-2">
+                                    Permite un acceso controlado y centralizado a la única instancia disponible.
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">Contras</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-times text-danger py-1"></i>
+                                <span class="inline-block ml-2">
+                                    Puede dificultar las pruebas unitarias debido a su naturaleza estática y global.
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mb-2">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-times text-danger py-1"></i>
+                                <span class="inline-block ml-2">
+                                    La gestión de recursos compartidos puede ser complicada si no se implementa correctamente.
+                                </span>
+                            </div>
+                        </li>
+                        <li class="mb-2">
+                            <div class="d-flex">
+                                <i class="fa-solid fa-times text-danger py-1"></i>
+                                <span class="inline-block ml-2">
+                                    Puede introducir acoplamiento adicional al código debido a su uso global.
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="unit-section">
+    <h2 class="und1a-title unit-section">Actividad interactiva</h2>
+    {% load static %}
+    <iframe class="und1a-activity" src="{% static 'activities/Quiz-Singleton.htm' %}"></iframe>
+</div>
+
+  <div class="und1a-div-cnt unit-section">
+    <a class="next-lession-btn" href="/lecciones?view=protoype&i=8">Anterior sección</a>
+    <a class="next-lession-btn" href="/lecciones?view=examen-de-patrones-creacionales&i=10">Siguiente sección</a>
+</div>
+
+
 {% endblock contenido %}
 
