@@ -7,7 +7,7 @@ urlpatterns = [
     path('', index, name='index'),
     path('lecciones', lecciones, name='lecciones'),
     path('update_progress/', update_progress, name='update_progress'),
-    path('subir-formativa/', subirSumativa),
-    path('subirFormativa/', subirFormativa),
+    path('subir-sumativa/', subirSumativa),
+    path('subir-formativa/', subirFormativa),
     path('obtener-progreso/', get_progress, name='update_progress')
 ]

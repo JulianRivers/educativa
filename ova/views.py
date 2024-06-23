@@ -116,7 +116,7 @@ def subirSumativa(request):
                     puntaje.save()
                 else:
                     nuevo_puntaje = Puntaje.objects.create(
-                      usuario=usuario, 
+                    usuario=usuario, 
                     actividad=actividad, 
                     resultado=score, 
                     is_sumativo=True  # Puedes ajustar este valor según sea necesario
@@ -139,14 +139,24 @@ def subirFormativa(request):
             try:
                 score = int(score)
                 usuario = request.user
-                nuevo_puntaje = Puntaje.objects.create(
-                    usuario=usuario, 
-                    actividad=actividad, 
-                    resultado=score, 
-                    is_sumativo=False  # Puedes ajustar este valor según sea necesario
-                )
-                nuevo_puntaje.save()
-                print(f'Received score: {score}')
+                puntajes = Puntaje.objects.filter(usuario=usuario, actividad=actividad)
+                if puntajes.exists():
+                    puntaje = puntajes.first()
+                    puntaje.resultado = score
+                    puntaje.is_sumativo = False
+                    print(puntaje.is_sumativo)
+                    print("aaaaaaaaaaa")
+                    puntaje.save()
+                else:
+                    nuevo_puntaje = Puntaje.objects.create(
+                        usuario=usuario, 
+                        actividad=actividad, 
+                        resultado=score, 
+                        is_sumativo=False
+                        )
+                    nuevo_puntaje.save()
+                    print(nuevo_puntaje.is_sumativo)
+                    print("aaaaaaaaaaaaaaaaaa")
                 return JsonResponse({'status': 'success', 'score': score})
             except ValueError:
                 return JsonResponse({'status': 'error', 'message': 'Invalid score value'}, status=400)
