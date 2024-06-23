@@ -101,7 +101,7 @@ def subirSumativa(request):
     if request.method == 'GET':
         score = request.GET.get('score')
         actividad = request.GET.get('actividad')
-
+        print(score)
         if score is not None:
             try:
                 score = int(score)
@@ -133,33 +133,31 @@ def subirSumativa(request):
     
 def subirFormativa(request):
     if request.method == 'GET':
-        score = request.GET.get('score')
+        score = request.GET.get('score') 
         actividad = request.GET.get('actividad')
-        if score is not None:
-            try:
-                score = int(score)
-                usuario = request.user
-                puntajes = Puntaje.objects.filter(usuario=usuario, actividad=actividad)
-                if puntajes.exists():
-                    puntaje = puntajes.first()
-                    puntaje.resultado = score
-                    puntaje.is_sumativo = False
-                    print(puntaje.is_sumativo)
-                    print("aaaaaaaaaaa")
-                    puntaje.save()
-                else:
-                    nuevo_puntaje = Puntaje.objects.create(
-                        usuario=usuario, 
-                        actividad=actividad, 
-                        resultado=score, 
-                        is_sumativo=False
-                        )
-                    nuevo_puntaje.save()
-                    print(nuevo_puntaje.is_sumativo)
-                    print("aaaaaaaaaaaaaaaaaa")
-                return JsonResponse({'status': 'success', 'score': score})
-            except ValueError:
-                return JsonResponse({'status': 'error', 'message': 'Invalid score value'}, status=400)
+        if score is not None:         
+            score = int(score)
+            usuario = request.user
+            actividad = Actividad.objects.get(id=actividad)
+            puntajes = Puntaje.objects.filter(usuario=usuario, actividad=actividad)
+            if puntajes.exists():
+                puntaje = puntajes.first()
+                puntaje.resultado = score
+                puntaje.is_sumativo = False
+                print(puntaje.is_sumativo)
+                print("aaaaaaaaaaa")
+                puntaje.save()
+            else:
+                nuevo_puntaje = Puntaje.objects.create(
+                    usuario=usuario, 
+                    actividad=actividad, 
+                    resultado=score, 
+                    is_sumativo=False
+                    )
+                nuevo_puntaje.save()
+                print(nuevo_puntaje.is_sumativo)
+                print("aaaaaaaaaaaaaaaaaa")
+            return JsonResponse({'status': 'success', 'score': score})
         else:
             return JsonResponse({'status': 'error', 'message': 'No score provided'}, status=400)
     else:
