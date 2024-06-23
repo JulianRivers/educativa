@@ -1,11 +1,9 @@
 venv
 .venv
-db.sqlite3
 
 
 
 #Django
-migrations
 __pycache__
 
 # Compiled output
