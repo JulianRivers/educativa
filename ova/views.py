@@ -25,8 +25,22 @@ def lecciones(request):
     view = request.GET.get('view', None)
     progreso = list(ProgresoLeccion.objects.filter(usuario=request.user).values_list( 'progreso',flat=True))
     
-    htmlTemplatesNames = {}
-    data = []
+    htmlTemplatesNames = {
+        'video-intro': 'video-intro.html',
+    }
+
+    data = [{
+            'sectionTitle': 'Video introduccion',
+            'lessons': [
+                {
+                'label': 'video intro',
+                'url': 'video-intro',
+                'index': -1,
+                'progress': 100
+            }
+            ]
+        }]
+    
     i = 0
     for content in contents:
         data.append({
