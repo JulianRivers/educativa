@@ -1,158 +1,29 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 import json
 from django.http import JsonResponse
 
-from ova.models import Actividad
+from ova.models import Actividad, Lecciones, Unidad, ProgresoLeccion
 from usuario.models import Puntaje
+from ova.utils import obtener_estructura
+from .serializers import ProgresoLeccionSerializer
+
+
 
 # Create your views here.
-# manejamos esto como una Base de Datos de contenidos
-contents = [
-        {
-            "title": 'Introducción a los patrones de diseño',
-            "items": [
-                {
-                    "label":'Video Introductorio',
-                    "url": 'video-intro',
-                }
-            ],
-            "ariaLabel": "index-introduction"
-        },
-        {
-            "title": 'Conceptos fundamentales',
-            "items": [
-                {
-                    "label": '¿Qué es un patrón de diseño?',
-                    "url": 'que-es-un-patron-de-diseno',
-                },
-                {
-                    "label": 'Importancia y aplicación ',
-                    "url": 'importancia-y-aplicacion',
-                },
-                {
-                    "label": 'Componentes esenciales de un patrón de diseño',
-                    "url": 'componentes-esenciales-de-un-patron-de-diseno',
-                },
-                {
-                    "label": 'Examen de Conceptos Fundamentales',
-                    "url": 'examen-de-conceptos-fundamentales',
-                }
-                
-            ],
-            "ariaLabel": 'index-fundamentals'
-        },
-        {
-            "title": 'Patrones creacionales',
-            "items": [
-                {
-                    "label": 'Factory Method',
-                    "url": 'factory-method',
-                },
-                {
-                    "label": 'Abstract Factory',
-                    "url": 'abstract-factory',
-                },
-                {
-                    "label": 'Builder',
-                    "url": 'builder',
-                },
-                {
-                    "label": 'Prototype',
-                    "url": 'protoype',
-                },
-                {
-                    "label": 'Singleton',
-                    "url": 'singleton',
-                },
-                {
-                    "label": 'Examen de Patrones Creacionales',
-                    "url": 'examen-de-patrones-creacionales',
-                }
-            ],
-            "ariaLabel": 'index-creational-patters'
-        },
-        {
-            "title": 'Patrones Estructurales',
-            "ariaLabel": 'index-structural-patters',
-            "items": [
-                {
-                    "label": 'Adapter',
-                    "url": 'adpter',
-                },
-                {
-                    "label": 'Bridge',
-                    "url": 'bridge',
-                },
-                {
-                    "label": 'Decorator',
-                    "url": 'decorator',
-                },
-                {
-                    "label": 'Facade',
-                    "url": 'facade',
-                },
-                {
-                    "label": 'Examen de Patrones Estructurales',
-                    "url": 'examen-de-patrones-estructurales',
-                }
-            ]
-        },
-        {
-            "title": 'Patrones de comportamiento',
-            "ariaLabel": 'index-behavioral-patters',
-            "items": [
-                {
-                    "label": 'Iterator',
-                    "url": 'iterator',
-                },
-                {
-                    "label": 'Observer',
-                    "url": 'observer',
-                },
-                {
-                    "label": 'Strategy',
-                    "url": 'strategy',
-                },
-                {
-                    "label": 'Examen de Patrones de Comportamiento',
-                    "url": 'examen-de-patrones-de-comportamiento',
-                }
-            ]
-        },
-        {
-            "title": 'Aplicación Práctica de Patrones de Diseño',
-            "ariaLabel": 'index-practical-application',
-            "items": [
-                {
-                    "label": 'Análisis de la necesidad y beneficios de su uso',
-                    "url": 'analisis-de-la-necesidad-y-beneficios-de-su-uso',
-                },
-                {
-                    "label": 'Casos de estudio y ejemplos de aplicación',
-                    "url": 'casos-de-estudio-y-ejemplos-de-aplicacion',
-                },
-                {
-                    "label": 'Aspectos concretos del uso de patrones en POO',
-                    "url": 'aspectos-concretos-del-uso-de-patrones-en-poo',
-                },
-                {
-                    "label": 'Examen de Aplicaciones Prácticas de Patrones de Diseño',
-                    "url": 'examen-de-aplicaciones-practicas-de-patrones',
-                }
-            ]
-        }
-    ]
+contents = obtener_estructura()
 
+@login_required(login_url='/login')
 def index(request):
     # montamos los contenidos del ova
-    
     return render(request, 'index.html', {
         'contents': contents
     })
 
 def lecciones(request):
     view = request.GET.get('view', None)
+    progreso = list(ProgresoLeccion.objects.filter(usuario=request.user).values_list( 'progreso',flat=True))
     
     htmlTemplatesNames = {}
     data = []
@@ -167,10 +38,11 @@ def lecciones(request):
             data[-1]['lessons'].append({
                 'label': item['label'],
                 'url': item['url'],
-                'index': i
+                'index': i,
+                'progress': progreso[i] if i < len(progreso) else 0
             })
             i += 1
-    
+    print(data)
     return render(request, htmlTemplatesNames[view], {'secciones': data})
 
 @csrf_exempt
@@ -178,8 +50,37 @@ def update_progress(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         progress = data.get('progress')
+        index = data.get('progressIndex')
+
+        lecciones = ProgresoLeccion.objects.filter(unidad_id=index)
+
+        # # sino existe algun progreso para esa leccion, se crea uno nuevo
+        if not lecciones.exists():
+            ProgresoLeccion.objects.create(
+                usuario=request.user,
+                unidad_id=index,
+                progreso=progress,
+                completado=progress >= 80
+            )
+        else:
+            leccion = lecciones.first()
+            leccion.progreso = 100 if progress >= 60 else progress
+            leccion.completado = progress >= 80
+            leccion.save()
+
         # Aquí puedes guardar el progreso en la base de datos, por ejemplo, usando request.user para obtener el usuario actual
         return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': 'failed'}, status=400)
+
+@csrf_exempt
+def get_progress(request):
+    if request.method == 'GET':
+        lecciones = ProgresoLeccion.objects.filter(usuario=request.user)
+        if lecciones.exists():
+            serializer = ProgresoLeccionSerializer(lecciones, many=True)
+            return JsonResponse({'status': 'success', 'progress': serializer.data})
+        else:
+            return JsonResponse({'status': 'success', 'progress': 0, 'completed': False})
     return JsonResponse({'status': 'failed'}, status=400)
 
 def subirSumativa(request):

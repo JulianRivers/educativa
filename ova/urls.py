@@ -1,4 +1,4 @@
-from ova.views import index, lecciones, subirFormativa, subirSumativa, update_progress
+from ova.views import index, lecciones, subirFormativa, subirSumativa, update_progress, get_progress
 from django.urls import path
 from django.conf.urls.static import static
 
@@ -9,4 +9,5 @@ urlpatterns = [
     path('update_progress/', update_progress, name='update_progress'),
     path('subir-formativa/', subirSumativa),
     path('subirFormativa/', subirFormativa),
+    path('obtener-progreso/', get_progress, name='update_progress')
 ]

@@ -94,7 +94,7 @@ de Diseño
                             class="mb-3 cover cover__details-content-text">
                             {% for item in content.items %}
                             <li class="item">
-                                <a href="{% url 'lecciones' %}?view={{ item.url }}" style="text-decoration: none;"
+                                <a href="{% url 'lecciones' %}?view={{ item.url }}&i={{item.i}}" style="text-decoration: none;"
                                     class="d-block ">
                                     <i class="fa-solid fa-align-left"></i>
                                     <span class="d-inline-block ml-2">{{ item.label }}</span>
