@@ -60,7 +60,8 @@ Patrones de Diseño
                                         />
                                         <path
                                             class="circle"
-                                            stroke-dasharray="0, 100"
+                                            stroke-dasharray="{{ lesson.progress }}, 100"
+                                            p="{{ lesson.progress }}"
                                             d="M18 2.0845
                                             a 15.9155 15.9155 0 0 1 0 31.831
                                             a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -155,14 +156,21 @@ Patrones de Diseño
     });
 
     function updateProgress(progress, totalSections) {
-        const progressPercentage = (progress / totalSections) * 100;
         const progressCircle = document.querySelectorAll('.circle')[progressIndex];
+        const realProgress = parseInt(progressCircle.getAttribute('p'));
 
+        if (realProgress >= 60) {
+            return;
+        }
+
+
+        const progressPercentage = (progress / totalSections) * 100;
+        const adjustedProgressPercentage = progressPercentage >= 70 ? 100 : progressPercentage;
 
         // Calculate the stroke-dasharray value
         const radius = 15.9155;
         const circumference = 2 * Math.PI * radius;
-        const offset = circumference - (progressPercentage / 100) * circumference;
+        const offset = circumference - (adjustedProgressPercentage / 100) * circumference;
 
         progressCircle.style.strokeDasharray = `${circumference - offset}, ${circumference}`;
  
@@ -174,7 +182,7 @@ Patrones de Diseño
                 'Content-Type': 'application/json',
                 'X-CSRFToken': '{{ csrf_token }}'
             },
-            body: JSON.stringify({ progress: progressPercentage })
+            body: JSON.stringify({ progress: progressPercentage, progressIndex: progressIndex+1 })
         }).then( res => res.json()).then(data => {
             console.log(data);
         });

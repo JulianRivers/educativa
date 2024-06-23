@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     
     #Mis app
-    'usuario',
+    'usuario.apps.UsuarioConfig',
     'ova.apps.OvaConfig',
 ]
 

@@ -11,7 +11,7 @@ from .forms import (LoginForm, RegistroForm, UsuarioForm, CambiarPasswordForm)
 from django.db.models import F, ExpressionWrapper, DecimalField, Sum
 from decimal import Decimal
 from django.utils import timezone
-
+from  usuario.utils import createLessonScore
 
 
 def loginView(request):
@@ -73,6 +73,7 @@ def registerView(request):
                 name=nombre,
                 apellidos=apellido
             )
+            createLessonScore(user)
             messages.success(request, "Usuario registrado exitosamente.")
             return redirect('usuario:login')
     
